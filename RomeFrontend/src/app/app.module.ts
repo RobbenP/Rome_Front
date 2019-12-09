@@ -15,6 +15,7 @@ import { ListTasksComponent } from './admin/list-tasks/list-tasks.component';
 import { AddTaskComponent } from './company/list-tasks/add-task/add-task.component';
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterCompanyComponent } from './register/register-company/register-c
     DetailTaskComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterCompanyComponent
+    RegisterCompanyComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
