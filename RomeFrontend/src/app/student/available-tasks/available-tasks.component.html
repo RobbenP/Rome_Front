@@ -1,18 +1,30 @@
-
-<div class="row">
-    <table>
-        <thead>
-            <tr role="row">
-                <th>Titel</th>
-                <th>Details</th>
-                <th>Aanmelden</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr role="row" *ngFor="let assignment of (assignments | async)">
-                <td>{{assignment.description}}</td>
-                <td><button (click)="details(assignment.assignmentId)" class="btn btn-primary">Details opdracht</button></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container-fluid h-100 mt-5">
+  <div class="container">
+    <div class="row font-weight-bold">
+      <div class="col-sm">
+        Titel
+      </div>
+      <div class="col-sm">
+        Details
+      </div>
+      <div class="col-sm">
+        Aanmelden
+      </div>
+    </div>
+    <div class="row" *ngFor="let assignment of allAssignements">
+      <div class="col-sm">
+        {{assignment.omschrijving}}
+      </div>
+      <div class="col-sm">
+        <button (click)="details(assignment.assignmentId)" class="btn btn-primary">
+          Details opdracht
+        </button>
+      </div>
+      <div class="col-sm">
+        <button (click)="signup(assignment.assignmentId)" class="btn btn-primary">
+          Meld aan voor opdracht
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
