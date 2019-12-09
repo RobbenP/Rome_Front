@@ -2,15 +2,15 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
             <h2 class="mt-2">Login</h2>
-            <form action="">
+            <form (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Email" type="email" name="email" required>
+                    <input _ngcontent-c0="" class="form-control form-control-lg" [(ngModel)]="model.Username" placeholder="Gebruikersnaam" type="text" name="Gebruikersnaam" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Wachtwoord" type="password" name="password" required>
+                    <input class="form-control form-control-lg" placeholder="Wachtwoord" [(ngModel)]="model.Password" type="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block">Login</button>
+                    <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
                 </div>
             </form>
         </div>
