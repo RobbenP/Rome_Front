@@ -21,7 +21,8 @@ const appRoutes: Routes = [
   { path: 'login', component :  LoginComponent},
   { path: 'registreer', component : RegisterComponent},
   { path: 'registreer/bedrijf', component : RegisterCompanyComponent},
-  ];
+  { path: 'taakToevoegen', component : AddTaskComponent},
+  ]; 
 
 
 @NgModule({
