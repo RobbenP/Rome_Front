@@ -1,26 +1,30 @@
-<section class="form-simple">
-    <div class="card">
-      <div class="header pt-3 grey lighten-2">
-        <div class="row d-flex justify-content-start">
-          <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">Login</h3>
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
+            <h2 class="mt-2">Registreer</h2>
+            <form (ngSubmit)="OnSubmit(newUser)">
+                <div class="form-check pb-1">
+                    <input class="form-check-input" type="radio" name="userType" id="student" value="student" checked>
+                    <label class="form-check-label" for="student">
+                        Student
+                    </label>
+                </div>
+                <div class="form-check pb-2">
+                    <input class="form-check-input" type="radio" name="userType" id="company" value="company">
+                    <label class="form-check-label" for="company">
+                        Bedrijf
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Email" type="email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Wachtwoord" type="password">
+                </div>
+                <div class="form-group">
+                    <button [disabled]="!newUser.valid" class="btn btn-info btn-lg btn-block">Registreer</button>
+                </div>
+            </form>
         </div>
-      </div>
-      <div class="card-body mx-4 mt-4">
-        <div class="md-form">
-          <input type="email" id="email" class="form-control">
-          <label for="email">Email</label>
-        </div>
-        <div class="md-form pb-3">
-          <input type="password" id="password" class="form-control">
-          <label for="password">Wachtwoord</label>
-          <p class="font-small grey-text d-flex justify-content-end"> <a href="#"
-              class="dark-grey-text font-weight-bold ml-1"> Wachtwoord vergeten?</a></p>
-        </div>
-        <div class="text-center mb-4">
-          <button type="button" class="btn btn-danger btn-block z-depth-2">Login</button>
-        </div>
-        <p class="font-small grey-text d-flex justify-content-center">Geen account? <a href="#"
-            class="dark-grey-text font-weight-bold ml-1">Registreer</a></p>
-      </div>
     </div>
-  </section>
+</div>
