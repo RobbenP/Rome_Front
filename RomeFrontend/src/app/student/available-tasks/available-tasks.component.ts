@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { AssignmentService } from 'src/app/services/assignment.service';
 
 @Component({
   selector: 'app-available-tasks',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvailableTasksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private assignmentService:AssignmentService) { }
+
+  details(pollid: number) {
+    let navExtras: NavigationExtras = {
+      queryParams: {
+        pollid: pollid
+      }
+    };
+    this.router.navigate(["/detailsPoll"], navExtras);
+  }
+
 
   ngOnInit() {
   }

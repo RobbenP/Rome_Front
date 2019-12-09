@@ -8,5 +8,11 @@
                 <th>Aanmelden</th>
             </tr>
         </thead>
+        <tbody>
+            <tr role="row" *ngFor="let assignment of (assignments | async)">
+                <td>{{assignment.description}}</td>
+                <td><button (click)="details(assignment.assignmentId)" class="btn btn-primary">Details opdracht</button></td>
+            </tr>
+        </tbody>
     </table>
 </div>
