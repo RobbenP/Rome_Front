@@ -12,12 +12,14 @@ import { AddTaskComponent } from './company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterStudentComponent } from './register/register-student/register-student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registreer', component: RegisterComponent },
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
+  { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'taakToevoegen', component: AddTaskComponent },
   { path: 'takenlijstStudent', component: AvailableTasksComponent }
 ];

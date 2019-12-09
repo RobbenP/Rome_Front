@@ -9,9 +9,20 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  userType: any;
   constructor(private router: Router) { }
 
   ngOnInit() {
+    
   }
 
+  onSubmit(){
+    if (this.userType == 'company'){
+      this.router.navigate(['registreer/bedrijf']);
+    }
+    else if (this.userType == 'student'){
+      this.router.navigate(['registreer/student']);
+    }
+    console.log(this.userType);
+  }
 }
