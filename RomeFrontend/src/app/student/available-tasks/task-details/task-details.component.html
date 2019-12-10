@@ -31,7 +31,7 @@
   </div>
 
   <div class="row">
-    <div class="row-auto" *ngFor="let tag of tags">
+    <div class="col-auto" *ngFor="let tag of tags">
       <div class="card" style="margin-right: 2rem;" >
         {{ tag.text }}
       </div>
@@ -46,5 +46,8 @@
   <br />
   <div class="row">
     <div class="col-auto">{{ company.companyname }}</div>
+  </div>
+  <br>
+
   </div>
 </div>
