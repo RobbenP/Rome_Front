@@ -25,15 +25,15 @@ export class LoginComponent implements OnInit {
         if(result.studentID != null)
         {
           localStorage.setItem("studentID", result.studentID.toString());
-          this._router.navigate(["student/takenlijst"]);
+          this._router.navigate(["student"]);
           
-          this._router.navigate(["student/takenlijst"]);
+        
         }
         if(result.companyID != null)
         {
           localStorage.setItem("companyID", result.companyID.toString());
       
-          this._router.navigate(["bedrijf/takenlijst"]);
+          this._router.navigate(["bedrijf"]);
         
         }
       })
