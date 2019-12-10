@@ -14,7 +14,7 @@ import { observable, Observable } from 'rxjs';
 export class RegisterComponent implements OnInit {
 roles: Role[];
 selecteerdeRol;
-model : User = new User(0,"","","",0,"");
+model : User = new User(0,"","","",0,"",null,null);
 gebruiker ;
   constructor(private _authenticateService: AuthenticateService,private router: Router) { 
     this._authenticateService.getRoles().subscribe(
@@ -34,7 +34,7 @@ gebruiker ;
         
         this.gebruiker = result;
         this.model = this.gebruiker;
-       
+      
         localStorage.setItem("userID", this.model.userID.toString());
       }
     );

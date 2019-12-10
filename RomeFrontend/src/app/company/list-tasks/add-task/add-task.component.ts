@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class AddTaskComponent implements OnInit {
   assignment : Assignment[];
   submitted : boolean = false;
-  assignmentModel : Assignment = new Assignment(0,"","","",null,true)
+  assignmentModel : Assignment = new Assignment(0,"","","",null,true, 0)
 
   constructor(private _assignmentService: AssignmentService, private router: Router) { }
 
