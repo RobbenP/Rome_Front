@@ -8,5 +8,5 @@ export class CompanyService {
 
   constructor(private http:HttpClient) { }
 
-  getCompanies():
+  
 }
