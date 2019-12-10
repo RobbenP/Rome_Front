@@ -1,52 +1,38 @@
-<div class="container-fluid h-100 mt-5">
-  <div class="row">
-    <div class="col-4">{{ assignment.naam }}</div>
-    <div class="col-4">
-      {{ approvedUserAmount }}/{{ assignment.quantityUsers }}
-    </div>
-    <div class="col-4">
+<div class="container h-100 mt-5">
+  <div class="row mb-5">
+    <div class="col-3 font-weight-bold">Opdracht:</div>
+    <div class="col-3">{{ assignment.naam }}</div>
+    <div class="col-5 text-right">
       <button (click)="signup()" class="btn btn-primary">
         Meld aan voor opdracht
-      </button>
+      </button></div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-3 font-weight-bold">Aantal geregistreerde studenten:</div>
+    <div class="col-3">
+      {{ approvedUserAmount }}/{{ assignment.quantityUsers }}
     </div>
   </div>
-  <br />
-  <br />
-  <div class="row justify-content-md-center">
-    <div class="col-5">
-      Omschrijving van de taak
-    </div>
-  </div>
-  <br />
-  <div class="row justify-content-md-center">
-    <div class="col-10 col-center">{{ assignment.omschrijving }}</div>
-  </div>
+  <div class="row mb-5">
 
-  <br /><br />
-
-  <div class="row justify-content-md-center">
-    <div class="col-5">
-      Tags
+    <div class="col-3 font-weight-bold">
+      Omschrijving van de taak:
+    </div>
+    <div class="col-4">
+      {{ assignment.omschrijving }}
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-auto" *ngFor="let tag of tags">
-      <div class="card" style="margin-right: 2rem;">
-        {{ tag.text }}
-      </div>
+  <div class="row mb-5">
+    <div class="col-3 font-weight-bold">
+      Tags:
+    </div>
+    <div class="col-3">
+      {{ tag.text }}
     </div>
   </div>
-  <br /><br />
-  <div class="row">
-    <div class="col-5">
-      Opdrachtgever
-    </div>
+  <div class="row mb-5">
+    <div class="col-3 font-weight-bold">Bedrijf:</div>
+    <div class="col-3">{{ company.companyname }}</div>
   </div>
-  <br />
-  <div class="row">
-    <div class="col-auto">{{ company.companyname }}</div>
-  </div>
-  <br>
-
+  <hr>
 </div>
