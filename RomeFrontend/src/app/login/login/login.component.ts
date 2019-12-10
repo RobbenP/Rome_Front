@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",result.token);
         console.log(result);
         localStorage.setItem("userID", result.userID.toString());
-        localStorage.setItem("roleID", result.roleid.toString());
+        localStorage.setItem("roleID", result.roleID.toString());
         this._router.navigate(['']);
         if(result.studentID != null)
         {
           localStorage.setItem("studentID", result.studentID.toString());
-          this._router.navigate(["takenlijstStudent"]);
+          this._router.navigate(["student/takenlijst"]);
         }
         if(result.companyID != null)
         {
           localStorage.setItem("companyID", result.companyID.toString());
-          this._router.navigate(["takenlijstCompany"]);
+          this._router.navigate(["bedrijf/takenlijst"]);
         }
       })
   }

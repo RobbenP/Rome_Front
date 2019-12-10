@@ -28,7 +28,7 @@ gebruiker ;
     
   }
   onSubmit(){   
-    this.model.roleid = this.selecteerdeRol.roleID;
+    this.model.roleID = this.selecteerdeRol.roleID;
     this._authenticateService.addUser(this.model).subscribe(
       result =>{
         
@@ -39,11 +39,11 @@ gebruiker ;
       }
     );
     
-    if(this.model.roleid == 2)
+    if(this.model.roleID == 2)
     {
       this.router.navigate(['registreer/bedrijf']);
     }
-    if(this.model.roleid == 3)
+    if(this.model.roleID == 3)
     {
       this.router.navigate(['registreer/student']);
     }
