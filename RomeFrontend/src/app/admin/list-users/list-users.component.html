@@ -1,1 +1,13 @@
-<p>list-users works!</p>
+<div class="container mt-5">
+        <h2>Gebruikerslijst</h2>
+        <br>
+        <div *ngFor="let user of (users)" class="row">
+            <p class="list-group-item list-group-item-action col-3 mr-2">{{user.username}}</p>
+            <p class="list-group-item list-group-item-action col-3">{{user.email}}</p>
+            <p class="col-3 p-2 text-right">
+                <button (onClick)="delete" class="btn btn-danger">
+                    Verwijder gebruiker
+                </button>
+            </p>
+        </div>
+    </div>
