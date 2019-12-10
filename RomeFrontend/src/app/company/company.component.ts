@@ -8,8 +8,18 @@ import { Router } from '@angular/router';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    if(localStorage.getItem("refreshed") == "0")
+    {
+      window.location.reload();
+      localStorage.setItem("refreshed", "1" );
+    }
+   }
 
   ngOnInit() {
+  }
+
+  lijstTaken(){
+    this.router.navigate(['bedrijf/takenlijst'])
   }
 }
