@@ -12,27 +12,28 @@ import { AddTaskComponent } from "./company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-task.component";
 import { RegisterCompanyComponent } from "./register/register-company/register-company.component";
 import { RegisterStudentComponent } from './register/register-student/register-student.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "registreer", component: RegisterComponent },
-  { path: "registreer/bedrijf", component: RegisterCompanyComponent },
-  { path: "registreer/student", component: RegisterStudentComponent},
-  { path: "taakToevoegen", component: AddTaskComponent },
-  { path: "takenlijstStudent", component: AvailableTasksComponent },
-  { path: "detailsTaakStudent", component: TaskDetailsComponent },
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registreer', component: RegisterComponent },
+  { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
+  { path: 'registreer/student', component:RegisterStudentComponent},
+  { path: 'taakToevoegen', component: AddTaskComponent },
   { path: 'takenlijstStudent', component: AvailableTasksComponent }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(
-      routes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
-  ],
-  exports: [
-    RouterModule
-  ]
-})
-export class AppRoutingModule { }
+
+  @NgModule({
+    imports: [
+      RouterModule.forRoot(
+        routes,
+        { enableTracing: true } // <-- debugging purposes only
+      )
+    ],
+    exports: [
+      RouterModule
+    ]
+  })
+  export class AppRoutingModule {}

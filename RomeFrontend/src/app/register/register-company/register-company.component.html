@@ -2,26 +2,25 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
             <h2 class="mt-2">Registreer je als bedrijf</h2>
-            <form action="">
+            <form (ngSubmit)="onSubmit()">
+                  
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Bedrijfsnaam" type="text"
-                        name="companyName">
+                        name="companyName" [(ngModel)]="model.companyName">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Biografie" type="text" name="biography">
+                    <input class="form-control form-control-lg" placeholder="Biografie" type="text" name="biography" [(ngModel)]="model.biography">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Locatie" type="text" name="location">
+                    <input class="form-control form-control-lg" placeholder="Locatie" type="text" name="location" [(ngModel)]="model.location">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Contact" type="text" name="contact">
+                    <input class="form-control form-control-lg" placeholder="Telefoonnummer" type="text" name="telefoonnummer" [(ngModel)]="model.phoneNumber">
                 </div>
                 <div class="form-group">
-                        <input class="form-control form-control-lg" placeholder="Tags" type="text" name="tags">
+                        <input class="form-control form-control-lg" placeholder="Website" type="text" name="website" [(ngModel)]="model.website">
                     </div>
-                    <div class="form-group">
-                            <input class="form-control form-control-lg" placeholder="Review" type="text" name="review">
-                        </div>
+                    
                 <div class="form-group">
                     <button class="btn btn-info btn-lg btn-block">Registreer</button>
                 </div>
