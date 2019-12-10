@@ -29,7 +29,7 @@ export class AvailableTasksComponent implements OnInit {
         assignmentId: assignmentId
       }
     };
-    this.router.navigate(["/detailsAssignement"], navExtras);
+    this.router.navigate(["/detailsTaakStudent"], navExtras);
   }
 
   signup(assignmentId: number) {}
