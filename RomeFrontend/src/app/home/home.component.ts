@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._authenticateService.isLoggedin.subscribe(e=> {
-      this.roleid = localStorage.getItem("roleID");
-      if (this.roleid == "1"){
+      this.roleid = Number(localStorage.getItem("roleID"));
+      if (this.roleid == 1){
         this.router.navigate(['admin']);
       }
-      else if (this.roleid == "2"){
+      else if (this.roleid == 2){
         this.router.navigate(['bedrijf']);
       }
-      else if (this.roleid == "3"){
+      else if (this.roleid == 3){
         this.router.navigate(['student']);
       }
     })

@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
 import { CompanyComponent } from './company/company.component';
+import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +24,6 @@ const routes: Routes = [
   { path: 'registreer', component: RegisterComponent },
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
-  { path: 'taakToevoegen', component: AddTaskComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'bedrijf', component: CompanyComponent },
   { path: 'bedrijf/takenlijst', component: ListTasksComponent },
   { path: 'bedrijf/taakToevoegen', component: AddTaskComponent },
+  { path: 'bedrijf/taakWijzigen/:id', component: EditTasksComponent },
 ];
 
 
@@ -38,7 +39,7 @@ const routes: Routes = [
     imports: [
       RouterModule.forRoot(
         routes,
-        { enableTracing: true } // <-- debugging purposes only
+        { enableTracing: false } // <-- debugging purposes only
       )
     ],
     exports: [

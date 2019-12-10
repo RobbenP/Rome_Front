@@ -36,6 +36,7 @@ export class AvailableTasksComponent implements OnInit {
         assignmentId: assignmentId
       }
     };
+
     this.router.navigate(["student/detailsTaak"], navExtras);
   }
 

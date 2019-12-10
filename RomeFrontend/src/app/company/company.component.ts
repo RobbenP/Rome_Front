@@ -19,9 +19,7 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
   }
 
-  takenlijst(){
-    this.router.navigate(['/bedrijf/takenlijst'])
+  lijstTaken(){
+    this.router.navigate(['bedrijf/takenlijst'])
   }
-
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Assignment } from 'src/app/models/assignment.model';
-import { Router, NavigationExtras } from '@angular/router';
-import { AssignmentService } from 'src/app/services/assignment.service';
+import { AssignmentService } from '../../services/assignment.service'
+import { Assignment } from '../../models/assignment.model'
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-list-tasks',
@@ -10,30 +10,23 @@ import { AssignmentService } from 'src/app/services/assignment.service';
 })
 export class ListTasksComponent implements OnInit {
 
-  allAssignements: Assignment[];
-  constructor(
-    private router: Router,
-    private assignmentService: AssignmentService
-  ) {
-    //this.allAssignements = assignmentService.getAssignments();
-    assignmentService.getAssignments().subscribe(r => {
-      this.allAssignements = r;
-      console.log(r);
-    });
-  }
+  assigments:Assignment[];
 
-  details(assignmentId: number) {
-    let navExtras: NavigationExtras = {
-      queryParams: {
-        assignmentId: assignmentId
-      }
-    };
-    this.router.navigate(["bedrijf/detailsTaak"], navExtras);
-  }
-
-  signup(assignmentId: number) {}
+  constructor(private _assignmentService:AssignmentService,private router: Router) { }
 
   ngOnInit() {
+    this.getAssignments();
+  }
+
+  getAssignments(){
+    this._assignmentService.getAssignmentsByCompanyID(parseInt(localStorage.getItem("companyID"))).subscribe(
+      result => {
+      this.assigments=result
+      
+     
+      console.log(this.assigments);
+      }
+    );
   }
 
 }

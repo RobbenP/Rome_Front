@@ -1,30 +1,6 @@
-<div class="container-fluid h-100 mt-5">
-    <div class="container">
-        <div class="row font-weight-bold">
-            <div class="col-sm">
-                Titel
-            </div>
-            <div class="col-sm">
-                Details
-            </div>
-            <div class="col-sm">
-                Verwijderen
-            </div>
-        </div>
-        <div class="row" *ngFor="let assignment of allAssignements">
-            <div class="col-sm">
-                {{ assignment.naam }}
-            </div>
-            <div class="col-sm">
-                <button (click)="details(assignment.assignmentId)" class="btn btn-primary">
-                    Details opdracht
-                </button>
-            </div>
-            <div class="col-sm">
-                <button (click)="delete(assignment.assignmentId)" class="btn btn-primary">
-                    Verwijderen
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="container mt-5">
+    <ul *ngFor="let assigment of (assigments)">
+        <li class="list-group-item list-group-item-action"><a
+                [routerLink]="['/bedrijf/taakWijzigen/'+(assigment.id)]">{{assigment.naam}}</a></li>
+    </ul>
 </div>
