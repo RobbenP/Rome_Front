@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
 import { CompanyComponent } from './company/company.component';
+import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'bedrijf', component: CompanyComponent },
   { path: 'bedrijf/takenlijst', component: ListTasksComponent },
   { path: 'bedrijf/taakToevoegen', component: AddTaskComponent },
+  { path: 'bedrijf/taakWijzigen/:id', component: EditTasksComponent },
 ];
 
 

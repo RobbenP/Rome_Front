@@ -1,12 +1,14 @@
 <div class="container mt-5">
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Taken</h5>
-                <p class="card-text">
-                </p>
-                <button (click)="takenlijst()" class="btn btn-submit" type="submit">Bekijk alle taken</button>
-            </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Taken</h5>
+            <p class="card-text">
+            </p>
+            <button (click)="takenlijst()" class="btn btn-submit" type="submit">Bekijk alle taken</button>
         </div>
-    
     </div>
+</div>
+<ul  *ngFor="let assigment of (assigments)"  >
+    <li class="list-group-item list-group-item-action"><a  [routerLink]="['/taakWijzigen/'+(assigment.id)]">{{assigment.naam}}</a></li>
+</ul>
