@@ -21,6 +21,7 @@ import { CompanyComponent } from './company/company.component';
 import { StudentComponent } from './student/student.component';
 
 import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
+import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
     RegisterStudentComponent,
     AdminComponent,
     CompanyComponent,
-    StudentComponent
+    StudentComponent,
+    EditTasksComponent
   ],
   imports: [
     BrowserModule,

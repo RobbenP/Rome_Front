@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class AddTaskComponent implements OnInit {
   assignment : Assignment[];
   submitted : boolean = false;
-  assignmentModel : Assignment = new Assignment(0,"","","",null,true, 1)
+  assignmentModel : Assignment = new Assignment(0,"","","",null,true, parseInt(localStorage.getItem("companyID")))
 
   constructor(private _assignmentService: AssignmentService, private router: Router) { }
 
@@ -24,7 +24,7 @@ export class AddTaskComponent implements OnInit {
 
     console.log(this.assignmentModel)
     this._assignmentService.addAssignement(this.assignmentModel).subscribe( result => {
-      this.router.navigate(['/mijnTaken'])
+      this.router.navigate(['/bedrijf/takenlijst'])
     });
   }
 
