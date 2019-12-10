@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module'
-
+import { RegisterStudentComponent } from './register/register-student/register-student.component';
 import { AppComponent } from './app.component';
 import { LoginComponent} from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
@@ -27,7 +27,8 @@ import { RegisterCompanyComponent } from './register/register-company/register-c
     DetailTaskComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterCompanyComponent
+    RegisterCompanyComponent,
+    RegisterStudentComponent
   ],
   imports: [
     BrowserModule,
