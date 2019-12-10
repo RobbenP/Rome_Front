@@ -1,12 +1,13 @@
 <div class="container mt-5">
         <h2>Takenlijst</h2>
         <br>
-        <div *ngFor="let assigment of (assigments)" class="row">
-            <p class="list-group-item list-group-item-action col-6">{{assigment.naam}}</p>
+        <div *ngFor="let assigment of (assigments)" class="row border-bottom">
+            <p class="col-6">{{assigment.naam}}</p>
             <p class="col-3 p-2 text-right">
                 <button (onClick)="delete" class="btn btn-danger">
                     Verwijder taak
                 </button>
             </p>
+            <hr>
         </div>
     </div>
