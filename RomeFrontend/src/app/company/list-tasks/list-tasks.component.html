@@ -1,12 +1,30 @@
-<div class="container mt-5">
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Taken</h5>
-                <p class="card-text">
-                </p>
-                <button (click)="takenlijst()" class="btn btn-submit" type="submit">Bekijk alle taken</button>
+<div class="container-fluid h-100 mt-5">
+    <div class="container">
+        <div class="row font-weight-bold">
+            <div class="col-sm">
+                Titel
+            </div>
+            <div class="col-sm">
+                Details
+            </div>
+            <div class="col-sm">
+                Verwijderen
             </div>
         </div>
-    
+        <div class="row" *ngFor="let assignment of allAssignements">
+            <div class="col-sm">
+                {{ assignment.naam }}
+            </div>
+            <div class="col-sm">
+                <button (click)="details(assignment.assignmentId)" class="btn btn-primary">
+                    Details opdracht
+                </button>
+            </div>
+            <div class="col-sm">
+                <button (click)="delete(assignment.assignmentId)" class="btn btn-primary">
+                    Verwijderen
+                </button>
+            </div>
+        </div>
     </div>
+</div>

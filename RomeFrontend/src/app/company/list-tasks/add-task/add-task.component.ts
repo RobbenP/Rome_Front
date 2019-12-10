@@ -24,7 +24,7 @@ export class AddTaskComponent implements OnInit {
 
     console.log(this.assignmentModel)
     this._assignmentService.addAssignement(this.assignmentModel).subscribe( result => {
-      this.router.navigate(['/mijnTaken'])
+      this.router.navigate(['bedrijf/takenlijst'])
     });
   }
 

@@ -6,6 +6,6 @@ export class Assignment {
     public Locatie: string,
     public QuantityUsers: number,
     public Status: boolean,
-    public companyID: number
+    public companyID:number
   ) {}
 }
