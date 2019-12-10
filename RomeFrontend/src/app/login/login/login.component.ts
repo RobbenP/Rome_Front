@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
    
     
     this._router.navigate(['']);
-    localStorage.setItem("refreshed", "0");
+    
     if (result.studentID != null) {
       localStorage.setItem("studentID", result.studentID.toString());
       this._router.navigate(["student"]);

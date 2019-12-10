@@ -25,11 +25,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['student']);
       }
     })
-    if(localStorage.getItem("refreshed") == "1")
-    {
-      window.location.reload();
-      localStorage.removeItem("refreshed");
-    }
+    
   }
 
 }
