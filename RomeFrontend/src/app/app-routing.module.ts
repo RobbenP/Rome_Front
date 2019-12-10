@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'taakToevoegen', component: AddTaskComponent },
-  { path: 'takenlijstStudent', component: AvailableTasksComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
