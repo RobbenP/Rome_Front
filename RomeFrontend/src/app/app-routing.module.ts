@@ -20,19 +20,7 @@ import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  {
-    path: 'registreer',
-    component: RegisterComponent,
-    children: [
-      {
-        path: '',
-        children: [
-          { path: 'bedrijf', component: RegisterCompanyComponent },
-          { path: 'student', component: RegisterStudentComponent },
-        ]
-      }
-    ]
-  },
+  
 
   { path: 'admin', component: AdminComponent },
   {
@@ -44,6 +32,19 @@ const routes: Routes = [
         children: [
           { path: 'takenlijst', component: AvailableTasksComponent },
           { path: "detailsTaak", component: TaskDetailsComponent },
+        ]
+      }
+    ]
+  },
+  {
+    path: 'registreer',
+    component: RegisterComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'bedrijf', component: RegisterCompanyComponent },
+          { path: 'student', component: RegisterStudentComponent },
         ]
       }
     ]
