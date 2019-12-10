@@ -16,7 +16,6 @@ import { AddTaskComponent } from './company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterStudentComponent } from './register/register-student/register-student.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +29,7 @@ import { RegisterStudentComponent } from './register/register-student/register-s
     LoginComponent,
     RegisterComponent,
     RegisterCompanyComponent,
-<<<<<<< HEAD
-=======
     HomeComponent,
->>>>>>> 748ead0d12f9080226c506993b464598b9d118ce
     RegisterStudentComponent
   ],
   imports: [
