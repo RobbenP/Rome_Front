@@ -21,6 +21,7 @@ export class TaskDetailsComponent implements OnInit {
     private assignService: AssignmentService,
     private companyService: CompanyService
   ) {
+    localStorage.setItem("refreshed", "1" );
     this.route.queryParams.subscribe(p => {
       this.assignmentId = p["assignmentId"];
     });

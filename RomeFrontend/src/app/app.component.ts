@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from './services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,29 +9,42 @@ import { AuthenticateService } from './services/authenticate.service';
 })
 export class AppComponent {
   title = 'RomeFrontend';
-
-  constructor(private _authenticateService: AuthenticateService)
+ roleid: string;
+ startPagina: boolean;
+ adminPagina: boolean;
+ studentPagina: boolean;
+ companyPagina: boolean;
+  constructor(private router: Router,private _authenticateService: AuthenticateService)
   {
-    this._authenticateService.isLoggedin.subscribe(e => {
-      var roleid = Number(localStorage.getItem("roleID"));
-      console.log(roleid);
-      var startPagina = true;
-      var studentPagina = true;
-      var companyPagina = true;
-      var adminPagina = true;
-      if(roleid == 3)
-      {
-        studentPagina = true;
+   
+  }
+  ngOnInit() {
+    this.startPagina= true;
+   
+    this.adminPagina =false;
+    this.studentPagina = false;
+    this.companyPagina = false;
+    this.roleid = localStorage.getItem("roleID");
+    console.log(this.startPagina);
+      if (this.roleid == "1"){
+        this.adminPagina = true;
+        this.startPagina= false;
       }
-      if(roleid == 2)
-      {
-        companyPagina = true;
+      else if (this.roleid == "2"){
+        this.companyPagina = true;
+        this.startPagina= false;
       }
-      if(roleid == 1)
-      {
-        adminPagina = true;
+      else if (this.roleid == "3"){
+        this.studentPagina = true;
+        this.startPagina= false;
       }
-      
-    })
+      else if (this.roleid == null ){
+        this.startPagina = true;
+      }
+  }
+
+  logout(){
+    localStorage.clear();
+    localStorage.setItem("refreshed", "1" );
   }
 }

@@ -11,11 +11,18 @@ import { Assignment } from "src/app/models/assignment.model";
 })
 export class AvailableTasksComponent implements OnInit {
   //allAssignements: Observable<Assignment[]>;
+  
   allAssignements: Assignment[];
   constructor(
+    
     private router: Router,
     private assignmentService: AssignmentService
   ) {
+    if(localStorage.getItem("refreshed") == "0")
+    {
+      window.location.reload();
+      localStorage.setItem("refreshed", "1" );
+    }
     //this.allAssignements = assignmentService.getAssignments();
     assignmentService.getAssignments().subscribe(r => {
       this.allAssignements = r;
@@ -36,5 +43,7 @@ export class AvailableTasksComponent implements OnInit {
     
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 }
