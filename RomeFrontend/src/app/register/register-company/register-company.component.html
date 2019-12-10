@@ -2,27 +2,33 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
             <h2 class="mt-2">Registreer je als bedrijf</h2>
-            <form (ngSubmit)="onSubmit()">
-                  
+            <form #registerForm="ngForm" name="test" (ngSubmit)="onSubmit()">
+                
+              
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Bedrijfsnaam" type="text"
-                        name="companyName" [(ngModel)]="model.companyName">
+                        name="companyName" [(ngModel)]="model.companyName" required >
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" placeholder="Biografie" type="text" name="biography" [(ngModel)]="model.biography">
                 </div>
+                
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Locatie" type="text" name="location" [(ngModel)]="model.location">
+                    <input class="form-control form-control-lg" placeholder="Postcode + gemeente" type="text" name="township" [(ngModel)]="locatie.townShip" required pattern="^\d{4}\s?[aA-zZ]*$" title='Permissions "Disk"'>
+                    
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Telefoonnummer" type="text" name="telefoonnummer" [(ngModel)]="model.phoneNumber">
+                    <input class="form-control form-control-lg" placeholder="sraat en huisnummer" type="text" name="adress" [(ngModel)]="locatie.adress" required pattern="^[aA-zZ]*\s?\d+$">
                 </div>
                 <div class="form-group">
-                        <input class="form-control form-control-lg" placeholder="Website" type="text" name="website" [(ngModel)]="model.website">
+                    <input class="form-control form-control-lg" placeholder="Telefoonnummer" type="text" name="telefoonnummer" [(ngModel)]="model.phoneNumber" required pattern="^\d{9,10}$">
+                </div>
+                <div class="form-group">
+                        <input class="form-control form-control-lg" placeholder="Website" type="text" name="website" [(ngModel)]="model.website" required pattern="^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$">
                     </div>
                     
                 <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block">Registreer</button>
+                    <button class="btn btn-info btn-lg btn-block" [disabled]="!registerForm.form.valid || submitted">Registreer</button>
                 </div>
             </form>
         </div>
