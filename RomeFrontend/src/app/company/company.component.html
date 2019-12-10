@@ -20,11 +20,20 @@
             </div>
         </div>
 
-        <a routerLink="/bedrijf/takenlijst"><button class="btn btn-success pull-right" >Zie alle taken die je als bedrijf hebt open
-                staan</button></a>
+        <div class=" mx-5" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="card-text">
+                            <a routerLink="takenlijst"><button class="btn btn-outline-info pull-right" >Zie alle taken die je als bedrijf hebt open
+                                    staan</button></a>
+                    </p>
 
-        <button (onClick)="lijstTaken()" class="btn btn-submit">Zie alle taken die je als bedrijf hebt open
-            staan</button>
+                    <p class="card-text">
+                            <a routerLink="taakToevoegen"><button class="btn btn-outline-info pull-right" >Voeg een nieuwe taak toe</button></a>
+                    </p>
+                </div>
+            </div>
+
+        
     </div>
 
 </div>

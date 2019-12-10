@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private _authenticateService : AuthenticateService) { }
 
   ngOnInit() {
-    this._authenticateService.isLoggedin.subscribe(e=> {
+    this._authenticateService.isLoggedin$.subscribe(e=> {
       this.roleid = Number(localStorage.getItem("roleID"));
       if (this.roleid == 1){
         this.router.navigate(['admin']);

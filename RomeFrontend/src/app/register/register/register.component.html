@@ -2,7 +2,7 @@
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
             <h2 class="mt-2">Registreer</h2>
-            <form (ngSubmit)="onSubmit()">
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
                     
                 <div class="form-check" *ngFor="let rol of roles">
                     <input type="radio" name="radiogroup" class="form-check-input" id="rol.roleID" value="rol.roleID"
@@ -24,21 +24,17 @@
                         Bedrijf
                     </label>
                 </div>-->
-<<<<<<< HEAD
-=======
-             
->>>>>>> 78abd82dffa40d659f29e4a08b5e80633a5c72c5
                 <div class="form-group">
-                        <input _ngcontent-c0="" [(ngModel)]="model.username" class="form-control form-control-lg" placeholder="Gebruikersnaam" type="text" name="username" id="username" required>
+                        <input _ngcontent-c0="" [(ngModel)]="model.username" class="form-control form-control-lg"  placeholder="Gebruikersnaam" type="text" name="username" id="username" required>
                     </div>
                 <div class="form-group">
-                    <input _ngcontent-c0="" [(ngModel)]="model.email" class="form-control form-control-lg" placeholder="Email" type="email" name="email" id="email" required email>
+                    <input _ngcontent-c0="" [(ngModel)]="model.email" class="form-control form-control-lg"  placeholder="Email" type="email" name="email" id="email" required email>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" [(ngModel)]="model.password" placeholder="Wachtwoord" type="password" name="password" id="password" required>
+                    <input class="form-control form-control-lg" [(ngModel)]="model.password" placeholder="Wachtwoord" required minlength="6" type="password" name="password" id="password" required>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block" type="submit">Registreer</button>
+                    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="!registerForm.form.valid || submitted">Registreer</button>
                 </div>
             </form>
         </div>

@@ -10,11 +10,35 @@ import { Student } from '../models/student.model';
   providedIn: 'root'
 })
 export class AuthenticateService {
-  isLoggedin = new BehaviorSubject(false);
+ private isLoggedin = new BehaviorSubject(false);
+ public isLoggedin$ = this.isLoggedin.asObservable();
+  userID = new BehaviorSubject(0);
+  roleID = new BehaviorSubject(0);
+  constructor(private _httpClient: HttpClient) {
+    const token = localStorage.getItem("token");
+    
+    this.isLoggedin.next(token ? true : false);
+    const userId =localStorage.getItem("userID");
+    this.userID.next(Number(userId));
 
-  constructor(private _httpClient: HttpClient) { }
-  authenticate(userlogin: Userlogin): Observable<User> {
-    return this._httpClient.post<User>("https://localhost:5001/api/User/authenticate", userlogin);
+    const roleId =localStorage.getItem("roleID");
+    this.roleID.next(Number(roleId));
+   }
+ async authenticate(userlogin: Userlogin): Promise<User> {
+   
+    const result = await this._httpClient.post<User>("https://localhost:5001/api/User/authenticate", userlogin).toPromise();
+    this.isLoggedin.next(result.token ? true : false);
+    localStorage.setItem("token", result.token);
+    localStorage.setItem("userID", result.userID.toString());
+    localStorage.setItem("roleID", result.roleID.toString());
+    return result;
+  }
+ async logout(){
+    localStorage.clear();
+    this.isLoggedin.next(false);
+    this.userID.next(0);
+    this.roleID.next(0);
+  //  localStorage.setItem("refreshed", "1" );
   }
   getRoles():Observable<Role[]>{
     return this._httpClient.get<Role[]>("https://localhost:5001/api/Roles");

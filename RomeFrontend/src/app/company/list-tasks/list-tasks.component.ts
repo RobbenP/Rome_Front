@@ -12,7 +12,10 @@ export class ListTasksComponent implements OnInit {
 
   assigments:Assignment[];
 
-  constructor(private _assignmentService:AssignmentService,private router: Router) { }
+  constructor(private _assignmentService:AssignmentService,private router: Router) {
+  
+   
+   }
 
   ngOnInit() {
     this.getAssignments();
