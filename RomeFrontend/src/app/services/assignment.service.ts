@@ -13,11 +13,16 @@ export class AssignmentService {
   getAssignments():Observable<Assignment[]>{
     return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments")
   }
+
   addAssignement(assignment:Assignment){
     return this.http.post("https://localhost:5001/api/Assignments", assignment)
   }
   getAssignement(assignId:number):Observable<Assignment>{
     return this.http.get<Assignment>("https://localhost:5001/api/Assignments/"+ assignId)
+  }
+
+  getAssignmentsByCompanyID(id:number):Observable<Assignment[]>{
+    return this.http.get<Assignment[]>("https://localhost:5001/api/assignments/bedrijf/" + id)
   }
 
 }
