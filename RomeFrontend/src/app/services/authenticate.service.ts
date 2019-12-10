@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Userlogin } from '../models/userlogin.model';
 import { Role } from '../models/role.model';
 import { Company } from '../models/company.model';
@@ -10,6 +10,7 @@ import { Student } from '../models/student.model';
   providedIn: 'root'
 })
 export class AuthenticateService {
+  isLoggedin = new BehaviorSubject(false);
 
   constructor(private _httpClient: HttpClient) { }
   authenticate(userlogin: Userlogin): Observable<User> {

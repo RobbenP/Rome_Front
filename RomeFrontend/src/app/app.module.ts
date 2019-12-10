@@ -16,6 +16,10 @@ import { AddTaskComponent } from './company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { CompanyComponent } from './company/company.component';
+import { StudentComponent } from './student/student.component';
+
 import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
     RegisterComponent,
     RegisterCompanyComponent,
     HomeComponent,
-    RegisterStudentComponent
+    RegisterStudentComponent,
+    AdminComponent,
+    CompanyComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
