@@ -29,10 +29,12 @@ export class AvailableTasksComponent implements OnInit {
         assignmentId: assignmentId
       }
     };
-    this.router.navigate(["/detailsTaakStudent"], navExtras);
+    this.router.navigate(["student/detailsTaak"], navExtras);
   }
 
-  signup(assignmentId: number) {}
+  delete(assignmentId: number) {
+    
+  }
 
   ngOnInit() {}
 }
