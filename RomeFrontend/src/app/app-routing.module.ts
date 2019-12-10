@@ -13,27 +13,66 @@ import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-tas
 import { RegisterCompanyComponent } from "./register/register-company/register-company.component";
 import { RegisterStudentComponent } from './register/register-student/register-student.component';
 import { HomeComponent } from './home/home.component';
+import { CompanyComponent } from './company/company.component';
+import { AdminComponent } from './admin/admin.component';
+import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registreer', component: RegisterComponent },
-  { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
-  { path: 'registreer/student', component:RegisterStudentComponent},
-  { path: 'taakToevoegen', component: AddTaskComponent },
-  { path: 'takenlijstStudent', component: AvailableTasksComponent }
+  {
+    path: 'registreer',
+    component: RegisterComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'bedrijf', component: RegisterCompanyComponent },
+          { path: 'student', component: RegisterStudentComponent },
+        ]
+      }
+    ]
+  },
+
+  { path: 'admin', component: AdminComponent },
+  {
+    path: 'student',
+    component: StudentComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'takenlijst', component: AvailableTasksComponent },
+        ]
+      }
+    ]
+  },
+  {
+    path: 'bedrijf',
+    component: CompanyComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'taakToevoegen', component: AddTaskComponent },
+        ]
+      }
+    ]
+  }
 ];
 
 
-  @NgModule({
-    imports: [
-      RouterModule.forRoot(
-        routes,
-        { enableTracing: true } // <-- debugging purposes only
-      )
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
-  export class AppRoutingModule {}
+
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule { }
