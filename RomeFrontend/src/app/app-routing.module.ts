@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'taakToevoegen', component: AddTaskComponent },
-  { path: 'takenlijstStudent', component: AvailableTasksComponent }
+  { path: 'takenlijstStudent', component: AvailableTasksComponent },
+  { path: 'mijnTaken', component: ListTasksComponent }
 ];
 
 @NgModule({
