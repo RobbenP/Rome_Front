@@ -34,7 +34,7 @@ export class TaskDetailsComponent implements OnInit {
 
         companyService.getCompany(this.assignment.companyID).subscribe(r => {
           this.company = r;
-          //console.log(r);
+          console.log(r);
         });
       });
 
