@@ -20,10 +20,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userID", result.userID.toString());
         if(result.studentID != null)
         {
+          localStorage.setItem("studentID", result.studentID.toString());
           this._router.navigate(["takenlijstStudent"]);
         }
         if(result.companyID != null)
         {
+          localStorage.setItem("companyID", result.companyID.toString());
           this._router.navigate(["takenlijstCompany"]);
         }
       })
