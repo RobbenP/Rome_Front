@@ -1,26 +1,33 @@
 <div class="container mt-5">
-
     <div class="row">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <p class="card-text">
-                    Je bent nu aangemeld als administrator. 
-                    Nu kun je bedrijven en studenten bekijken, aanmaken, 
-                    updaten en verwijderen.
-                    Gegeven reviews en oprdachten aanpassen.
+                    Je bent nu aangemeld als administrator.
+                    Je hebt de opties om alle gebruikers te bekijken, bedrijven of studenten. Hier kan je accounts van
+                    bekijken, verwijdere, aanmaken en updaten. Je kan ook alle taken bekijken. Deze kan je ook bekijken
+                    en verwijderen als je deze ongepast vind. Zelf taken aanmaken of updaten is niet mogelijk aangezien
+                    dit de taak is van bedrijven. Wel kan je via de contactinfo van een bedrijf laten weten dat er iets
+                    moet veranderen in de opdracht. Ook alle reviews kan je bekijken en verwijderen als deze ongepast zijn.
                 </p>
             </div>
         </div>
-    </div>
-    <div class=" mx-5" style="width: 18rem;">
-        <div class="card-body">
-            <p class="card-text">
-                <a routerLink="admin/gebruikersLijst"><button class="btn btn-outline-info pull-right">Bekijk alle gebruikers</button></a>
-            </p>
 
-            <p class="card-text">
-                <a routerLink="admin/takenLijst"><button class="btn btn-outline-info pull-right">Pas opdrachten aan</button></a>
-            </p>
+        <div class=" mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">
+                    <a routerLink="/admin/gebruikersLijst">
+                        <button class="btn btn-outline-info pull-right">Bekijk alle gebruikers</button>
+                    </a>
+
+                </p>
+                <p class="card-text">
+                    <a routerLink="/admin/takenLijst">
+                        <button class="btn btn-outline-info pull-right">Bekijk alle opdrachten</button>
+                    </a>
+                </p>
+            </div>
         </div>
+
     </div>
 </div>
