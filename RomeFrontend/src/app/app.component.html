@@ -5,7 +5,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div *ngIf="startPagina" class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" [routerLink]="['']" routerLinkActive="router-link-active">Home</a>
@@ -18,32 +18,8 @@
           </li>
         </ul>
       </div>
-      <div *ngIf="studentPagina" class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" [routerLink]="['student/takenlijst']" routerLinkActive="router-link-active">Home</a>
-              </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" [routerLink]="['/registreer']" routerLinkActive="router-link-active">Registreer</a>
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="companyPagina" class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" [routerLink]="['student/takenlijst']" routerLinkActive="router-link-active">Home</a>
-              </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" [routerLink]="['/registreer']" routerLinkActive="router-link-active">Registreer</a>
-          </li>
-        </ul>
-      </div>
+     
+      
     </div>
   </nav>
   <router-outlet class="container"></router-outlet>

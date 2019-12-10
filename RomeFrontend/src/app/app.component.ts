@@ -15,9 +15,9 @@ export class AppComponent {
       var roleid = Number(localStorage.getItem("roleID"));
       console.log(roleid);
       var startPagina = true;
-      var studentPagina = false;
-      var companyPagina = false;
-      var adminPagina = false;
+      var studentPagina = true;
+      var companyPagina = true;
+      var adminPagina = true;
       if(roleid == 3)
       {
         studentPagina = true;
