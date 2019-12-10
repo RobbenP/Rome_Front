@@ -19,10 +19,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",result.token);
         console.log(result);
         localStorage.setItem("userID", result.userID.toString());
-<<<<<<< HEAD
         localStorage.setItem("roleID", result.roleid.toString());
         this._router.navigate(['']);
-=======
         if(result.studentID != null)
         {
           localStorage.setItem("studentID", result.studentID.toString());
@@ -33,7 +31,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("companyID", result.companyID.toString());
           this._router.navigate(["takenlijstCompany"]);
         }
->>>>>>> eb014349721f6085a412a61a6e3634bd25357432
       })
   }
   ngOnInit() {
