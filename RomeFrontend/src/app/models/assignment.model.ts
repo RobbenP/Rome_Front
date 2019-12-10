@@ -5,6 +5,7 @@ export class Assignment {
     public Omschrijving: string,
     public Locatie: string,
     public QuantityUsers: number,
-    public Status: boolean
+    public Status: boolean,
+    public companyID:number
   ) {}
 }

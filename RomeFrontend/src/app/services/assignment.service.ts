@@ -20,4 +20,11 @@ export class AssignmentService {
     return this.http.get<Assignment>("https://localhost:5001/api/Assignments/"+ assignId)
   }
 
+  getApprovedUsersAmount(assignId:number):Observable<number>{
+    return this.http.get<number>("https://localhost:5001/api/Assignments/makersAmount/"+assignId)
+  }
+  getTags(assignId:number){
+    this.http.get("https://localhost:5001/api/Assignments/tags/"+assignId)
+  }
+
 }
