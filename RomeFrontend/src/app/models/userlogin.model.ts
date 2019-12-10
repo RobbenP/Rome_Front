@@ -1,5 +1,3 @@
 export class Userlogin {
-    constructor(
-        public Username: string, public Password: string
-    ){}
+  constructor(public Username: string, public Password: string) {}
 }
