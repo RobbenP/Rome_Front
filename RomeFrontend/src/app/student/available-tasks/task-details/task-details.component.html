@@ -1,7 +1,26 @@
 <div class="container-fluid h-100 mt-5">
   <div class="row">
-    <div class="col-4">{{assignment.naam}}</div>
-    <div class="col-4">{{approvedUserAmount}}/{{assignment.quantityUsers}}</div>
-    <div class="col-4"></div>
+    <div class="col-4">{{ assignment.naam }}</div>
+    <div class="col-4">
+      {{ approvedUserAmount }}/{{ assignment.quantityUsers }}
+    </div>
+    <div class="col-4">
+      <button (click)="signup()" class="btn btn-primary">
+        Meld aan voor opdracht
+      </button>
+    </div>
   </div>
+  <br />
+  <br />
+  <div class="row justify-content-md-center">
+    <div class="col-5">
+      Omschrijving van de taak
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-md-center">
+    <div class="col-10 col-center">{{ assignment.omschrijving }}</div>
+  </div>
+
+  <br><br>
 </div>

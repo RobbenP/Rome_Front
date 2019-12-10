@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Assignment } from "../models/assignment.model";
+import { Tag } from '../models/tag.model';
 
 @Injectable({
   providedIn: "root"
@@ -28,9 +29,9 @@ export class AssignmentService {
     return this.http.get<number>(
       "https://localhost:5001/api/Assignments/makersAmount/" + assignId
     );
-  }
-  getTags(assignId: number) {
-    this.http.get("https://localhost:5001/api/Assignments/tags/" + assignId);
+  } 
+  getTags(assignId: number):Observable<Tag[]> {
+    return this.http.get<Tag[]>("https://localhost:5001/api/Assignments/tags/" + assignId);
   }
 
   getAssignmentsByCompanyID(id: number): Observable<Assignment[]> {
