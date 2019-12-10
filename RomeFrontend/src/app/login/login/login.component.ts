@@ -18,7 +18,14 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token",result.token);
         console.log(result);
         localStorage.setItem("userID", result.userID.toString());
-        this._router.navigate(['']);
+        if(result.studentID != null)
+        {
+          this._router.navigate(["takenlijstStudent"]);
+        }
+        if(result.companyID != null)
+        {
+          this._router.navigate(["takenlijstCompany"]);
+        }
       })
   }
   ngOnInit() {
