@@ -4,7 +4,7 @@
         <div *ngFor="let assigment of (assigments)" class="row border-bottom">
             <p class="col-6">{{assigment.naam}}</p>
             <p class="col-3 p-2 text-right">
-                <button (onClick)="delete" class="btn btn-danger">
+                <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
                     Verwijder taak
                 </button>
             </p>

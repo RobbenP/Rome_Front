@@ -27,6 +27,8 @@ export class ListUsersComponent implements OnInit {
     );
   }
 
-  delete(){
+  delete(userid: number){
+    this._userService.deleteUser(userid);
+    this.getUsers();
   }
 }

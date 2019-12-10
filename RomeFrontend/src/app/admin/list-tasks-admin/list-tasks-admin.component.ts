@@ -27,7 +27,9 @@ export class ListTasksAdminComponent implements OnInit {
     );
   }
 
-  delete(){
+  delete(assignmentid: number){
+    this._assignmentService.deleteAssignment(assignmentid);
+    this.getAssignments();
   }
 
 }

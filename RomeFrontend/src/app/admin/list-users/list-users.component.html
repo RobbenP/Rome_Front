@@ -5,7 +5,7 @@
             <p class="col-3 mr-2">{{user.username}}</p>
             <p class="col-3">{{user.email}}</p>
             <p class="col-3 p-2 text-right">
-                <button (onClick)="delete" class="btn btn-danger">
+                <button (onClick)="delete(user.userID)" class="btn btn-danger">
                     Verwijder gebruiker
                 </button>
             </p>
