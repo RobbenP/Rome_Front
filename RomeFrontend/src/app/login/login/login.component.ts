@@ -9,38 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: Userlogin = new Userlogin('','');
+  model: Userlogin = new Userlogin('', '');
   constructor(private _authenticateService: AuthenticateService, private _router: Router) { }
 
-  onSubmit(){
-    this._authenticateService.authenticate(this.model).subscribe(result =>
-      {
-        this._authenticateService.isLoggedin.next(result.token ? true : false);
-        localStorage.setItem("token",result.token);
-        console.log(result);
-        localStorage.setItem("userID", result.userID.toString());
-        localStorage.setItem("roleID", result.roleID.toString());
-        this._router.navigate(['']);
-        localStorage.setItem("refreshed", "0");
-        if(result.studentID != null)
-        {
-          localStorage.setItem("studentID", result.studentID.toString());
-          this._router.navigate(["student"]);
-          
-        
-        }
-        if(result.companyID != null)
-        {
-          localStorage.setItem("companyID", result.companyID.toString());
-      
-          this._router.navigate(["bedrijf"]);
-        
-        }
-      })
+  async onSubmit() {
+    const result = await this._authenticateService.authenticate(this.model);
+
+    
+   
+   
+    
+    this._router.navigate(['']);
+    localStorage.setItem("refreshed", "0");
+    if (result.studentID != null) {
+      localStorage.setItem("studentID", result.studentID.toString());
+      this._router.navigate(["student"]);
+
+
+    }
+    if (result.companyID != null) {
+      localStorage.setItem("companyID", result.companyID.toString());
+
+      this._router.navigate(["bedrijf"]);
+
+    }
+
   }
   ngOnInit() {
   }
 
- 
+
 
 }

@@ -18,11 +18,7 @@ export class AvailableTasksComponent implements OnInit {
     private router: Router,
     private assignmentService: AssignmentService
   ) {
-    if(localStorage.getItem("refreshed") == "0")
-    {
-      window.location.reload();
-      localStorage.setItem("refreshed", "1" );
-    }
+    
     //this.allAssignements = assignmentService.getAssignments();
     assignmentService.getAssignments().subscribe(r => {
       this.allAssignements = r;
