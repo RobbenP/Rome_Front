@@ -6,12 +6,16 @@ import { RegisterComponent } from './register/register/register.component';
 import { AvailableTasksComponent } from './student/available-tasks/available-tasks.component';
 import { TaskDetailsComponent } from './student/available-tasks/task-details/task-details.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
-import { ListTasksComponent } from './admin/list-tasks/list-tasks.component';
+
 import { AddTaskComponent } from './company/list-tasks/add-task/add-task.component';
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
 import { HomeComponent } from './home/home.component';
+import { CompanyComponent } from './company/company.component';
+import { AdminComponent } from './admin/admin.component';
+import { StudentComponent } from './student/student.component';
 import { RegisterStudentComponent } from './register/register-student/register-student.component';
+import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,20 +25,62 @@ const routes: Routes = [
   { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'taakToevoegen', component: AddTaskComponent },
   { path: 'takenlijstStudent', component: AvailableTasksComponent },
-  { path: "detailsTaakStudent", component: TaskDetailsComponent }
+  { path: 'mijnTaken', component: ListTasksComponent },
+  {
+    path: 'registreer',
+    component: RegisterComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'bedrijf', component: RegisterCompanyComponent },
+          { path: 'student', component: RegisterStudentComponent },
+        ]
+      }
+    ]
+  },
 
+  { path: 'admin', component: AdminComponent },
+  {
+    path: 'student',
+    component: StudentComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'takenlijst', component: AvailableTasksComponent },
+          { path: "detailsTaak", component: TaskDetailsComponent },
+        ]
+      }
+    ]
+  },
+  {
+    path: 'bedrijf',
+    component: CompanyComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'takenlijst', component: ListTasksComponent},
+          { path: 'taakToevoegen', component: AddTaskComponent },
+        ]
+      }
+    ]
+  }
 ];
 
 
-  @NgModule({
-    imports: [
-      RouterModule.forRoot(
-        routes,
-        { enableTracing: true } // <-- debugging purposes only
-      )
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
-  export class AppRoutingModule {}
+
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule { }
