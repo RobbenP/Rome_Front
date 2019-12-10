@@ -13,15 +13,21 @@
     </div>
     <div class="row" *ngFor="let assignment of allAssignements">
       <div class="col-sm">
-        {{assignment.omschrijving}}
+        {{ assignment.naam }}
       </div>
       <div class="col-sm">
-        <button (click)="details(assignment.assignmentId)" class="btn btn-primary">
+        <button
+          (click)="details(assignment.assignmentId)"
+          class="btn btn-primary"
+        >
           Details opdracht
         </button>
       </div>
       <div class="col-sm">
-        <button (click)="signup(assignment.assignmentId)" class="btn btn-primary">
+        <button
+          (click)="signup(assignment.assignmentId)"
+          class="btn btn-primary"
+        >
           Meld aan voor opdracht
         </button>
       </div>

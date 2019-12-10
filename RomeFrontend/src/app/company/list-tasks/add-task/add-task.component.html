@@ -1,20 +1,25 @@
-<form #loginForm="ngForm"  (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Taak toeveoegen!</p>
-            <div class="col">
-                <p>Naam:
-                <input type="text" required [(ngModel)]="songModel.title" name="title" /></p>
-                <p>iets:
-                <input type="text" required [(ngModel)]="songModel.artist" name="artist" /></p>
-                <p>iets:
-                <input type="text" required [(ngModel)]="songModel.cover" name="cover" /></p>
-                <p>iets:
-                <input type="text" required [(ngModel)]="songModel.album" name="album" /></p>
-                <p>iets:
-                <input type="text" required [(ngModel)]="songModel.duration" name="duration" /></p>
-            </div>
-
-            <button mdbBtn color="info"  block="true" class="my-4" type="submit" [disabled]="submitted">Voeg toe</button>
-
-
-</form>
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
+            <form #addTaskForm="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+                <p>{{ assignmentModel | json }}</p>
+                <p class="h4 mb-4">Taak toevoegen!</p>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Naam" type="text" required [(ngModel)]="assignmentModel.Naam" name="naam" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Omschrijving" type="text" required [(ngModel)]="assignmentModel.Omschrijving" name="beschrijving" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Locatie" type="text" required [(ngModel)]="assignmentModel.Locatie" name="locatie" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Aantal makers" type="number" required [(ngModel)]="assignmentModel.QuantityUsers" name="aantalmakers" min="1"/>
+                </div>
+                <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="submitted"> Maak aan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

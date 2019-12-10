@@ -12,6 +12,7 @@ import { observable, Observable } from 'rxjs';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+<<<<<<< HEAD
 roles: Role[];
 selecteerdeRol;
 model : User = new User(0,"","","",0,"");
@@ -48,7 +49,23 @@ gebruiker ;
       this.router.navigate(['registreer/student']);
     }
   }
+=======
+
+  userType: any;
+  constructor(private router: Router) { }
+
+>>>>>>> 748ead0d12f9080226c506993b464598b9d118ce
   ngOnInit() {
+    
   }
 
+  onSubmit(){
+    if (this.userType == 'company'){
+      this.router.navigate(['registreer/bedrijf']);
+    }
+    else if (this.userType == 'student'){
+      this.router.navigate(['registreer/student']);
+    }
+    console.log(this.userType);
+  }
 }
