@@ -1,21 +1,26 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { AppComponent } from "./app.component";
+import { HomeComponent } from './home/home.component';
+
 import { LoginComponent } from "./login/login/login.component";
+
 import { RegisterComponent } from "./register/register/register.component";
+import { RegisterCompanyComponent } from "./register/register-company/register-company.component";
+import { RegisterStudentComponent } from './register/register-student/register-student.component';
+
+import { AdminComponent } from './admin/admin.component';
+import { ListUsersComponent } from "./admin/list-users/list-users.component";
+import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
+
+import { StudentComponent } from './student/student.component';
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
 import { TaskDetailsComponent } from "./student/available-tasks/task-details/task-details.component";
-import { ListUsersComponent } from "./admin/list-users/list-users.component";
+
+import { CompanyComponent } from './company/company.component';
 import { ListTasksComponent } from "./company/list-tasks/list-tasks.component";
 import { AddTaskComponent } from "./company/list-tasks/add-task/add-task.component";
 import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-task.component";
-import { RegisterCompanyComponent } from "./register/register-company/register-company.component";
-import { RegisterStudentComponent } from './register/register-student/register-student.component';
-import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { StudentComponent } from './student/student.component';
-import { CompanyComponent } from './company/company.component';
 import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 
 const routes: Routes = [
@@ -25,13 +30,16 @@ const routes: Routes = [
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/gebruikersLijst', component: ListUsersComponent},
+  { path: 'admin/takenLijst', component: ListTasksAdminComponent},
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
   { path: 'student/detailsTaak', component: TaskDetailsComponent },
   { path: 'bedrijf', component: CompanyComponent },
   { path: 'bedrijf/takenlijst', component: ListTasksComponent },
-  { path: 'bedrijf/taakToevoegen', component: AddTaskComponent },
-  { path: 'bedrijf/taakWijzigen/:id', component: EditTasksComponent },
+  { path: 'bedrijf/takenlijst/taakToevoegen', component: AddTaskComponent },
+  { path: 'bedrijf/takenlijst/taakWijzigen/:id', component: EditTasksComponent },
+  { path: 'bedrijf/takenlijst/detailtaak/:id', component: DetailTaskComponent }
 ];
 
 

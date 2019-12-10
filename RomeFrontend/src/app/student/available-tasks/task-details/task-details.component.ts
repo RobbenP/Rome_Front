@@ -5,6 +5,7 @@ import { AssignmentService } from "src/app/services/assignment.service";
 import { CompanyService } from "src/app/services/company.service";
 import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
+import { Review } from "src/app/models/review.model";
 
 @Component({
   selector: "app-task-details",
@@ -23,7 +24,7 @@ export class TaskDetailsComponent implements OnInit {
     private assignService: AssignmentService,
     private companyService: CompanyService
   ) {
-    localStorage.setItem("refreshed", "1" );
+    localStorage.setItem("refreshed", "1");
     this.route.queryParams.subscribe(p => {
       this.assignmentId = p["assignmentId"];
       //console.log(p["assignmentId"]);
@@ -46,6 +47,7 @@ export class TaskDetailsComponent implements OnInit {
         this.tags = r;
         //console.log(r);
       });
+     
     });
   }
 
