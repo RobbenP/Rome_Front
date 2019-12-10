@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module'
-
+import { RegisterStudentComponent } from './register/register-student/register-student.component';
 import { AppComponent } from './app.component';
 import { LoginComponent} from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
@@ -16,7 +16,6 @@ import { AddTaskComponent } from './company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from './company/list-tasks/detail-task/detail-task.component';
 import { RegisterCompanyComponent } from './register/register-company/register-company.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterStudentComponent } from './register/register-student/register-student.component';
 
 @NgModule({
   declarations: [
