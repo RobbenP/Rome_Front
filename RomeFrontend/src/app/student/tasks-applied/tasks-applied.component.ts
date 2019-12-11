@@ -5,11 +5,11 @@ import { Observable } from "rxjs";
 import { Assignment } from "src/app/models/assignment.model";
 
 @Component({
-  selector: "app-available-tasks",
-  templateUrl: "./available-tasks.component.html",
-  styleUrls: ["./available-tasks.component.css"]
+  selector: "app-tasks-applied",
+  templateUrl: "./tasks-applied.component.html",
+  styleUrls: ["./tasks-applied.component.css"]
 })
-export class AvailableTasksComponent implements OnInit {
+export class TasksAppliedComponent implements OnInit {
   //allAssignements: Observable<Assignment[]>;
   
   allAssignements: Assignment[];

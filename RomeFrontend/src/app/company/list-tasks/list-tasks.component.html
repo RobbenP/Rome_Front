@@ -1,6 +1,9 @@
 <div class="container mt-5">
+    <h2>Takenlijst</h2>
+    <br>
+    <a routerLink="/bedrijf/takenlijst/taakToevoegen"><button class="btn btn-info pull-right mb-4" >Voeg een nieuwe taak toe</button></a>
     <ul *ngFor="let assigment of (assigments)">
         <li class="list-group-item list-group-item-action"><a
-                [routerLink]="['/bedrijf/taakWijzigen/'+(assigment.assigmentID)]">{{assigment.naam}}</a></li>
+                [routerLink]="['/bedrijf/takenlijst/taakWijzigen/'+(assigment.assignmentID)]">{{assigment.naam}}</a></li>
     </ul>
 </div>
