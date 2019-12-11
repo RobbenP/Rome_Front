@@ -36,7 +36,12 @@ export class AssignmentService {
   getTags(assignId: number):Observable<Tag[]> {
     return this.http.get<Tag[]>("https://localhost:5001/api/Assignments/tags/" + assignId);
   }
-
+  getAllTags():Observable<Tag[]>{
+    return this.http.get<Tag[]>("https://localhost:5001/api/Tags");
+  }
+  updateTags(assignId: number, tags: Tag[]){
+    return this.http.put("https://localhost:5001/api/Assignments/tags/" + assignId, tags);
+  }
   getReviews(assignId:number):Observable<Review[]>{
     return this.http.get<Review[]>("https://localhost:5001/api/Assignments/reviews/"+assignId)
   }

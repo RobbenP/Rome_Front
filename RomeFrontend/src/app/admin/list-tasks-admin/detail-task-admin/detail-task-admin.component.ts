@@ -17,6 +17,7 @@ export class DetailTaskAdminComponent implements OnInit {
   approvedUserAmount: number;
   company: Company;
   tags: Tag[];
+  allTags: Tag[];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -45,12 +46,16 @@ export class DetailTaskAdminComponent implements OnInit {
         this.tags = result;
        console.log(this.tags);
       });
-     
+     assignService.getAllTags().subscribe(result => {
+       this.allTags = result;
+       console.log(this.allTags);
+     })
     });
   }
   onSubmit(){
-    console.log(this.assignment);
+    
     this.assignService.updateAssignment(this.assignment).subscribe();
+    this.assignService.updateTags(this.assignmentId, this.tags).subscribe();
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 <div class="container h-100 mt-5">
-  <form #registerForm="ngForm" (ngSubmit)="onSubmit()"> 
-      <p>{{ assignment | json }}</p>
+  <form #registerForm="ngForm"  (ngSubmit)="onSubmit()"> 
+    
   <div class="row mb-5">
       <div class="col-3 font-weight-bold">Opdracht:</div>
      
@@ -28,12 +28,15 @@
       <div class="col-3 font-weight-bold">
         Tags:
       </div>
-     
+      <select name="tags" [(ngModel)]="tags.tagID" >
+        <option *ngFor="let t of allTags">{{t.text}}</option>
+      </select>
+     <!--
                 <div class="form-group col-7 font-weight-bold">
                 <div class="form-group font-weight-bold"  *ngFor="let t of tags; let i = index;" >
                     <input class="form-control form-control-lg" name="t_{{i}}" type="text" [(ngModel)]="t.text" >
                 </div>
-            </div>
+            </div>-->
     </div>
     
     
