@@ -57,13 +57,13 @@ export class TaskDetailsComponent implements OnInit {
     console.log("getHue wordt opgeroepen");
     console.log(this.hue);
     //return this.hue;
-    return this.hslToHex(this.hue, 100, 50);
+    return TaskDetailsComponent.hslToHex(this.hue, 100, 50);
   }
   signup() {
     this.assignService.userAcceptAssignmentByAssignmentID(this.assignmentId);
   }
 
-  hslToHex(h, s, l) {
+  public static hslToHex(h, s, l) {
     h /= 360;
     s /= 100;
     l /= 100;

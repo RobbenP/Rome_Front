@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from "@angular/router";
 import { AssignmentService } from "src/app/services/assignment.service";
 import { Observable } from "rxjs";
 import { Assignment } from "src/app/models/assignment.model";
+import { TaskDetailsComponent } from "./task-details/task-details.component";
 
 @Component({
   selector: "app-available-tasks",
@@ -20,6 +21,20 @@ export class AvailableTasksComponent implements OnInit {
     //this.allAssignements = assignmentService.getAssignments();
     assignmentService.getAssignments().subscribe(r => {
       this.allAssignements = r;
+      this.allAssignements.forEach(function(assign) {
+        TaskDetailsComponent.hslToHex;
+        assign["used"] = assignmentService.getApprovedUsersAmount(
+          assign.assignmentID
+        );
+        assign["used"].subscribe(r => {
+          assign["color"] = TaskDetailsComponent.hslToHex(
+            (1 - r * assign.quantityUsers) * 120,
+            100,
+            50
+          );
+        });
+      });
+
       console.log(r);
     });
   }
