@@ -36,5 +36,17 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
+    this._authenticateService.isLoggedin$.subscribe(e=> {
+      this.roleid = Number(localStorage.getItem("roleID"));
+      if (this.roleid == 1){
+        this._router.navigate(['admin']);
+      }
+      else if (this.roleid == 2){
+        this._router.navigate(['bedrijf']);
+      }
+      else if (this.roleid == 3){
+        this._router.navigate(['student']);
+      }
+    })
   }
 }
