@@ -26,8 +26,7 @@ import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-tas
 import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'registreer', component: RegisterComponent },
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
