@@ -28,7 +28,7 @@ gebruiker ;
     
   }
   onSubmit(){   
-    this.model.roleID = this.selecteerdeRol.roleID;
+    
     this._authenticateService.addUser(this.model).subscribe(
       result =>{
         

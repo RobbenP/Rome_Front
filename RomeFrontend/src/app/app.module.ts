@@ -46,6 +46,7 @@ import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-a
     ListTasksAdminComponent,
     TasksAppliedComponent,
     DetailTaskAdminComponent
+
   ],
   imports: [
     BrowserModule,

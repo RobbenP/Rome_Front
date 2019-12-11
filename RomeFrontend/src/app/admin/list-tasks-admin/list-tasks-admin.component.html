@@ -2,7 +2,7 @@
         <h2>Takenlijst</h2>
         <br>
         <div *ngFor="let assigment of (assigments)" class="row border-bottom">
-            <p class="col-6" [routerLink]="['/admin/takenlijst/detailtaak/'+(assignment.assignmentID)]">{{assigment.naam}}</p>
+            <p class="col-6" [routerLink]="['/admin/takenlijst/detailtaak/'+(assigment.assignmentID)]">{{assigment.naam}}</p>
             <p class="col-3 p-2 text-right">
                 <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
                     Verwijder taak
