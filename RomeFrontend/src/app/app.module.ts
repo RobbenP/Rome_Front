@@ -41,7 +41,8 @@ import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-adm
     CompanyComponent,
     StudentComponent,
     EditTasksComponent,
-    ListTasksAdminComponent
+    ListTasksAdminComponent,
+    
   ],
   imports: [
     BrowserModule,
