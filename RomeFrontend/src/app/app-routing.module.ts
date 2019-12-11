@@ -12,6 +12,7 @@ import { RegisterStudentComponent } from './register/register-student/register-s
 import { AdminComponent } from './admin/admin.component';
 import { ListUsersComponent } from "./admin/list-users/list-users.component";
 import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
+import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-admin/detail-task-admin.component';
 
 import { StudentComponent } from './student/student.component';
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'admin/gebruikersLijst', component: ListUsersComponent},
   { path: 'admin/takenLijst', component: ListTasksAdminComponent},
+  { path: 'admin/takenlijst/detailtaak/:id', component: DetailTaskAdminComponent },
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
   { path: 'student/detailsTaak', component: TaskDetailsComponent },
