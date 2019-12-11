@@ -7,7 +7,6 @@ import { Role } from '../models/role.model';
 import { Company } from '../models/company.model';
 import { Student } from '../models/student.model';
 import { Location} from '../models/location.model';
-import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +15,7 @@ export class AuthenticateService {
  public isLoggedin$ = this.isLoggedin.asObservable();
   userID = new BehaviorSubject(0);
   roleID = new BehaviorSubject(0);
-  _router: Router;
+  
   constructor(private _httpClient: HttpClient) {
     const token = localStorage.getItem("token");
     
@@ -43,18 +42,7 @@ export class AuthenticateService {
     this.roleID.next(0);
   //  localStorage.setItem("refreshed", "1" );
   }
-  routing(){
-    
-      if ( this.roleID.value == 1){
-        this._router.navigate(['admin']);
-      }
-      else if (this.roleID.value == 2){
-        this._router.navigate(['bedrijf']);
-      }
-      else if (this.roleID.value == 3){
-        this._router.navigate(['student']);
-      }
-  }
+  
   getRoles():Observable<Role[]>{
     return this._httpClient.get<Role[]>("https://localhost:5001/api/Roles");
   }
