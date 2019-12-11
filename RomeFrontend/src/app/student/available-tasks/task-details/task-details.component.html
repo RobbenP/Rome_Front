@@ -3,14 +3,27 @@
     <div class="col-3 font-weight-bold">Opdracht:</div>
     <div class="col-3">{{ assignment.naam }}</div>
     <div class="col-5 text-right">
-      <button (click)="signup()" class="btn btn-primary">
-        Meld aan voor opdracht
-      </button>
+      <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
+      <ng-template #elseBlock
+        ><button (click)="signup()" class="btn btn-primary">
+          Meld aan voor opdracht
+        </button></ng-template
+      >
+      <ng-template #thenBlock
+        ><button disabled class="btn btn-danger">
+          Opdracht is al volzet
+        </button></ng-template
+      >
     </div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Aantal geregistreerde studenten:</div>
-    <div class="col-3">
+    <div
+      class="col-3 card"
+      [style.background-color]="getHue()"
+      style="color: aliceblue;
+    font-size: 2em;"
+    >
       {{ approvedUserAmount }}/{{ assignment.quantityUsers }}
     </div>
   </div>
