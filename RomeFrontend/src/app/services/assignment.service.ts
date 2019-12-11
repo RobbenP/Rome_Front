@@ -44,4 +44,8 @@ export class AssignmentService {
       "https://localhost:5001/api/assignments/bedrijf/" + id
     );
   }
+
+  userAcceptAssignmentByAssignmentID(assignId:number){
+    return this.http.get("https://localhost:5001/api/Assignments/studentAccepts/"+assignId)
+  }
 }

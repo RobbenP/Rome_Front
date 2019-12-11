@@ -51,5 +51,9 @@ export class TaskDetailsComponent implements OnInit {
     });
   }
 
+  signup() {
+    this.assignService.userAcceptAssignmentByAssignmentID(this.assignmentId);
+  }
+
   ngOnInit() {}
 }

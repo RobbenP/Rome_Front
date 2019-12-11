@@ -11,14 +11,12 @@ import { Assignment } from "src/app/models/assignment.model";
 })
 export class AvailableTasksComponent implements OnInit {
   //allAssignements: Observable<Assignment[]>;
-  
+
   allAssignements: Assignment[];
   constructor(
-    
     private router: Router,
     private assignmentService: AssignmentService
   ) {
-    
     //this.allAssignements = assignmentService.getAssignments();
     assignmentService.getAssignments().subscribe(r => {
       this.allAssignements = r;
@@ -35,12 +33,11 @@ export class AvailableTasksComponent implements OnInit {
 
     this.router.navigate(["student/detailsTaak"], navExtras);
   }
-
-  delete(assignmentId: number) {
-    
+  signup(assignmentId: number) {
+    this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
   }
 
-  ngOnInit() {
-    
-  }
+  delete(assignmentId: number) {}
+
+  ngOnInit() {}
 }
