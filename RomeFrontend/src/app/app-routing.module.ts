@@ -12,10 +12,12 @@ import { RegisterStudentComponent } from './register/register-student/register-s
 import { AdminComponent } from './admin/admin.component';
 import { ListUsersComponent } from "./admin/list-users/list-users.component";
 import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
+import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-admin/detail-task-admin.component';
 
 import { StudentComponent } from './student/student.component';
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
 import { TaskDetailsComponent } from "./student/available-tasks/task-details/task-details.component";
+import { TasksAppliedComponent } from './student/tasks-applied/tasks-applied.component'
 
 import { CompanyComponent } from './company/company.component';
 import { ListTasksComponent } from "./company/list-tasks/list-tasks.component";
@@ -24,17 +26,18 @@ import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-tas
 import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'registreer', component: RegisterComponent },
   { path: 'registreer/bedrijf', component: RegisterCompanyComponent },
   { path: 'registreer/student', component:RegisterStudentComponent},
   { path: 'admin', component: AdminComponent },
   { path: 'admin/gebruikersLijst', component: ListUsersComponent},
   { path: 'admin/takenLijst', component: ListTasksAdminComponent},
+  { path: 'admin/takenlijst/detailtaak', component: DetailTaskAdminComponent },
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
   { path: 'student/detailsTaak', component: TaskDetailsComponent },
+  { path: 'student/takenlijstAangemeld', component: TasksAppliedComponent},
   { path: 'bedrijf', component: CompanyComponent },
   { path: 'bedrijf/takenlijst', component: ListTasksComponent },
   { path: 'bedrijf/takenlijst/taakToevoegen', component: AddTaskComponent },

@@ -10,34 +10,43 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   model: Userlogin = new Userlogin('', '');
+  roleid: any;
   constructor(private _authenticateService: AuthenticateService, private _router: Router) { }
 
   async onSubmit() {
     const result = await this._authenticateService.authenticate(this.model);
 
-    
-   
-   
-    
-    this._router.navigate(['']);
-    localStorage.setItem("refreshed", "0");
     if (result.studentID != null) {
       localStorage.setItem("studentID", result.studentID.toString());
-      this._router.navigate(["student"]);
-
-
     }
     if (result.companyID != null) {
       localStorage.setItem("companyID", result.companyID.toString());
-
-      this._router.navigate(["bedrijf"]);
-
     }
-
+    
+    this.roleid = Number(localStorage.getItem("roleID"));
+      if (this.roleid == 1){
+        this._router.navigate(['admin']);
+      }
+      else if (this.roleid == 2){
+        this._router.navigate(['bedrijf']);
+      }
+      else if (this.roleid == 3){
+        this._router.navigate(['student']);
+      }
   }
+  
   ngOnInit() {
+    this._authenticateService.isLoggedin$.subscribe(e=> {
+      this.roleid = Number(localStorage.getItem("roleID"));
+      if (this.roleid == 1){
+        this._router.navigate(['admin']);
+      }
+      else if (this.roleid == 2){
+        this._router.navigate(['bedrijf']);
+      }
+      else if (this.roleid == 3){
+        this._router.navigate(['student']);
+      }
+    })
   }
-
-
-
 }

@@ -23,6 +23,8 @@ import { StudentComponent } from './student/student.component';
 import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
 import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
+import { TasksAppliedComponent } from './student/tasks-applied/tasks-applied.component';
+import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-admin/detail-task-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,10 @@ import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-adm
     CompanyComponent,
     StudentComponent,
     EditTasksComponent,
-    ListTasksAdminComponent
+    ListTasksAdminComponent,
+    TasksAppliedComponent,
+    DetailTaskAdminComponent
+
   ],
   imports: [
     BrowserModule,

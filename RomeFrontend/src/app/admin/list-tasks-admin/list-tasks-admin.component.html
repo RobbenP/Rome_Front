@@ -1,1 +1,16 @@
-<p>list-tasks-admin works!</p>
+<div class="container mt-5">
+        <h2>Takenlijst</h2>
+        <br>
+       
+            
+            <ul *ngFor="let assigment of (assigments)">
+                <li class="list-group-item list-group-item-action"><a
+                    (click)="details(assigment.assignmentID)">{{assigment.naam}}          </a>
+                        <br>
+                        <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
+                            Verwijder taak
+                        </button></li>
+            </ul>
+           
+        
+    </div>

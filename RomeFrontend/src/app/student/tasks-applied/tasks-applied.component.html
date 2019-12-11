@@ -1,0 +1,37 @@
+<div class="container-fluid h-100 mt-5">
+        <div class="container">
+          <div class="row font-weight-bold">
+            <div class="col-sm">
+              Titel
+            </div>
+            <div class="col-sm">
+              Details
+            </div>
+            <div class="col-sm">
+              Aanmelden
+            </div>
+          </div>
+          <div class="row" *ngFor="let assignment of allAssignements">
+            <div class="col-sm">
+              {{ assignment.naam }}
+            </div>
+            <div class="col-sm">
+              <button
+                (click)="details(assignment.assignmentID)"
+                class="btn btn-primary"
+              >
+                Details opdracht
+              </button>
+            </div>
+            <div class="col-sm">
+              <button
+                (click)="signup(assignment.assignmentID)"
+                class="btn btn-primary"
+              >
+                Meld aan voor opdracht
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      

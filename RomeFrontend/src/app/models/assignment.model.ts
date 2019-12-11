@@ -1,11 +1,11 @@
 export class Assignment {
   constructor(
-    public AssignmentID: number,
-    public Naam: string,
-    public Omschrijving: string,
-    public Locatie: string,
-    public QuantityUsers: number,
-    public Status: boolean,
+    public assignmentID: number,
+    public naam: string,
+    public omschrijving: string,
+    public locatie: string,
+    public quantityUsers: number,
+    public status: boolean,
     public companyID:number
   ) {}
 }
