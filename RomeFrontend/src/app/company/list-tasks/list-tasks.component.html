@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <ul *ngFor="let assigment of (assigments)">
         <li class="list-group-item list-group-item-action"><a
-                [routerLink]="['/bedrijf/taakWijzigen/'+(assigment.id)]">{{assigment.naam}}</a></li>
+                [routerLink]="['/bedrijf/taakWijzigen/'+(assigment.assigmentID)]">{{assigment.naam}}</a></li>
     </ul>
 </div>
