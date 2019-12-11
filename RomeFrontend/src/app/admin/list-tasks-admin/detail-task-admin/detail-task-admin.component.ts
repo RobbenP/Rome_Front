@@ -48,7 +48,10 @@ export class DetailTaskAdminComponent implements OnInit {
      
     });
   }
-  
+  onSubmit(){
+    console.log(this.assignment);
+    this.assignService.updateAssignment(this.assignment).subscribe();
+  }
 
   ngOnInit() {
   }

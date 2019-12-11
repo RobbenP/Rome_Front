@@ -55,7 +55,7 @@ export class EditTasksComponent implements OnInit {
     this.assignService.getAssignement(this.AssignmentID).subscribe
       ((data: any) => {
         this.assignment = data;
-        this.assignment = data.Naam
+        this.assignment = data.naam
         this.assignment = data.Omschrijving
         this.assignment = data.Locatie
         this.assignment = data.QuantityUsers

@@ -16,7 +16,9 @@ export class AssignmentService {
       "https://localhost:5001/api/Assignments"
     );
   }
-
+  updateAssignment(assignment: Assignment){
+    return this.http.put("https://localhost:5001/api/Assignments/" + assignment.assignmentID.toString(), assignment);
+  }
   addAssignement(assignment: Assignment) {
     return this.http.post("https://localhost:5001/api/Assignments", assignment);
   }
