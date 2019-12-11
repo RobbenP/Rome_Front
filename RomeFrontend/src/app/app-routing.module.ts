@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'admin/gebruikersLijst', component: ListUsersComponent},
   { path: 'admin/takenLijst', component: ListTasksAdminComponent},
-  { path: 'admin/takenlijst/detailtaak/:id', component: DetailTaskAdminComponent },
+  { path: 'admin/takenlijst/detailtaak', component: DetailTaskAdminComponent },
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
   { path: 'student/detailsTaak', component: TaskDetailsComponent },

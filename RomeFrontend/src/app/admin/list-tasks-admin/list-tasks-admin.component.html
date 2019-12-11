@@ -1,13 +1,16 @@
 <div class="container mt-5">
         <h2>Takenlijst</h2>
         <br>
-        <div *ngFor="let assigment of (assigments)" class="row border-bottom">
-            <p class="col-6" [routerLink]="['/admin/takenlijst/detailtaak/'+(assigment.assignmentID)]">{{assigment.naam}}</p>
-            <p class="col-3 p-2 text-right">
-                <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
-                    Verwijder taak
-                </button>
-            </p>
-            <hr>
-        </div>
+       
+            
+            <ul *ngFor="let assigment of (assigments)">
+                <li class="list-group-item list-group-item-action"><a
+                    (click)="details(assigment.assignmentID)">{{assigment.naam}}          </a>
+                        <br>
+                        <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
+                            Verwijder taak
+                        </button></li>
+            </ul>
+           
+        
     </div>

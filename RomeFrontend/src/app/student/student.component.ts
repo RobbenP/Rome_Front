@@ -9,12 +9,7 @@ import { Router } from '@angular/router';
 export class StudentComponent implements OnInit {
 
   constructor(private router: Router) { 
-    if(localStorage.getItem("refreshed") == "0")
-    {
-      
-      localStorage.setItem("refreshed", "1" );
-      window.location.reload();
-    }
+   
   }
 
   ngOnInit() {
