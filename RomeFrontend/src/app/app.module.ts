@@ -44,12 +44,9 @@ import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-a
     StudentComponent,
     EditTasksComponent,
     ListTasksAdminComponent,
-<<<<<<< HEAD
-    
-=======
     TasksAppliedComponent,
     DetailTaskAdminComponent
->>>>>>> bb31f3f3e237344c33040a30419d11a79c4a91fa
+
   ],
   imports: [
     BrowserModule,

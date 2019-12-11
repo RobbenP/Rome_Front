@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Assignment } from "./node_modules/src/app/models/assignment.model";
-import { AssignmentService } from "./node_modules/src/app/services/assignment.service";
-import { CompanyService } from "./node_modules/src/app/services/company.service";
-import { Company } from "./node_modules/src/app/models/company.model";
-import { Tag } from "./node_modules/src/app/models/tag.model";
-import { Review } from "./node_modules/src/app/models/review.model";
+import { Assignment } from "src/app/models/assignment.model";
+import { AssignmentService } from "src/app/services/assignment.service";
+import { CompanyService } from "src/app/services/company.service";
+import { Company } from "src/app/models/company.model";
+import { Tag } from "src/app/models/tag.model";
+import { Review } from "src/app/models/review.model";
 
 @Component({
   selector: "app-task-details",
