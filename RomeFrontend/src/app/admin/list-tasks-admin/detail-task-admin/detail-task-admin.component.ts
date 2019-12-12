@@ -55,7 +55,9 @@ export class DetailTaskAdminComponent implements OnInit {
   onSubmit(){
     
     this.assignService.updateAssignment(this.assignment).subscribe();
+    console.log(this.tags);
     this.assignService.updateTags(this.assignmentId, this.tags).subscribe();
+    window.location.reload();
   }
 
   ngOnInit() {

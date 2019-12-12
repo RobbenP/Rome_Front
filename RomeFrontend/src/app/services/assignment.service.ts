@@ -47,8 +47,7 @@ export class AssignmentService {
   }
   updateTags(assignId: number, tags: Tag[]) {
     return this.http.put(
-      "https://localhost:5001/api/Assignments/tags/" + assignId,
-      tags
+      "https://localhost:5001/api/AssignmentTags/updateTags/" + assignId, tags
     );
   }
   getReviews(assignId: number): Observable<Review[]> {
