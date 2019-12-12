@@ -23,7 +23,6 @@ import { StudentComponent } from './student/student.component';
 import { ListTasksComponent } from './company/list-tasks/list-tasks.component';
 import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.component';
 import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
-import { TasksAppliedComponent } from './student/tasks-applied/tasks-applied.component';
 import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-admin/detail-task-admin.component';
 import { SecurityInterceptor } from './services/security.interceptor';
 @NgModule({
@@ -45,7 +44,6 @@ import { SecurityInterceptor } from './services/security.interceptor';
     StudentComponent,
     EditTasksComponent,
     ListTasksAdminComponent,
-    TasksAppliedComponent,
     DetailTaskAdminComponent
 
   ],

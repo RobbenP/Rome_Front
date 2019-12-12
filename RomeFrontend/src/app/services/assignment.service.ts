@@ -32,12 +32,6 @@ export class AssignmentService {
     );
   }
 
-  getAssignementWijzig(assignId: number): Observable<Assignment[]> {
-    return this.http.get<Assignment[]>(
-      "https://localhost:5001/api/Assignments/" + assignId
-    );
-  }
-
   getApprovedUsersAmount(assignId: number): Observable<number> {
     return this.http.get<number>(
       "https://localhost:5001/api/Assignments/makersAmount/" + assignId
@@ -78,6 +72,13 @@ export class AssignmentService {
   }
   hasUserAcceptedAssignment(assignId:number):Observable<boolean>{
     return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);
+  }
+
+  getPendingAssignments():Observable<Assignment[]>{
+    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/pending/")
+  }
+  getAcceptedAssignments():Observable<Assignment[]>{
+    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/accepted/")
   }
 
   deleteAssignment(id: number): Observable<Assignment[]> {

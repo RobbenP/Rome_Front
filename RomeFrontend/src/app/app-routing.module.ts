@@ -17,7 +17,6 @@ import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-a
 import { StudentComponent } from './student/student.component';
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
 import { TaskDetailsComponent } from "./student/available-tasks/task-details/task-details.component";
-import { TasksAppliedComponent } from './student/tasks-applied/tasks-applied.component'
 
 import { CompanyComponent } from './company/company.component';
 import { ListTasksComponent } from "./company/list-tasks/list-tasks.component";
@@ -37,7 +36,6 @@ const routes: Routes = [
   { path: 'student', component: StudentComponent },
   { path: 'student/takenlijst', component: AvailableTasksComponent },
   { path: 'student/detailsTaak', component: TaskDetailsComponent },
-  { path: 'student/takenlijstAangemeld', component: TasksAppliedComponent},
   { path: 'bedrijf', component: CompanyComponent },
   { path: 'bedrijf/takenlijst', component: ListTasksComponent },
   { path: 'bedrijf/takenlijst/taakToevoegen', component: AddTaskComponent },

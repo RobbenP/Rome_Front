@@ -13,19 +13,15 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./edit-tasks.component.css']
 })
 export class EditTasksComponent implements OnInit {
-  assignment: Assignment[];
-  company: Company[];
-  approvedUserAmount: number;
+  submitted: boolean = false;
   tags: Tag[];
+  assignmentModel : Assignment;
 
   private routeSub: Subscription;
   AssignmentID = 0
-  Naam = ""
-  Omschrijving = ""
-  Locatie = ""
-  QuantityUsers = ""
-  Status = ""
+ 
   companyID = 0
+
 
   constructor(
     private router: Router,
@@ -42,55 +38,31 @@ export class EditTasksComponent implements OnInit {
     });
 
     this.getAssignment();
-    this.getCompany();
-    this.getApprovedUserAmount();
     this.getTags();
     console.log("ID")
     console.log(this.AssignmentID)
     console.log("ID")
+
     
+    
+  }
+  onSubmit() {
+
+    this.submitted = true;
+    this.assignmentModel.assignmentID = this.AssignmentID
+
+    console.log(this.assignmentModel)
+    this.assignService.updateAssignment(this.assignmentModel).subscribe( result => {
+      this.router.navigate(['/bedrijf/takenlijst'])
+    });
   }
 
   getAssignment() {
-    this.assignService.getAssignementWijzig(this.AssignmentID).subscribe
-      ((data: any) => {
-        this.assignment = data;
-        this.assignment = data.naam
-        this.assignment = data.omschrijving
-        this.assignment = data.locatie
-        this.assignment = data.quantityUsers
-        this.assignment = data.status
-        this.assignment = data.companyID
-        console.log("ASSIGN")
-        console.log(this.assignment)
-        console.log("ASSIGN")
+    this.assignService.getAssignement(this.AssignmentID).subscribe
+      (data => {
+        this.assignmentModel = data;
+        
       });
-  }
-
-  getCompany() {
-    this.companyService.getCompany(this.AssignmentID).subscribe
-      ((data: any) => {
-        this.company = data;
-        this.company = data.companyID
-        this.company = data.companyName
-        this.company = data.phoneNumber
-        this.company = data.website
-        this.company = data.biography
-        console.log("COMPANY")
-        console.log(this.company)
-        console.log("COMPANY")
-      });
-  }
-
-  getApprovedUserAmount() {
-    this.assignService.getApprovedUsersAmount(this.AssignmentID).subscribe((
-      data: number) => {
-      this.approvedUserAmount = data;
-      console.log("USERAMOUNT")
-      console.log(this.approvedUserAmount)
-      console.log("USERAMOUNT")
-    }
-    )
   }
 
   getTags() {
@@ -104,4 +76,5 @@ export class EditTasksComponent implements OnInit {
     );
   }
 };
+
 
