@@ -45,27 +45,30 @@ export class EditTasksComponent implements OnInit {
     this.getCompany();
     this.getApprovedUserAmount();
     this.getTags();
-    console.log(this.assignment)
-    console.log(this.company)
-    console.log(this.approvedUserAmount)
-    console.log(this.tags)
+    console.log("ID")
+    console.log(this.AssignmentID)
+    console.log("ID")
+    
   }
 
   getAssignment() {
-    this.assignService.getAssignement(this.AssignmentID).subscribe
+    this.assignService.getAssignementWijzig(this.AssignmentID).subscribe
       ((data: any) => {
         this.assignment = data;
         this.assignment = data.naam
-        this.assignment = data.Omschrijving
-        this.assignment = data.Locatie
-        this.assignment = data.QuantityUsers
-        this.assignment = data.Status
+        this.assignment = data.omschrijving
+        this.assignment = data.locatie
+        this.assignment = data.quantityUsers
+        this.assignment = data.status
         this.assignment = data.companyID
+        console.log("ASSIGN")
+        console.log(this.assignment)
+        console.log("ASSIGN")
       });
   }
 
   getCompany() {
-    this.companyService.getCompany(this.companyID).subscribe
+    this.companyService.getCompany(this.AssignmentID).subscribe
       ((data: any) => {
         this.company = data;
         this.company = data.companyID
@@ -73,6 +76,9 @@ export class EditTasksComponent implements OnInit {
         this.company = data.phoneNumber
         this.company = data.website
         this.company = data.biography
+        console.log("COMPANY")
+        console.log(this.company)
+        console.log("COMPANY")
       });
   }
 
@@ -80,7 +86,9 @@ export class EditTasksComponent implements OnInit {
     this.assignService.getApprovedUsersAmount(this.AssignmentID).subscribe((
       data: number) => {
       this.approvedUserAmount = data;
+      console.log("USERAMOUNT")
       console.log(this.approvedUserAmount)
+      console.log("USERAMOUNT")
     }
     )
   }
@@ -89,9 +97,9 @@ export class EditTasksComponent implements OnInit {
     this.assignService.getTags(this.AssignmentID).subscribe(
       result => {
         this.tags = result
-
-
-        console.log(this.tags);
+        console.log("TAG")
+        console.log(this.tags)
+        console.log("TAG")
       }
     );
   }

@@ -32,6 +32,12 @@ export class AssignmentService {
     );
   }
 
+  getAssignementWijzig(assignId: number): Observable<Assignment[]> {
+    return this.http.get<Assignment[]>(
+      "https://localhost:5001/api/Assignments/" + assignId
+    );
+  }
+
   getApprovedUsersAmount(assignId: number): Observable<number> {
     return this.http.get<number>(
       "https://localhost:5001/api/Assignments/makersAmount/" + assignId
@@ -70,6 +76,9 @@ export class AssignmentService {
     ).subscribe(r=>{
       console.log("Als ik hier niets extra doe, doet hij geen request");
     });
+  }
+  hasUserAcceptedAssignment(assignId:number):Observable<boolean>{
+    return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);
   }
 
   deleteAssignment(id: number): Observable<Assignment[]> {

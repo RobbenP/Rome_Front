@@ -33,6 +33,11 @@ export class AvailableTasksComponent implements OnInit {
             50
           );
         });
+        assignmentService
+          .hasUserAcceptedAssignment(assign.assignmentID)
+          .subscribe(r => {
+            assign["hasAccepted"] = r;
+          });
       });
 
       console.log(r);
