@@ -6,6 +6,9 @@ import { CompanyService } from "src/app/services/company.service";
 import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
 import { Review } from "src/app/models/review.model";
+import { UserAssignments } from "src/app/models/user-assignments.model";
+import { UserAssignmentService } from "src/app/services/user-assignment.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-task-details",
@@ -16,15 +19,19 @@ export class TaskDetailsComponent implements OnInit {
   assignmentId: number;
   assignment: Assignment;
   approvedUserAmount: number;
-  canSignup:boolean = true;
+  canSignup: boolean = true;
   company: Company;
   tags: Tag[];
   hue: number;
+  percentage: number = 20;
+  userAssignment: UserAssignments;
+  accepted: boolean = false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private assignService: AssignmentService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private uaService: UserAssignmentService
   ) {
     this.route.queryParams.subscribe(p => {
       this.assignmentId = p["assignmentId"];
@@ -40,11 +47,25 @@ export class TaskDetailsComponent implements OnInit {
         });
       });
 
+      assignService
+        .hasUserAcceptedAssignment(this.assignmentId)
+        .subscribe(r => {
+          if (r) {
+            uaService
+              .getUserAssignementByAssignmentofLoggedInUser(this.assignmentId)
+              .subscribe(r => {
+                this.userAssignment = r;
+                this.accepted = r.status;
+                this.percentage=r.progress;
+              });
+          }
+        });
+
       assignService.getApprovedUsersAmount(this.assignmentId).subscribe(r => {
         this.approvedUserAmount = r;
-        var inverse: number = (1 - r / this.assignment.quantityUsers);
-        this.hue = inverse*120;
-        if(inverse===1)this.canSignup=false;
+        var inverse: number = 1 - r / this.assignment.quantityUsers;
+        this.hue = inverse * 120;
+        if (inverse === 1) this.canSignup = false;
         //console.log(r);
       });
       assignService.getTags(this.assignmentId).subscribe(r => {
@@ -57,12 +78,20 @@ export class TaskDetailsComponent implements OnInit {
     console.log("getHue wordt opgeroepen");
     console.log(this.hue);
     //return this.hue;
-    return TaskDetailsComponent.hslToHex(this.hue, 100, 50);
+    return this.getHueWithValue(this.hue);
+  }
+  getHueWithValue(hueLevel: number) {
+    return TaskDetailsComponent.hslToHex(hueLevel, 100, 50);
   }
   signup() {
     this.assignService.userAcceptAssignmentByAssignmentID(this.assignmentId);
   }
-
+  saveProgress() {
+    this.userAssignment.progress = this.percentage;
+    console.log(this.userAssignment);
+    
+    this.uaService.updateUserAssignment(this.userAssignment).subscribe();
+  }
   public static hslToHex(h, s, l) {
     h /= 360;
     s /= 100;
@@ -87,7 +116,7 @@ export class TaskDetailsComponent implements OnInit {
     }
     const toHex = x => {
       const hex = Math.round(x * 255).toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
+      return hex.length === 1 ? "0" + hex : hex;
     };
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   }
