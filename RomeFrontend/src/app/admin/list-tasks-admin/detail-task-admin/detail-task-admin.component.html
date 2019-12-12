@@ -28,9 +28,14 @@
       <div class="col-3 font-weight-bold">
         Tags:
       </div>
-      <select name="tags" [(ngModel)]="tags.tagID" >
-        <option *ngFor="let t of allTags">{{t.text}}</option>
+      <div class="form-group col-7 font-weight-bold">
+      <div *ngFor="let tag of tags; let i = index;" >
+    
+      <select class="form-control"   name="tags_{{i}}" [(ngModel)]="tag.tagID"  >
+        <option *ngFor="let t of allTags" name="t.tagID" [ngValue]="t.tagID" selected="tag.tagID">{{t.text}}</option>
       </select>
+    </div>
+  </div>
      <!--
                 <div class="form-group col-7 font-weight-bold">
                 <div class="form-group font-weight-bold"  *ngFor="let t of tags; let i = index;" >
