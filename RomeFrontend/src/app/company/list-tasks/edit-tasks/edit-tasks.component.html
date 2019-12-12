@@ -5,16 +5,16 @@
                 <p>{{ assignmentModel | json }}</p>
                 <p class="h4 mb-4">Taak wijzigen!</p>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.Naam" name="naam" [value]="assignment?.naam"/>
+                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.naam" name="naam" [value]="assignment?.naam"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.Omschrijving" name="beschrijving" [value]="assignment?.omschrijving"/>
+                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.omschrijving" name="beschrijving" [value]="assignment?.omschrijving"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.Locatie" name="locatie" [value]="assignment?.locatie" />
+                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.locatie" name="locatie" [value]="assignment?.locatie" />
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="number" required [(ngModel)]="assignmentModel.QuantityUsers" name="aantalmakers" min="1" [value]="assignment?.quantityUsers"/>
+                    <input class="form-control form-control-lg" type="number" required [(ngModel)]="assignmentModel.quantityUsers" name="aantalmakers" min="1" [value]="assignment?.quantityUsers"/>
                 </div>
                 <div class="form-group">
                 <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="submitted"> Wijzig</button>

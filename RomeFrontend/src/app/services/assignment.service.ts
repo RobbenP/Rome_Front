@@ -75,6 +75,13 @@ export class AssignmentService {
     return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);
   }
 
+  getPendingAssignments():Observable<Assignment[]>{
+    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/pending/")
+  }
+  getAcceptedAssignments():Observable<Assignment[]>{
+    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/accepted/")
+  }
+
   deleteAssignment(id: number): Observable<Assignment[]> {
     return this.http.delete<Assignment[]>(
       "https://localhost:5001/api/assignments/" + id

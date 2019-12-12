@@ -13,18 +13,13 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./edit-tasks.component.css']
 })
 export class EditTasksComponent implements OnInit {
-  assignment: Assignment;
   submitted: boolean = false;
   tags: Tag[];
-  assignmentModel : Assignment = new Assignment(null ,"","","",null,true, parseInt(localStorage.getItem("companyID")))
+  assignmentModel : Assignment;
 
   private routeSub: Subscription;
   AssignmentID = 0
-  Naam = ""
-  Omschrijving = ""
-  Locatie = ""
-  QuantityUsers = ""
-  Status = ""
+ 
   companyID = 0
 
 
@@ -64,17 +59,9 @@ export class EditTasksComponent implements OnInit {
 
   getAssignment() {
     this.assignService.getAssignement(this.AssignmentID).subscribe
-      ((data: any) => {
-        this.assignment = data;
-        this.Naam = data.Naam
-        this.Omschrijving = data.Omschrijving
-        this.Locatie = data.Locatie
-        this.QuantityUsers = data.QuantityUsers
-        this.Status = data.Status
-        this.companyID = data.companyID
-        console.log("ASSIGN")
-        console.log(this.assignment)
-        console.log("ASSIGN")
+      (data => {
+        this.assignmentModel = data;
+        
       });
   }
 
