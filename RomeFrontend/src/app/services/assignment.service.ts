@@ -4,6 +4,8 @@ import { Observable } from "rxjs";
 import { Assignment } from "../models/assignment.model";
 import { Tag } from "../models/tag.model";
 import { Review } from "../models/review.model";
+import { User } from '../models/user.model';
+import { UserAssignments } from '../models/user-assignments.model';
 
 @Injectable({
   providedIn: "root"
@@ -77,13 +79,18 @@ export class AssignmentService {
   getPendingAssignments():Observable<Assignment[]>{
     return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/pending/")
   }
+  getPendingAssignmentsBedrijfGebruikers():Observable<User[]>{
+    return this.http.get<User[]>("https://localhost:5001/api/UserAssignments/pendingBedrijfGebruikers/")
+  }
+  getPendingAssignmentsBedrijf():Observable<UserAssignments[]>{
+    return this.http.get<UserAssignments[]>("https://localhost:5001/api/UserAssignments/pendingBedrijf/")
+  }
   getAcceptedAssignments():Observable<Assignment[]>{
     return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/accepted/")
   }
 
   deleteAssignment(id: number): Observable<Assignment[]> {
-    return this.http.delete<Assignment[]>(
-      "https://localhost:5001/api/assignments/" + id
+    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/" + id
     );
   }
 }
