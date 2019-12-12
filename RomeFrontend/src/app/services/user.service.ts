@@ -16,6 +16,11 @@ export class UserService {
       "https://localhost:5001/api/Users"
     );
   }
+  getUser(userId:number): Observable<User> {
+    return this.http.get<User>(
+      "https://localhost:5001/api/Users/"+userId
+    );
+  }
 
   deleteUser(id: number): Observable<User[]> {
     return this.http.delete<User[]>(
