@@ -45,11 +45,14 @@ export class EditTasksComponent implements OnInit {
     this.getCompany();
     this.getApprovedUserAmount();
     this.getTags();
+    console.log("ID")
+    console.log(this.AssignmentID)
+    console.log("ID")
     
   }
 
   getAssignment() {
-    this.assignService.getAssignement(this.AssignmentID).subscribe
+    this.assignService.getAssignementWijzig(this.AssignmentID).subscribe
       ((data: any) => {
         this.assignment = data;
         this.assignment = data.naam
