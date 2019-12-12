@@ -1,54 +1,31 @@
-<div class="container-fluid h-100 mt-5">
-  <div class="container">
-    <div class="row font-weight-bold">
-      <div class="col-sm">
-        Titel
-      </div>
-      <div class="col-sm">
-        Details
-      </div>
-      <div class="col-sm">
-        Aanmelden
-      </div>
-      <div class="col-sm">
-        Plaatsen
-      </div>
-    </div>
-    <div class="row m-2" *ngFor="let assignment of allAssignements">
-      <div class="col-sm">
-        {{ assignment.naam }}
-      </div>
-      <div class="col-sm">
-        <button (click)="details(assignment.assignmentID)" class="btn btn-primary">
-          Details opdracht
-        </button>
-      </div>
-      <div class="col-sm">
-        <button
-          (click)="signup(assignment.assignmentID)"
-          class="btn btn-primary"
-          *ngIf="assignment['color']!=='#ff0000' && !assignment['hasAccepted']"
-        >
-          Meld aan voor opdracht
-        </button>
-        <button
-          (click)="signup(assignment.assignmentID)"
-          class="btn btn-danger" disabled
-          *ngIf="assignment['color']==='#ff0000' && !assignment['hasAccepted']"
-        >
-          Opdracht is reeds volzet
-        </button>
-        <button
-          (click)="signup(assignment.assignmentID)"
-          class="btn btn-warning" disabled
-          *ngIf="assignment['hasAccepted']"
-        >
-          Je bent hiervoor al ingeschreven
-        </button>
-      </div>
-      <div class="col-sm rounded" [style.background-color]="assignment['color']" style="color: aliceblue;
-    font-size: 1.5em;">
-        {{assignment["used"] | async}}/{{ assignment.quantityUsers }}
+<div class="row container-fluid h-100 mt-5">
+  <div class="row m-1" *ngFor="let assignment of allAssignements">
+    <div class="card col-auto" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ assignment.naam }}</h5>
+        <p class="card-text">
+          <button (click)="details(assignment.assignmentID)" class="btn btn-info">
+            Details opdracht
+          </button>
+        </p>
+        <p class="card-text">
+          <button (click)="signup(assignment.assignmentID)" class="btn btn-info"
+            *ngIf="assignment['color']!=='#ff0000' && !assignment['hasAccepted']">
+            Meld aan voor opdracht
+          </button>
+          <button (click)="signup(assignment.assignmentID)" class="btn btn-danger" disabled
+            *ngIf="assignment['color']==='#ff0000' && !assignment['hasAccepted']">
+            Opdracht is reeds volzet
+          </button>
+          <button (click)="signup(assignment.assignmentID)" class="btn btn-warning" disabled
+            *ngIf="assignment['hasAccepted']">
+            Je bent hiervoor al ingeschreven
+          </button>
+        </p>
+        <p class="card-text">
+          <div [style.background-color]="assignment['color']" style="color: aliceblue; font-size: 1.5em;">
+            {{assignment["used"] | async}}/{{ assignment.quantityUsers }}
+          </div>
       </div>
     </div>
   </div>

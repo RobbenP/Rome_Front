@@ -1,14 +1,18 @@
-<div class="container mt-5">
-        <h2>Gebruikerslijst</h2>
-        <br>
-        <div *ngFor="let user of (users)" class="row border-bottom">
-            <p class="col-3 mr-2">{{user.username}}</p>
-            <p class="col-3">{{user.email}}</p>
-            <p class="col-3 p-2 text-right">
-                <button (onClick)="delete(user.userID)" class="btn btn-danger">
-                    Verwijder gebruiker
-                </button>
-            </p>
-            <hr>
+<div class="row container-fluid h-100 mt-5">
+    <div *ngFor="let user of (users)" class="row m-1">
+        <div class="card col-auto " style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">
+                    {{user.username}}
+                </p>
+                <p class="card-text">
+                    {{user.email}}
+                </p>
+                <p class="card-text">
+                    <button (onClick)="delete(user.userID)" class="btn btn-danger">
+                        Verwijder gebruiker
+                    </button>
+            </div>
         </div>
     </div>
+</div>

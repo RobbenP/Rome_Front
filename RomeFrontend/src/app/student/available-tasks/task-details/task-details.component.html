@@ -2,19 +2,6 @@
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Opdracht:</div>
     <div class="col-3">{{ assignment.naam }}</div>
-    <div class="col-5 text-right">
-      <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
-      <ng-template #elseBlock
-        ><button (click)="signup()" class="btn btn-primary">
-          Meld aan voor opdracht
-        </button></ng-template
-      >
-      <ng-template #thenBlock
-        ><button disabled class="btn btn-danger">
-          Opdracht is al volzet
-        </button></ng-template
-      >
-    </div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Aantal geregistreerde studenten:</div>
@@ -47,7 +34,7 @@
     <div class="col-3 font-weight-bold">Bedrijf:</div>
     <div class="col-3">{{ company.companyname }}</div>
   </div>
-  <div class="row  mb-5" *ngIf="accepted ">
+  <div class="row  mb-5" *ngIf="accepted">
     <div class="col-3 font-weight-bold">Jouw vooruitgang</div>
     <div class="col-5">
       <input
@@ -56,14 +43,30 @@
         min="0"
         max="100"
         [(ngModel)]="percentage"
-        [style.background-color]="getHueWithValue(percentage*1.2)"
-        
+        [style.background-color]="getHueWithValue(percentage * 1.2)"
       />
       Al {{ percentage }}% voltooid
     </div>
     <div class="col-3">
-      <button class="btn btn-primary" (click)="saveProgress()" >Vooruitgang opslaan</button>
+      <button class="btn btn-primary" (click)="saveProgress()">
+        Vooruitgang opslaan
+      </button>
     </div>
   </div>
-  <hr />
+  <div class="row mb-5">
+      <div class="col-5">
+        <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
+        <ng-template #elseBlock
+          ><button (click)="signup()" class="btn btn-primary">
+            Meld aan voor opdracht
+          </button></ng-template
+        >
+        <ng-template #thenBlock
+          ><button disabled class="btn btn-danger">
+            Opdracht is al volzet
+          </button></ng-template
+        >
+      </div>
+    </div>
+        <hr />
 </div>
