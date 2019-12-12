@@ -14,36 +14,26 @@
         Plaatsen
       </div>
     </div>
-    <div class="row" *ngFor="let assignment of allAssignements">
+    <div class="row m-2" *ngFor="let assignment of allAssignements">
       <div class="col-sm">
         {{ assignment.naam }}
       </div>
       <div class="col-sm">
-        <button
-          (click)="details(assignment.assignmentID)"
-          class="btn btn-primary"
-        >
+        <button (click)="details(assignment.assignmentID)" class="btn btn-primary">
           Details opdracht
         </button>
       </div>
       <div class="col-sm">
-        <button
-          (click)="signup(assignment.assignmentID)"
-          class="btn btn-primary"
-          *ngIf="assignment['color']!=='#ff0000'"
-        >
+        <button (click)="signup(assignment.assignmentID)" class="btn btn-primary"
+          *ngIf="assignment['color']!=='#ff0000'">
           Meld aan voor opdracht
         </button>
-        <button
-          (click)="signup(assignment.assignmentID)"
-          class="btn btn-danger" disabled
-          *ngIf="assignment['color']==='#ff0000'"
-        >
+        <button (click)="signup(assignment.assignmentID)" class="btn btn-danger" disabled
+          *ngIf="assignment['color']==='#ff0000'">
           Opdracht is reeds volzet
         </button>
       </div>
-      <div class="col-sm" [style.background-color]="assignment['color']"
-      style="color: aliceblue;
+      <div class="col-sm rounded" [style.background-color]="assignment['color']" style="color: aliceblue;
     font-size: 1.5em;">
         {{assignment["used"] | async}}/{{ assignment.quantityUsers }}
       </div>
