@@ -71,6 +71,9 @@ export class AssignmentService {
       console.log("Als ik hier niets extra doe, doet hij geen request");
     });
   }
+  hasUserAcceptedAssignment(assignId:number):Observable<boolean>{
+    return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);
+  }
 
   deleteAssignment(id: number): Observable<Assignment[]> {
     return this.http.delete<Assignment[]>(
