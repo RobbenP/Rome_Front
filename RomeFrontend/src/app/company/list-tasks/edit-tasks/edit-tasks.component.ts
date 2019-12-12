@@ -53,10 +53,10 @@ export class EditTasksComponent implements OnInit {
       ((data: any) => {
         this.assignment = data;
         this.assignment = data.naam
-        this.assignment = data.Omschrijving
-        this.assignment = data.Locatie
-        this.assignment = data.QuantityUsers
-        this.assignment = data.Status
+        this.assignment = data.omschrijving
+        this.assignment = data.locatie
+        this.assignment = data.quantityUsers
+        this.assignment = data.status
         this.assignment = data.companyID
         console.log("ASSIGN")
         console.log(this.assignment)
@@ -83,9 +83,9 @@ export class EditTasksComponent implements OnInit {
     this.assignService.getApprovedUsersAmount(this.AssignmentID).subscribe((
       data: number) => {
       this.approvedUserAmount = data;
-      console.log("USERA")
+      console.log("USERAMOUNT")
       console.log(this.approvedUserAmount)
-      console.log("USERA")
+      console.log("USERAMOUNT")
     }
     )
   }
