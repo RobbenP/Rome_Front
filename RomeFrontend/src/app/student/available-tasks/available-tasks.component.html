@@ -1,8 +1,34 @@
 <div class="container-fluid h-100 mt-5">
-  <div class="row m-1">
-    <div class="col-4"><button class="btn btn-primary" (click)="allTasks()">Alle opdrachten</button></div>
-    <div class="col-4"><button class="btn btn-warning" (click)="pendingTasks()">In afwachting</button></div>
-    <div class="col-4"><button class="btn btn-success"(click)="acceptedTasks()">Goedgekeurde opdrachten</button></div>
+  <div class="row mb-5 mt-2 justify-content-center">
+    <div *ngIf="welkeOpdrachten=='alle'">
+      <div class="col-12 text-center"><h2>Alle taken</h2></div>
+      <small class="text-muted">Een lijst met alle taken in.</small>
+    </div>
+    <div *ngIf="welkeOpdrachten=='pending'">
+      <div class="col-12 text-center"><h2>Alle taken in afwachting</h2></div>
+      <small class="text-muted">De opdrachtgever moet deze taken nog goedkeuren voor jou.</small>
+    </div>
+    <div *ngIf="welkeOpdrachten=='accepted'">
+      <div class="col-12 text-center"><h2>Alle goegdekeurde taken</h2></div>
+      <small class="text-muted">Een lijst met alle taken die de opdrachtgever al goedgekeurd heeft voor jou.</small>
+    </div>
+  </div>
+  <div class="row m-2">
+    <div class="col-4">
+      <button class="btn btn-primary" (click)="allTasks()">
+        Alle opdrachten
+      </button>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-warning" (click)="pendingTasks()">
+        In afwachting
+      </button>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-success" (click)="acceptedTasks()">
+        Goedgekeurde opdrachten
+      </button>
+    </div>
   </div>
   <div class="row">
     <div class="row m-1" *ngFor="let assignment of allAssignements">
@@ -17,7 +43,7 @@
               Details opdracht
             </button>
           </p>
-          <p class="card-text"> 
+          <p class="card-text">
             <button
               (click)="signup(assignment.assignmentID)"
               class="btn btn-info"
