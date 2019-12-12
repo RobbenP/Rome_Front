@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module'
@@ -25,6 +25,7 @@ import { EditTasksComponent } from './company/list-tasks/edit-tasks/edit-tasks.c
 import { ListTasksAdminComponent } from './admin/list-tasks-admin/list-tasks-admin.component';
 import { TasksAppliedComponent } from './student/tasks-applied/tasks-applied.component';
 import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-admin/detail-task-admin.component';
+import { SecurityInterceptor } from './services/security.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,11 @@ import { DetailTaskAdminComponent } from './admin/list-tasks-admin/detail-task-a
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:SecurityInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -64,9 +64,12 @@ export class AssignmentService {
   }
 
   userAcceptAssignmentByAssignmentID(assignId: number) {
+    
     return this.http.get(
       "https://localhost:5001/api/Assignments/studentAccepts/" + assignId
-    );
+    ).subscribe(r=>{
+      console.log("Als ik hier niets extra doe, doet hij geen request");
+    });
   }
 
   deleteAssignment(id: number): Observable<Assignment[]> {
