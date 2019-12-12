@@ -1,16 +1,19 @@
 <div class="container mt-5">
-        <h2>Takenlijst</h2>
-        <br>
-       
-            
-            <ul *ngFor="let assigment of (assigments)">
-                <li class="list-group-item list-group-item-action"><a
-                    (click)="details(assigment.assignmentID)">{{assigment.naam}}          </a>
-                        <br>
+    <h2>Takenlijst</h2>
+    <div class="row container-fluid h-100 mt-5">
+        <div *ngFor="let assigment of (assigments)" class="row m-1">
+            <div class="card col-auto " style="width: 18rem;">
+                <div class="card-body">
+                    <p class="card-text opdrachtNaam">
+                        <a (click)="details(assigment.assignmentID)">{{assigment.naam}} </a>
+                    </p>
+                    <p class="card-text">
                         <button (onClick)="delete(assigment.assignmentID)" class="btn btn-danger">
                             Verwijder taak
-                        </button></li>
-            </ul>
-           
-        
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>

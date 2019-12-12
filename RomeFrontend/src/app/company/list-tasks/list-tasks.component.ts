@@ -25,8 +25,6 @@ export class ListTasksComponent implements OnInit {
     this._assignmentService.getAssignmentsByCompanyID(parseInt(localStorage.getItem("companyID"))).subscribe(
       result => {
       this.assigments=result
-      
-     
       console.log(this.assigments);
       }
     );
