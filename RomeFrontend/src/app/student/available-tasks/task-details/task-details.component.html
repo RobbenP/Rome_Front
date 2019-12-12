@@ -67,6 +67,9 @@
           </button></ng-template
         >
       </div>
+      <div class="col-5" *ngIf="accepted">
+        <button class="btn btn-primary" (click)="goReview()">Schrijf review over bedrijf</button>
+      </div>
     </div>
         <hr />
 </div>

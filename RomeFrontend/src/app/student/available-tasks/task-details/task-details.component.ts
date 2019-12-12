@@ -56,7 +56,7 @@ export class TaskDetailsComponent implements OnInit {
               .subscribe(r => {
                 this.userAssignment = r;
                 this.accepted = r.status;
-                this.percentage=r.progress;
+                this.percentage = r.progress;
               });
           }
         });
@@ -89,8 +89,13 @@ export class TaskDetailsComponent implements OnInit {
   saveProgress() {
     this.userAssignment.progress = this.percentage;
     console.log(this.userAssignment);
-    
+
     this.uaService.updateUserAssignment(this.userAssignment).subscribe();
+  }
+  goReview() {
+    this.router.navigateByUrl(
+      "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
+    );
   }
   public static hslToHex(h, s, l) {
     h /= 360;

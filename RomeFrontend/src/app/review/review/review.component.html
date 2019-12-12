@@ -1,0 +1,48 @@
+<div class="container h-100 mt-5">
+  <h2 class="text-center">
+    Je gaat een review schrijven over {{ (whoToReview | async).username }}
+  </h2>
+  <small class="text-muted">
+    <p class="text-center">
+      Door de opdracht {{ (assingment | async).naam }} heb je ervaren hoe het is
+      om met "{{ (whoToReview | async).username }}"" te werken. Hier kun je jouw
+      ervaringen delen.
+    </p>
+  </small>
+
+  <div class="row mb-5 mt-5">
+    <div class="col-3 font-weight-bold">
+      Jouw review
+    </div>
+    <div class="col-8">
+      <form action="submitReview()"></form>
+      <form
+        
+        (ngSubmit)="onSubmit()"
+        class="text-center"
+      >
+        <div class="form-group">
+          <textarea
+            class="form-control form-control-lg"
+            type="text"
+            name="locatie"
+            rows="10"
+            required
+            name="reviewText"
+            [(ngModel)]="reviewText"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button
+            class="btn btn-info btn-lg btn-block"
+            type="submit"
+            [disabled]="reviewText==''"
+          >
+            Wijzig
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
