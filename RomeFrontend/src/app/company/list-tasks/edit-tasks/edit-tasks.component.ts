@@ -88,7 +88,7 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
    this.assignmenttag1.assignmentTagID = 0;
    console.log(this.assignmenttag1);
     this.assignService.addAssignmentTag(this.assignmenttag1).subscribe(
-      r=>{window.location.reload();
+      r=>{this.getTags();
       });
   
   }
