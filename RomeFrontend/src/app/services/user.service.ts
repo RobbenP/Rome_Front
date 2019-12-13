@@ -28,6 +28,11 @@ export class UserService {
       "https://localhost:5001/api/Users/Bedrijf/"+companyID
     );
   }
+  getBedrijf(companyID: number): Observable<Company>{
+    return this.http.get<Company>(
+      "https://localhost:5001/api/Companies/"+companyID
+    );
+  }
   getStudent(studentID: number): Observable<Student>{
     return this.http.get<Student>("https://localhost:5001/api/Students/"+studentID);
   }
@@ -41,6 +46,13 @@ export class UserService {
       "https://localhost:5001/api/Users/" +
         user.userID.toString(),
       user
+    );
+  }
+  updateStudent(student: Student) {
+    return this.http.put(
+      "https://localhost:5001/api/Students/" +
+        student.studentID.toString(),
+      student
     );
   }
 }

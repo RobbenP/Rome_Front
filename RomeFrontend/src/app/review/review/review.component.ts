@@ -35,13 +35,30 @@ export class ReviewComponent implements OnInit {
     if(+localStorage.getItem("roleID") == 1)
     {
       this.route.params.subscribe(params => {
+        this.reviewId = params["reviewId"];
+        if(this.reviewId != 0){
+          this.reviewService.getReview(this.reviewId).subscribe(
+            result => {
+              this.reviewText = result.reviewText;
+              this.myUserID = result.userPlacerID;
+              this.whoToReviewUserId = result.userRecieverID;
+            }
+          )
+        }
+      })
+
+      this.route.params.subscribe(params => {
         this.myUserID = params["studentId"];
         this.iAmStudent = true;
-      })
+        
+      }
+      
+      )
     }else 
     {
       this.myUserID = +localStorage.getItem("userID");
       this.iAmStudent = +localStorage.getItem("roleID") == 3;
+      this.reviewId = 0;
     }
     
     this.route.params.subscribe(params => {
@@ -69,24 +86,13 @@ export class ReviewComponent implements OnInit {
       }
       
     });
-    this.route.params.subscribe(params => {
-      this.reviewId = params["reviewId"];
-      if(this.reviewId != 0){
-        this.reviewService.getReview(this.reviewId).subscribe(
-          result => {
-            this.reviewText = result.reviewText;
-            this.myUserID = result.userPlacerID;
-            this.whoToReviewUserId = result.userRecieverID;
-          }
-        )
-      }
-    })
+    
      
   }
 
   onSubmit() {
     console.log(this.whoToReviewUserId);
-
+    
     let review: Review = new Review(
       this.reviewId,
       this.reviewText,
@@ -94,16 +100,18 @@ export class ReviewComponent implements OnInit {
       Number(this.whoToReviewUserId),
       this.AssignmentID
     );
-    if(review.reviewID == 0)
+    
+    if(this.reviewId != 0)
+    {
+      this.reviewService.updateReview(review).subscribe(
+        r=>{this.router.navigateByUrl('admin/reviewsGebruiker/' + this.myUserID);}
+      );
+      
+    }else
     {
       this.reviewService.addReview(review).subscribe(
         r=>{this.router.navigateByUrl("/");
         }
-      );
-    }else
-    {
-      this.reviewService.updateReview(review).subscribe(
-        r=>{this.router.navigateByUrl('admin/reviewsGebruiker/' + this.myUserID);}
       );
       
     }
