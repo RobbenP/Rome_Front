@@ -18,7 +18,7 @@ export class ReviewService {
   }
 
   addReview(review: Review) {
-  
+   console.log(review);
     return this.http.post("https://localhost:5001/api/Reviews", review);
   }
   updateReview(review: Review) {
