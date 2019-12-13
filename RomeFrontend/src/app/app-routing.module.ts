@@ -48,6 +48,7 @@ const routes: Routes = [
   },
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
   { path: "review/:assignId/:studentId", component: ReviewComponent },
+  { path: "review/:assignId/:studentId/:reviewId", component: ReviewComponent },
   {path:"infoBedrijf/:id", component:InfoBedrijfComponent},
   { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent},
   { path: "admin/reviewsGebruiker/:id", component: UserAdminReviewComponent}

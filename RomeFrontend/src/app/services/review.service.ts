@@ -18,9 +18,13 @@ export class ReviewService {
   }
 
   addReview(review: Review) {
+  
     return this.http.post("https://localhost:5001/api/Reviews", review);
   }
-
+  updateReview(review: Review) {
+ 
+    return this.http.put("https://localhost:5001/api/Reviews/" + review.reviewID, review);
+  }
   getReviewsFromUser(userid:number):Observable<Review[]>{
     return this.http.get<Review[]>("https://localhost:5001/api/Reviews/from/"+userid)
   }
