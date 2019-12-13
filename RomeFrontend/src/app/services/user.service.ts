@@ -27,4 +27,11 @@ export class UserService {
       "https://localhost:5001/api/Users" + id
     );
   }
+  updateUser(user: User) {
+    return this.http.put(
+      "https://localhost:5001/api/Users/" +
+        user.userID.toString(),
+      user
+    );
+  }
 }

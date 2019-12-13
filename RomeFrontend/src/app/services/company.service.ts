@@ -16,4 +16,11 @@ export class CompanyService {
   getCompany(id: number): Observable<Company> {
     return this.http.get<Company>("https://localhost:5001/api/Companies/" + id);
   }
+  updateCompany(company: Company) {
+    return this.http.put(
+      "https://localhost:5001/api/Companies/" +
+        company.companyID.toString(),
+      company
+    );
+  }
 }

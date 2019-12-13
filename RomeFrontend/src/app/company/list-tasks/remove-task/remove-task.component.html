@@ -1,0 +1,15 @@
+<div class="container-fluid h-100 mt-5">
+    <div class="row justify-content-center align-items-center h-100">
+       
+       
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
+            <form #addTaskForm="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+            <!--    <p>{{ assignmentModel | json }}</p>-->
+                <p class="h4 mb-4">Ben je zeker dat je de taak {{assignmentModel.naam}} wilt verwijderen</p>
+                <div class="form-group">
+                <button class="btn btn-info pull-left mb-4 float-left" type="submit" [disabled]="submitted"> JA</button>
+                <a routerLink="/bedrijf/takenlijst"><button class="btn btn-info pull-right mb-4 float-right">NEE</button></a>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -24,6 +24,10 @@ import { AddTaskComponent } from "./company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-task.component";
 import { EditTasksComponent } from "./company/list-tasks/edit-tasks/edit-tasks.component";
 import { ReviewComponent } from "./review/review/review.component";
+import { AccountSettingsComponent } from "./account-settings/account-settings.component";
+import { RemoveTaskComponent } from "./company/list-tasks/remove-task/remove-task.component";
+
+
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -40,12 +44,16 @@ const routes: Routes = [
   { path: "bedrijf", component: CompanyComponent },
   { path: "bedrijf/takenlijst", component: ListTasksComponent },
   { path: "bedrijf/takenlijst/taakToevoegen", component: AddTaskComponent },
+  { path: "bedrijf/takenlijst/taakVerwijderen/:id", component: RemoveTaskComponent },
   {
     path: "bedrijf/takenlijst/taakWijzigen/:id",
     component: EditTasksComponent
   },
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
-  { path: "review/:assignId/:studentId", component: ReviewComponent }
+  { path: "review/:assignId/:studentId", component: ReviewComponent },
+
+  { path: "bedrijf/accountSettings", component: AccountSettingsComponent },
+  { path: "student/accountSettings", component: AccountSettingsComponent },
 ];
 
 @NgModule({

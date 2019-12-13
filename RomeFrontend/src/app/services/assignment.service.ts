@@ -97,7 +97,7 @@ export class AssignmentService {
   }
 
   deleteAssignment(id: number): Observable<Assignment[]> {
-    return this.http.get<Assignment[]>("https://localhost:5001/api/Assignments/" + id
+    return this.http.delete<Assignment[]>("https://localhost:5001/api/Assignments/" + id
     );
   }
 }
