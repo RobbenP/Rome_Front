@@ -38,7 +38,7 @@ user2: User;
           
          this._authenticateService.updateUser(this.user).subscribe();
          
-         this.router.navigate(['/login']);
+         this.router.navigate(['']);
         }
       );
       }

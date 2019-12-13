@@ -6,6 +6,7 @@ import { Tag } from "../models/tag.model";
 import { Review } from "../models/review.model";
 import { User } from '../models/user.model';
 import { UserAssignments } from '../models/user-assignments.model';
+import { Assignmenttag } from '../models/assignmenttag.model';
 
 @Injectable({
   providedIn: "root"
@@ -102,5 +103,10 @@ export class AssignmentService {
   deleteAssignment(id: number): Observable<Assignment[]> {
     return this.http.delete<Assignment[]>("https://localhost:5001/api/Assignments/" + id
     );
+  }
+
+  addAssignmentTag(assignmentag: Assignmenttag){
+    console.log(assignmentag);
+    return this.http.post<Assignmenttag>("https://localhost:5001/api/AssignmentTags", assignmentag);
   }
 }

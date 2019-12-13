@@ -8,6 +8,7 @@ import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { Assignmenttag } from 'src/app/models/assignmenttag.model';
 
 @Component({
   selector: 'app-edit-tasks',
@@ -19,10 +20,10 @@ export class EditTasksComponent implements OnInit {
   tags: Tag[];
   keuzeTags: Tag[];
   assignmentModel : Assignment;
- 
+  assignmentTag: Assignmenttag;
   tagID: number;
   keuzeTagID: number;
-
+assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   users : User[];
   private routeSub: Subscription;
   AssignmentID = 0
@@ -80,29 +81,30 @@ export class EditTasksComponent implements OnInit {
   kiesTag() {
     console.log(this.keuzeTagID);
     console.log(this.AssignmentID);
+   this.assignmenttag1.assignmentID = this.AssignmentID;
+   this.assignmenttag1.tagID = this.keuzeTagID;
+   this.assignmenttag1.assignmentTagID = 0;
+   console.log(this.assignmenttag1);
+    this.assignService.addAssignmentTag(this.assignmenttag1).subscribe(
+      r=>{window.location.reload();
+      });
+  
   }
 
   getTags() {
     this.assignService.getTags(this.AssignmentID).subscribe(
       result => {
         this.tags = result
-        this.tagID = result[0].tagID
-        this.tagService.getTags().subscribe(
-          result => {
-            this.keuzeTags = result
-            for (let keuzeTag of this.keuzeTags) {
-              if (this.tags.filter(tag => tag.text == keuzeTag.text)){
-                console.log("YAYAYAYYAYAYYAYYAYAAYYAYA")
-                delete this.keuzeTags[keuzeTag.tagID]
-              }
-            }
-            if (!this.tags.includes(result[0])){
-              this.keuzeTagID = result[0].tagID
-            }
-          }
-        )
+       
+       
+        
       }
     );
+    this.assignService.getAllTags().subscribe(
+      result => {
+        this.keuzeTags = result;
+      }
+    )
   }  
 
   Aanvaarden(assignmentID: number, userID: number){
