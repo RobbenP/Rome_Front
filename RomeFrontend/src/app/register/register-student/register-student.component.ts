@@ -29,10 +29,10 @@ export class RegisterStudentComponent implements OnInit {
     nickname: ["", Validators.required],
     name: ["", Validators.required],
     birthDay: ["", Validators.required],
-    biography:[""],
-    linkedIn:[""],
-    experience:[""],
-    phonenumber:[""]
+    biography: [""],
+    linkedIn: [""],
+    experience: [""],
+    phonenumber: [""]
   });
 
   get f() {
@@ -40,17 +40,23 @@ export class RegisterStudentComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.registerForm.value);
-    this._authenticateService.addStudent(this.registerForm.value).subscribe(result => {
-      this.model = result;
-      this._authenticateService
-        .getUser(Number(localStorage.getItem("userID")))
-        .subscribe(result => {
-          this.user = result;
-          this.user.studentID = this.model.studentID;
-          this._authenticateService.updateUser(this.user).subscribe();
-          this.router.navigate([""]);
-        });
-    });
+    this._authenticateService
+      .addStudent(this.registerForm.value)
+      .subscribe(result => {
+        this.model = result;
+        this._authenticateService
+          .getUser(Number(localStorage.getItem("userID")))
+          .subscribe(result => {
+            this.user = result;
+            this.user.studentID = this.model.studentID;
+            this._authenticateService.updateUser(this.user).subscribe();
+            localStorage.removeItem("unfinishedRegister");
+            this.router.navigate([""]);
+          });
+      });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    if(localStorage.getItem("unfinishedRegister")!="student") this.router.navigate([""])
+
+  }
 }
