@@ -54,22 +54,24 @@
     </div>
   </div>
   <div class="row mb-5">
-      <div class="col-5">
-        <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
-        <ng-template #elseBlock
-          ><button (click)="signup()" class="btn btn-primary">
-            Meld aan voor opdracht
-          </button></ng-template
-        >
-        <ng-template #thenBlock
-          ><button disabled class="btn btn-danger">
-            Opdracht is al volzet
-          </button></ng-template
-        >
-      </div>
-      <div class="col-5" *ngIf="accepted">
-        <button class="btn btn-primary" (click)="goReview()">Schrijf review over bedrijf</button>
-      </div>
+    <div class="col-5">
+      <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
+      <ng-template #elseBlock
+        ><button (click)="signup()" class="btn btn-primary">
+          Meld aan voor opdracht
+        </button></ng-template
+      >
+      <ng-template #thenBlock
+        ><button disabled class="btn btn-danger">
+          Opdracht is al volzet
+        </button></ng-template
+      >
     </div>
-        <hr />
+    <div class="col-5" *ngIf="accepted">
+      <button class="btn btn-primary" (click)="goReview()">
+        Schrijf review over bedrijf
+      </button>
+    </div>
+  </div>
+  <hr />
 </div>

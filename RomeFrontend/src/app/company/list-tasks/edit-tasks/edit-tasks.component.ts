@@ -28,8 +28,8 @@ export class EditTasksComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private assignService: AssignmentService,
+    private route: ActivatedRoute, 
+    private assignService: AssignmentService, 
     private companyService: CompanyService
   ) { }
 
@@ -85,7 +85,11 @@ export class EditTasksComponent implements OnInit {
 
   Aanvaarden(assignmentID: number, userID: number){
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-    
+    window.location.reload();
+  }
+  Weigeren(assignmentID: number, userID: number){
+    this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
+    window.location.reload();
   }
 };
 

@@ -13,6 +13,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { ListUsersComponent } from "./admin/list-users/list-users.component";
 import { ListTasksAdminComponent } from "./admin/list-tasks-admin/list-tasks-admin.component";
 import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-admin/detail-task-admin.component";
+import { UserAdminReviewComponent } from "./admin/list-users/user-admin-review/user-admin-review.component";
 
 import { StudentComponent } from "./student/student.component";
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
@@ -29,6 +30,8 @@ import { RemoveTaskComponent } from "./company/list-tasks/remove-task/remove-tas
 
 
 
+import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
+import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "registreer", component: RegisterComponent },
@@ -54,6 +57,9 @@ const routes: Routes = [
 
   { path: "bedrijf/accountSettings", component: AccountSettingsComponent },
   { path: "student/accountSettings", component: AccountSettingsComponent },
+  {path:"infoBedrijf/:id", component:InfoBedrijfComponent},
+  { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent},
+  { path: "admin/reviewsGebruiker/:id", component: UserAdminReviewComponent}
 ];
 
 @NgModule({
