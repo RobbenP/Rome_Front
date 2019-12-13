@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 import { UserService } from "src/app/services/user.service";
 import { Review } from "src/app/models/review.model";
 import { ReviewService } from 'src/app/services/review.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: "app-review",
   templateUrl: "./review.component.html",
@@ -15,7 +15,7 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class ReviewComponent implements OnInit {
   AssignmentID: number;
-  myUserID: number;
+  geschrevenID: number;
   iAmStudent: boolean;
   assingment: Observable<Assignment>;
   whoToReviewUserId: number;
@@ -28,7 +28,8 @@ export class ReviewComponent implements OnInit {
     private route: ActivatedRoute,
     private assignService: AssignmentService,
     private userService: UserService,
-    private reviewService:ReviewService
+    private reviewService:ReviewService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -40,23 +41,19 @@ export class ReviewComponent implements OnInit {
           this.reviewService.getReview(this.reviewId).subscribe(
             result => {
               this.reviewText = result.reviewText;
-              this.myUserID = result.userPlacerID;
+              this.geschrevenID = result.userPlacerID;
               this.whoToReviewUserId = result.userRecieverID;
             }
           )
         }
       })
 
-      this.route.params.subscribe(params => {
-        this.myUserID = params["studentId"];
-        this.iAmStudent = true;
-        
-      }
       
-      )
+      
+      
     }else 
     {
-      this.myUserID = +localStorage.getItem("userID");
+      this.geschrevenID = +localStorage.getItem("userID");
       this.iAmStudent = +localStorage.getItem("roleID") == 3;
       this.reviewId = 0;
     }
@@ -96,7 +93,7 @@ export class ReviewComponent implements OnInit {
     let review: Review = new Review(
       this.reviewId,
       this.reviewText,
-      this.myUserID,
+      this.geschrevenID,
       Number(this.whoToReviewUserId),
       this.AssignmentID
     );
@@ -104,17 +101,16 @@ export class ReviewComponent implements OnInit {
     if(this.reviewId != 0)
     {
       this.reviewService.updateReview(review).subscribe(
-        r=>{this.router.navigateByUrl('admin/reviewsGebruiker/' + this.myUserID);}
+        
       );
       
     }else
     {
       this.reviewService.addReview(review).subscribe(
-        r=>{this.router.navigateByUrl("/");
-        }
+       
       );
       
     }
-    
+    this.location.back();
   }
 }

@@ -26,6 +26,7 @@ export class EditTasksComponent implements OnInit {
   keuzeTagID: number;
 assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   users : User[];
+  acceptedUsers: User[];
   private routeSub: Subscription;
   AssignmentID = 0
  
@@ -75,6 +76,11 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
         this.assignService.getPendingAssignmentsBedrijfGebruikers(this.assignmentModel.assignmentID).subscribe(
          result =>{
           this.users = result;
+          this.assignService.getAcceptedAssignmentsBedrijfGebruikers(this.assignmentModel.assignmentID).subscribe(
+            r => {
+              this.acceptedUsers = r;
+            }
+          )
          } 
         )
       });
@@ -113,6 +119,11 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
     
   }
+  Weigeren(assignmentID: number, userID: number){
+    this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
+    window.location.reload();
+  }
+
 };
 
 

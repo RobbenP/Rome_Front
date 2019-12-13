@@ -17,6 +17,7 @@ export class UserDetailsBedrijfComponent implements OnInit {
   private routeSub: Subscription;
   studentID: 0;
   userID:0;
+  assignmentID:0;
   studentModel: Student;
   userModel: User;
   reviewsStudent: Review[];
@@ -29,15 +30,17 @@ export class UserDetailsBedrijfComponent implements OnInit {
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
 
-      this.userID = params['id']
+      this.userID = params['id'];
+      this.assignmentID = params['assignmentID'];
       this.userService.getUser(this.userID).subscribe(
         result => {
           this.userModel = result;
+          console.log(this.studentModel);
           this.userService.getStudent(this.userModel.studentID).subscribe(
             result =>{
               this.studentModel = result;
               console.log(this.studentModel);
-              this.reviewService.getReviewsFromUser(this.userModel.userID).subscribe(
+              this.reviewService.getReviewsAboutUser(this.userModel.userID).subscribe(
                 result => {
                   this.reviewsStudent = result;
                 }
@@ -53,4 +56,10 @@ export class UserDetailsBedrijfComponent implements OnInit {
   back(){
     this.location.back();
   }
+  goReview() {
+    this.router.navigateByUrl(
+      "/reviewStudent/"  + this.assignmentID + "/" + this.userModel.userID + "/" + localStorage.getItem("userID")
+    );
+  }
+  
 }

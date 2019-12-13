@@ -56,11 +56,11 @@ const routes: Routes = [
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
   { path: "review/:assignId/:studentId", component: ReviewComponent },
   { path: "review/:assignId/:studentId/:reviewId", component: ReviewComponent },
-
+  { path: "reviewStudent/:assignId/:studentId/:companyID", component: ReviewComponent },
   { path: "bedrijf/accountSettings", component: AccountSettingsComponent },
   { path: "student/accountSettings", component: AccountSettingsComponent },
   {path:"infoBedrijf/:id", component:InfoBedrijfComponent},
-  { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent},
+  { path: "bedrijf/studentDetail/:id/:assignmentID", component: UserDetailsBedrijfComponent},
   { path: "admin/reviewsGebruiker/:id", component: UserAdminReviewComponent},
   { path: "admin/userDetails/:id", component: UserAdminDetailsComponent}
 ];
