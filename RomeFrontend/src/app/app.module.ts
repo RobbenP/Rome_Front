@@ -31,6 +31,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
+import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details/user-admin-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/u
     AccountSettingsComponent,
     InfoBedrijfComponent,
     UserDetailsBedrijfComponent,
-    UserAdminReviewComponent
+    UserAdminReviewComponent,
+    UserAdminDetailsComponent
   ],
   imports: [
     BrowserModule,
