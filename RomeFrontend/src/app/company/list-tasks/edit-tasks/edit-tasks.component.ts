@@ -6,6 +6,7 @@ import { CompanyService } from "src/app/services/company.service";
 import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
 import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-edit-tasks',
@@ -16,7 +17,9 @@ export class EditTasksComponent implements OnInit {
   submitted: boolean = false;
   tags: Tag[];
   assignmentModel : Assignment;
+ 
 
+  users : User[];
   private routeSub: Subscription;
   AssignmentID = 0
  
@@ -61,7 +64,11 @@ export class EditTasksComponent implements OnInit {
     this.assignService.getAssignement(this.AssignmentID).subscribe
       (data => {
         this.assignmentModel = data;
-        
+        this.assignService.getPendingAssignmentsBedrijfGebruikers(this.assignmentModel.assignmentID).subscribe(
+         result =>{
+          this.users = result;
+         } 
+        )
       });
   }
 
@@ -74,6 +81,11 @@ export class EditTasksComponent implements OnInit {
         console.log("TAG")
       }
     );
+  }
+
+  Aanvaarden(assignmentID: number, userID: number){
+    this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID);
+    
   }
 };
 

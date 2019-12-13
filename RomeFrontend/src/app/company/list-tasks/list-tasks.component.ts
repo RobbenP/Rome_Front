@@ -22,12 +22,12 @@ export class ListTasksComponent implements OnInit {
 
   ngOnInit() {
     this.getAssignments();
-    this._assignmentService.getPendingAssignmentsBedrijfGebruikers().subscribe(
-      result => {
-        this.pendingAssignments = result;
-        console.log(this.pendingAssignments);
-      }
-    )
+  //  this._assignmentService.getPendingAssignmentsBedrijfGebruikers().subscribe(
+ //     result => {
+  //      this.pendingAssignments = result;
+  //      console.log(this.pendingAssignments);
+  //    }
+ //   )
     this._assignmentService.getPendingAssignmentsBedrijf().subscribe(
       result => {
         this.userAssignments = result;
