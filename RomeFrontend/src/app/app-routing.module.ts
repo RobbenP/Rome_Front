@@ -25,6 +25,11 @@ import { AddTaskComponent } from "./company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-task.component";
 import { EditTasksComponent } from "./company/list-tasks/edit-tasks/edit-tasks.component";
 import { ReviewComponent } from "./review/review/review.component";
+import { AccountSettingsComponent } from "./account-settings/account-settings.component";
+import { RemoveTaskComponent } from "./company/list-tasks/remove-task/remove-task.component";
+
+
+
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 const routes: Routes = [
@@ -42,6 +47,7 @@ const routes: Routes = [
   { path: "bedrijf", component: CompanyComponent },
   { path: "bedrijf/takenlijst", component: ListTasksComponent },
   { path: "bedrijf/takenlijst/taakToevoegen", component: AddTaskComponent },
+  { path: "bedrijf/takenlijst/taakVerwijderen/:id", component: RemoveTaskComponent },
   {
     path: "bedrijf/takenlijst/taakWijzigen/:id",
     component: EditTasksComponent
@@ -49,6 +55,9 @@ const routes: Routes = [
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
   { path: "review/:assignId/:studentId", component: ReviewComponent },
   { path: "review/:assignId/:studentId/:reviewId", component: ReviewComponent },
+
+  { path: "bedrijf/accountSettings", component: AccountSettingsComponent },
+  { path: "student/accountSettings", component: AccountSettingsComponent },
   {path:"infoBedrijf/:id", component:InfoBedrijfComponent},
   { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent},
   { path: "admin/reviewsGebruiker/:id", component: UserAdminReviewComponent}
