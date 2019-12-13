@@ -26,8 +26,12 @@ import { ListTasksAdminComponent } from "./admin/list-tasks-admin/list-tasks-adm
 import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-admin/detail-task-admin.component";
 import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
+import { RemoveTaskComponent } from './company/list-tasks/remove-task/remove-task.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
+import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +52,11 @@ import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/use
     EditTasksComponent,
     ListTasksAdminComponent,
     DetailTaskAdminComponent,
+    RemoveTaskComponent,
+    AccountSettingsComponent,
     InfoBedrijfComponent,
-    UserDetailsBedrijfComponent
+    UserDetailsBedrijfComponent,
+    UserAdminReviewComponent
   ],
   imports: [
     BrowserModule,

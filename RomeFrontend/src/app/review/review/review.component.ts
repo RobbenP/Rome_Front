@@ -42,7 +42,7 @@ export class ReviewComponent implements OnInit {
       } else {
         this.assingment.subscribe(r => {
           this.whoToReviewUserId = r.companyID;
-          this.whoToReview = this.userService.getUser(this.whoToReviewUserId);
+          this.whoToReview = this.userService.getCompany(this.whoToReviewUserId);
         });
       }
     });
