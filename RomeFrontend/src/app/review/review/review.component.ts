@@ -15,7 +15,7 @@ import {Location} from '@angular/common';
 })
 export class ReviewComponent implements OnInit {
   AssignmentID: number;
-  geschrevenID: number;
+  myUserID: number;
   iAmStudent: boolean;
   assingment: Observable<Assignment>;
   whoToReviewUserId: number;
@@ -41,19 +41,19 @@ export class ReviewComponent implements OnInit {
           this.reviewService.getReview(this.reviewId).subscribe(
             result => {
               this.reviewText = result.reviewText;
-              this.geschrevenID = result.userPlacerID;
+              this.myUserID = result.userPlacerID;
               this.whoToReviewUserId = result.userRecieverID;
             }
           )
         }
       })
 
-      
+     
       
       
     }else 
     {
-      this.geschrevenID = +localStorage.getItem("userID");
+      this.myUserID = +localStorage.getItem("userID");
       this.iAmStudent = +localStorage.getItem("roleID") == 3;
       this.reviewId = 0;
     }
@@ -93,7 +93,7 @@ export class ReviewComponent implements OnInit {
     let review: Review = new Review(
       this.reviewId,
       this.reviewText,
-      this.geschrevenID,
+      this.myUserID,
       Number(this.whoToReviewUserId),
       this.AssignmentID
     );
@@ -101,7 +101,7 @@ export class ReviewComponent implements OnInit {
     if(this.reviewId != 0)
     {
       this.reviewService.updateReview(review).subscribe(
-        
+        r=>{this.router.navigateByUrl('admin/reviewsGebruiker/' + this.myUserID);}
       );
       
     }else
@@ -109,8 +109,8 @@ export class ReviewComponent implements OnInit {
       this.reviewService.addReview(review).subscribe(
        
       );
-      
+      this.location.back();
     }
-    this.location.back();
+    
   }
 }
