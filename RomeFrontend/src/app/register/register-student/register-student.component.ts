@@ -25,7 +25,7 @@ export class RegisterStudentComponent implements OnInit {
             this.user = result;
             this.user.studentID = this.model.studentID;
             this._authenticateService.updateUser(this.user).subscribe();
-            this.router.navigate(['/login']);
+            this.router.navigate(['']);
           }
         )
       }
