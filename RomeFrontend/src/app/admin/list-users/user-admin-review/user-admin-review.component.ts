@@ -4,6 +4,9 @@ import { UserService } from 'src/app/services/user.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { Review } from 'src/app/models/review.model';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { Assignment } from 'src/app/models/assignment.model';
+import { AssignmentService } from 'src/app/services/assignment.service';
 
 @Component({
   selector: 'app-user-admin-review',
@@ -14,11 +17,15 @@ export class UserAdminReviewComponent implements OnInit {
 reviewFromModel: Review[];
 reviewAboutModel: Review[];
 userID:0;
+users: User[];
+assignments: Assignment[];
+
 private routeSub: Subscription;
   constructor(private router: Router,
     private route: ActivatedRoute, 
     private reviewService: ReviewService,
-    private location: Location) { }
+    private userService: UserService,
+    private assignmentService: AssignmentService) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
@@ -27,6 +34,16 @@ private routeSub: Subscription;
     this.reviewService.getReviewsFromUser(this.userID).subscribe(
       result => {
         this.reviewFromModel = result;
+        this.userService.getUsers().subscribe(
+          result => {
+            this.users = result;
+            this.assignmentService.getAssignments().subscribe(
+              result => {
+                this.assignments = result;
+              }
+            )
+          }
+        )
       }
       
     )
@@ -35,6 +52,8 @@ private routeSub: Subscription;
         this.reviewAboutModel = result;
       }
     )
+    
+   
   }
-
+ 
 }

@@ -3,7 +3,7 @@ export class Review {
     public reviewID: number,
     public reviewText: string,
     public userPlacerID: number,
-    public userReceiverID: number,
+    public userRecieverID: number,
     public assignmentID: number
   ) {}
 }
