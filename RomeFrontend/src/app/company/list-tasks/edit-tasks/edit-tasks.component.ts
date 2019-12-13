@@ -8,6 +8,8 @@ import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { Assignmenttag } from 'src/app/models/assignmenttag.model';
+import { AssignmenttagService } from 'src/app/services/assignmenttag.service'
 
 @Component({
   selector: 'app-edit-tasks',
@@ -19,6 +21,7 @@ export class EditTasksComponent implements OnInit {
   tags: Tag[];
   keuzeTags: Tag[];
   assignmentModel : Assignment;
+  assignmentTagModel: Assignmenttag;
  
   tagID: number;
   keuzeTagID: number;
@@ -35,7 +38,8 @@ export class EditTasksComponent implements OnInit {
     private route: ActivatedRoute,
     private assignService: AssignmentService,
     private companyService: CompanyService,
-    private tagService: TagService
+    private tagService: TagService,
+    private assignmentTagSevice: AssignmenttagService
   ) { }
 
   ngOnInit() {
@@ -78,8 +82,11 @@ export class EditTasksComponent implements OnInit {
   }
 
   kiesTag() {
-    console.log(this.keuzeTagID);
-    console.log(this.AssignmentID);
+    this.assignmentTagModel.assignmentID = this.AssignmentID;
+    this.assignmentTagModel.tagID = this.keuzeTagID;
+    this.assignmentTagSevice.addAssignementTag(this.assignmentTagModel).subscribe( result => {
+      this.router.navigate(['/bedrijf/takenlijst/taakWijzigen/' + this.AssignmentID])
+    });
   }
 
   getTags() {
@@ -91,7 +98,7 @@ export class EditTasksComponent implements OnInit {
           result => {
             this.keuzeTags = result
             for (let keuzeTag of this.keuzeTags) {
-              if (this.tags.filter(tag => tag.text == keuzeTag.text)){
+              if (this.tags.includes(keuzeTag, 0)){
                 console.log("YAYAYAYYAYAYYAYYAYAAYYAYA")
                 delete this.keuzeTags[keuzeTag.tagID]
               }
