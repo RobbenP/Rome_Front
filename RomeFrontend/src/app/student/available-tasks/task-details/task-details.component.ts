@@ -97,6 +97,7 @@ export class TaskDetailsComponent implements OnInit {
       "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
     );
   }
+  
   public static hslToHex(h, s, l) {
     h /= 360;
     s /= 100;
