@@ -1,0 +1,23 @@
+<div class="container h-100 mt-5">
+    
+    <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Naam maker:</div>
+       
+        <div class=" card col-7 font-weight-medium">
+            <div >{{studentModel.nickname}}</div>
+      </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Ervaring</div>
+        <div class="card col-7 font-weight-medium">
+            <div  >{{studentModel.experience}}</div>
+      </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Reviews:</div>
+       
+        <div class="card col-7 font-weight-medium" *ngFor="let review of reviewsStudent">
+            <div>{{review.reviewText}}</div>
+        </div>
+    </div>
+</div>
