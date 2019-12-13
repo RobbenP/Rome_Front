@@ -87,7 +87,10 @@ export class AssignmentService {
   {
     return this.http.put("https://localhost:5001/api/UserAssignments/Bedrijf/Acceptatie/" + assignmentID  +"/" + userID, userID);
   }
-
+  deleteBedrijfAcceptedUserAssignment(assignmentID: number, userID: number)
+  {
+    return this.http.delete("https://localhost:5001/api/UserAssignments/Bedrijf/Weigering/" + assignmentID  +"/" + userID);
+  }
 
   getPendingAssignmentsBedrijf():Observable<UserAssignments[]>{
     return this.http.get<UserAssignments[]>("https://localhost:5001/api/UserAssignments/pendingBedrijf/")

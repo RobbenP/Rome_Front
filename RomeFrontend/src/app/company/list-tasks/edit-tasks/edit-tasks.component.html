@@ -4,7 +4,7 @@
             <h4>Gebruikers die zich aangemeld hebben voor de opdracht</h4>
             <p (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">{{user.username}}</p>
             <button class="btn btn-success btn-block" (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
-            <button class="btn btn-danger btn-block" (click)="Weigeren()">Weigeren</button>
+            <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
        </div>
        
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
