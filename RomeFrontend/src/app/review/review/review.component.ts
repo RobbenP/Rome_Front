@@ -103,7 +103,7 @@ export class ReviewComponent implements OnInit {
     }else
     {
       this.reviewService.updateReview(review).subscribe(
-        r=>{}
+        r=>{this.router.navigateByUrl('admin/reviewsGebruiker/' + this.myUserID);}
       );
       
     }
