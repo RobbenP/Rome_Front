@@ -25,8 +25,8 @@ export class EditTasksComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private assignService: AssignmentService,
+    private route: ActivatedRoute, 
+    private assignService: AssignmentService, 
     private companyService: CompanyService
   ) { }
 

@@ -26,6 +26,7 @@ import { ListTasksAdminComponent } from "./admin/list-tasks-admin/list-tasks-adm
 import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-admin/detail-task-admin.component";
 import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
+import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ReviewModule } from "./review/review.module";
     StudentComponent,
     EditTasksComponent,
     ListTasksAdminComponent,
-    DetailTaskAdminComponent
+    DetailTaskAdminComponent,
+    InfoBedrijfComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,7 @@ import { AddTaskComponent } from "./company/list-tasks/add-task/add-task.compone
 import { DetailTaskComponent } from "./company/list-tasks/detail-task/detail-task.component";
 import { EditTasksComponent } from "./company/list-tasks/edit-tasks/edit-tasks.component";
 import { ReviewComponent } from "./review/review/review.component";
+import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
     component: EditTasksComponent
   },
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
-  { path: "review/:assignId/:studentId", component: ReviewComponent }
+  { path: "review/:assignId/:studentId", component: ReviewComponent },
+  {path:"infoBedrijf/:id", component:InfoBedrijfComponent}
 ];
 
 @NgModule({
