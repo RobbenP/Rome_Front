@@ -9,6 +9,7 @@ import { Tag } from "src/app/models/tag.model";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Assignmenttag } from 'src/app/models/assignmenttag.model';
+import { AssignmenttagService } from 'src/app/services/assignmenttag.service'
 
 @Component({
   selector: 'app-edit-tasks',
@@ -36,7 +37,8 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
     private route: ActivatedRoute,
     private assignService: AssignmentService,
     private companyService: CompanyService,
-    private tagService: TagService
+    private tagService: TagService,
+    private assignmentTagSevice: AssignmenttagService
   ) { }
 
   ngOnInit() {
