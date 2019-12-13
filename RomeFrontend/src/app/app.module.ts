@@ -27,6 +27,7 @@ import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-a
 import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
+import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.compon
     EditTasksComponent,
     ListTasksAdminComponent,
     DetailTaskAdminComponent,
-    InfoBedrijfComponent
+    InfoBedrijfComponent,
+    UserDetailsBedrijfComponent
   ],
   imports: [
     BrowserModule,

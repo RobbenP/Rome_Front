@@ -85,10 +85,11 @@ export class EditTasksComponent implements OnInit {
 
   Aanvaarden(assignmentID: number, userID: number){
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-    
+    window.location.reload();
   }
   Weigeren(assignmentID: number, userID: number){
     this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
+    window.location.reload();
   }
 };
 
