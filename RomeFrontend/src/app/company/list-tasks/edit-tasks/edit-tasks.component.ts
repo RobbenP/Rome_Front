@@ -84,7 +84,7 @@ export class EditTasksComponent implements OnInit {
   }
 
   Aanvaarden(assignmentID: number, userID: number){
-    this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID);
+    this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
     
   }
 };
