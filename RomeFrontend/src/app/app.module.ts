@@ -28,6 +28,8 @@ import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
+import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,8 @@ import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/use
     ListTasksAdminComponent,
     DetailTaskAdminComponent,
     InfoBedrijfComponent,
-    UserDetailsBedrijfComponent
+    UserDetailsBedrijfComponent,
+    UserAdminReviewComponent
   ],
   imports: [
     BrowserModule,

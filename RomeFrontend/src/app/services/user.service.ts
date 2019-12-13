@@ -5,6 +5,7 @@ import { User } from "../models/user.model";
 import { Tag } from '../models/tag.model';
 import { Review } from '../models/review.model';
 import { Student } from '../models/student.model';
+import { Company } from '../models/company.model';
 
 @Injectable({
   providedIn: "root"
@@ -20,6 +21,11 @@ export class UserService {
   getUser(userId:number): Observable<User> {
     return this.http.get<User>(
       "https://localhost:5001/api/Users/"+userId
+    );
+  }
+  getCompany(companyID: number): Observable<User> {
+    return this.http.get<User>(
+      "https://localhost:5001/api/Users/Bedrijf/"+companyID
     );
   }
   getStudent(studentID: number): Observable<Student>{

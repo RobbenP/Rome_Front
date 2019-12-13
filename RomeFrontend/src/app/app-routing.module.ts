@@ -13,6 +13,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { ListUsersComponent } from "./admin/list-users/list-users.component";
 import { ListTasksAdminComponent } from "./admin/list-tasks-admin/list-tasks-admin.component";
 import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-admin/detail-task-admin.component";
+import { UserAdminReviewComponent } from "./admin/list-users/user-admin-review/user-admin-review.component";
 
 import { StudentComponent } from "./student/student.component";
 import { AvailableTasksComponent } from "./student/available-tasks/available-tasks.component";
@@ -48,7 +49,8 @@ const routes: Routes = [
   { path: "bedrijf/takenlijst/detailtaak/:id", component: DetailTaskComponent },
   { path: "review/:assignId/:studentId", component: ReviewComponent },
   {path:"infoBedrijf/:id", component:InfoBedrijfComponent},
-  { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent}
+  { path: "bedrijf/studentDetail/:id", component: UserDetailsBedrijfComponent},
+  { path: "admin/reviewsGebruiker/:id", component: UserAdminReviewComponent}
 ];
 
 @NgModule({
