@@ -43,7 +43,7 @@
                 
             <p>Voeg een tag toe:</p> 
             <!--  <select (change)="kiesSpeellijst($event.target.toString())"> -->
-                
+                 
     
                     <select  name="tag" [(ngModel)]="keuzeTagID"  >
                       <option *ngFor="let t of keuzeTags" name="t.tagID" [ngValue]="t.tagID" >{{t.text}}</option>
