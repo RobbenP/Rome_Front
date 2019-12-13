@@ -68,6 +68,7 @@
         <div class="col-4 card" *ngFor="let review of (reviews | async)">
           <div class="row">
             <div class="col-12 mb-1">{{ review.reviewText }}</div>
+            <div class="col-12 mb-1 text-right">{{ review.user.username }}</div>
           </div>
         </div>
       </div>
