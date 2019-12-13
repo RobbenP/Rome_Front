@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Assignment } from "src/app/models/assignment.model";
 import { AssignmentService } from "src/app/services/assignment.service";
+import { TagService } from "src/app/services/tag.service";
 import { CompanyService } from "src/app/services/company.service";
 import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
@@ -16,8 +17,11 @@ import { User } from 'src/app/models/user.model';
 export class EditTasksComponent implements OnInit {
   submitted: boolean = false;
   tags: Tag[];
+  keuzeTags: Tag[];
   assignmentModel : Assignment;
  
+  tagID: number;
+  keuzeTagID: number;
 
   users : User[];
   private routeSub: Subscription;
@@ -28,9 +32,10 @@ export class EditTasksComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute, 
-    private assignService: AssignmentService, 
-    private companyService: CompanyService
+    private route: ActivatedRoute,
+    private assignService: AssignmentService,
+    private companyService: CompanyService,
+    private tagService: TagService
   ) { }
 
   ngOnInit() {
@@ -72,24 +77,37 @@ export class EditTasksComponent implements OnInit {
       });
   }
 
+  kiesTag() {
+    console.log(this.keuzeTagID);
+    console.log(this.AssignmentID);
+  }
+
   getTags() {
     this.assignService.getTags(this.AssignmentID).subscribe(
       result => {
         this.tags = result
-        console.log("TAG")
-        console.log(this.tags)
-        console.log("TAG")
+        this.tagID = result[0].tagID
+        this.tagService.getTags().subscribe(
+          result => {
+            this.keuzeTags = result
+            for (let keuzeTag of this.keuzeTags) {
+              if (this.tags.filter(tag => tag.text == keuzeTag.text)){
+                console.log("YAYAYAYYAYAYYAYYAYAAYYAYA")
+                delete this.keuzeTags[keuzeTag.tagID]
+              }
+            }
+            if (!this.tags.includes(result[0])){
+              this.keuzeTagID = result[0].tagID
+            }
+          }
+        )
       }
     );
-  }
+  }  
 
   Aanvaarden(assignmentID: number, userID: number){
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-    window.location.reload();
-  }
-  Weigeren(assignmentID: number, userID: number){
-    this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-    window.location.reload();
+    
   }
 };
 
