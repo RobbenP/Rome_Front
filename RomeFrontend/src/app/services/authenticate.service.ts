@@ -61,6 +61,9 @@ export class AuthenticateService {
   getUser(id: number):Observable<User> {
     return this._httpClient.get<User>("https://localhost:5001/api/Users/"+ id);
   }
+  getUsers():Observable<User[]>{
+    return this._httpClient.get<User[]>("https://localhost:5001/api/Users");
+  }
   updateUser(user: User){
     return this._httpClient.put("https://localhost:5001/api/Users/" + user.userID, user);
   }
