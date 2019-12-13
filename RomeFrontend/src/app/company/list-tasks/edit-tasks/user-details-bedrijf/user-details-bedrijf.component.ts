@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user.model';
 import { Student } from 'src/app/models/student.model';
 import { ReviewService } from 'src/app/services/review.service';
 import { Review } from 'src/app/models/review.model';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-user-details-bedrijf',
   templateUrl: './user-details-bedrijf.component.html',
@@ -24,7 +24,8 @@ export class UserDetailsBedrijfComponent implements OnInit {
     private route: ActivatedRoute, 
     private assignService: AssignmentService,
     private userService: UserService,
-    private reviewService: ReviewService) { }
+    private reviewService: ReviewService,
+    private location: Location) { }
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
 
@@ -49,4 +50,7 @@ export class UserDetailsBedrijfComponent implements OnInit {
     });
   }
 
+  back(){
+    this.location.back();
+  }
 }
