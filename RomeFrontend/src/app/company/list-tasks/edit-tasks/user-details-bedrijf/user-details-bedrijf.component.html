@@ -21,8 +21,8 @@
         </div>
     </div>
    
-    <div class="row mb-5">
-        <button (click)="goReview()" class="btn btn-primary">Review schrijven</button>  
+    <div class="row mb-5" >
+        <button *ngIf="assignmentID != null" (click)="goReview()" class="btn btn-primary">Review schrijven</button>  
         <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
        
         
