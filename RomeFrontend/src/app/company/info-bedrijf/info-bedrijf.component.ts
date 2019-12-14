@@ -16,9 +16,9 @@ import { Review } from "src/app/models/review.model";
 })
 export class InfoBedrijfComponent implements OnInit {
   userId: number;
-  user: Observable<User>;
-  bedrijf: Observable<Company>;
-  reviews: Observable<Review[]>;
+  user: User;
+  bedrijf: Company;
+  reviews: Review[];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -28,36 +28,40 @@ export class InfoBedrijfComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.userId = params["id"];
-      this.user = this.userService.getUser(this.userId);
-      this.user.subscribe(r => {
-        this.bedrijf = this.companyService.getCompany(r.companyID);
-      });
-      this.reviews = this.reviewService.getReviewsAboutUser(this.userId);
-      this.reviews.subscribe(r => {
-        console.log("reviews");
-        console.log(r);
-      });
-    });
+    this.user = this.route.snapshot.data["data"][0];
+    this.bedrijf = this.route.snapshot.data["data"][1];
+    this.reviews = this.route.snapshot.data["data"][2];
   }
-  log(test) {
-    console.log(test);
-  }
+
   mail() {
     let mail = document.createElement("a");
-    this.user.subscribe(r => {
-      mail.href = "mailto:" + r.email;
-      mail.click();
-      console.log(mail.href);
-    });
+
+    mail.href = "mailto:" + this.user.email;
+    mail.click();
+    console.log(mail.href);
   }
 
   call() {
     let cal = document.createElement("a");
-    this.bedrijf.subscribe(r => {
-      cal.href = "tel:" + r.phoneNumber;
-      cal.click();
-    });
+
+    cal.href = "tel:" + this.bedrijf.phoneNumber;
+    cal.click();
   }
+
+  // mail() {
+  //   let mail = document.createElement("a");
+  //   this.user.subscribe(r => {
+  //     mail.href = "mailto:" + r.email;
+  //     mail.click();
+  //     console.log(mail.href);
+  //   });
+  // }
+
+  // call() {
+  //   let cal = document.createElement("a");
+  //   this.bedrijf.subscribe(r => {
+  //     cal.href = "tel:" + r.phoneNumber;
+  //     cal.click();
+  //   });
+  // }
 }

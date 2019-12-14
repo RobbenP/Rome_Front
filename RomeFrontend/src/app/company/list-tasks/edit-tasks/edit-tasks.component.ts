@@ -10,7 +10,6 @@ import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Assignmenttag } from 'src/app/models/assignmenttag.model';
 import { AssignmenttagService } from 'src/app/services/assignmenttag.service'
-
 @Component({
   selector: 'app-edit-tasks',
   templateUrl: './edit-tasks.component.html',
@@ -29,10 +28,8 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   acceptedUsers: User[];
   private routeSub: Subscription;
   AssignmentID = 0
- 
+
   companyID = 0
-
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -41,34 +38,26 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
     private tagService: TagService,
     private assignmentTagSevice: AssignmenttagService
   ) { }
-
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
-
       this.AssignmentID = params['id']
-
     });
-
     this.getAssignment();
     this.getTags();
     console.log("ID")
     console.log(this.AssignmentID)
     console.log("ID")
-
     
     
   }
   onSubmit() {
-
     this.submitted = true;
     this.assignmentModel.assignmentID = this.AssignmentID
-
     console.log(this.assignmentModel)
     this.assignService.updateAssignment(this.assignmentModel).subscribe( result => {
       this.router.navigate(['/bedrijf/takenlijst'])
     });
   }
-
   getAssignment() {
     this.assignService.getAssignement(this.AssignmentID).subscribe
       (data => {
@@ -85,7 +74,6 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
         )
       });
   }
-
   kiesTag() {
     console.log(this.keuzeTagID);
     console.log(this.AssignmentID);
@@ -98,7 +86,6 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
       });
   
   }
-
   getTags() {
     this.assignService.getTags(this.AssignmentID).subscribe(
       result => {
@@ -114,10 +101,9 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
       }
     )
   }  
-
   Aanvaarden(assignmentID: number, userID: number){
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-    
+
   }
   Weigeren(assignmentID: number, userID: number){
     this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
@@ -125,5 +111,3 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   }
 
 };
-
-

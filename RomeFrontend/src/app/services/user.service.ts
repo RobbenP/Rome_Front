@@ -6,6 +6,7 @@ import { Tag } from '../models/tag.model';
 import { Review } from '../models/review.model';
 import { Student } from '../models/student.model';
 import { Company } from '../models/company.model';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: "root"
@@ -23,10 +24,18 @@ export class UserService {
       "https://localhost:5001/api/Users/"+userId
     );
   }
+  async getUserAsync(userId:number):Promise<User>{
+    return await this.http.get<User>("https://localhost:5001/api/Users/"+userId).toPromise();
+  }
   getCompany(companyID: number): Observable<User> {
     return this.http.get<User>(
       "https://localhost:5001/api/Users/Bedrijf/"+companyID
     );
+  }
+  async getCompanyAsync(companyID: number): Promise<User> {
+    return this.http.get<User>(
+      "https://localhost:5001/api/Users/Bedrijf/"+companyID
+    ).toPromise();
   }
   getBedrijf(companyID: number): Observable<Company>{
     return this.http.get<Company>(
@@ -38,7 +47,7 @@ export class UserService {
   }
   deleteUser(id: number): Observable<User[]> {
     return this.http.delete<User[]>(
-      "https://localhost:5001/api/Users" + id
+      "https://localhost:5001/api/Users/" + id
     );
   }
   updateUser(user: User) {

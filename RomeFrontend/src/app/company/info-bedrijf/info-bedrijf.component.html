@@ -1,18 +1,18 @@
 <div class="container-fluid h-100 mt-5">
   <div class="row mb-5 ">
     <div class="col-12 text-center">
-      <h2>{{ (bedrijf | async).companyname }}</h2>
+      <h2>{{ bedrijf.companyname }}</h2>
     </div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Gebruikersnaam:</div>
-    <div class="col-9">{{ (user | async).username }}</div>
+    <div class="col-9">{{ user.username }}</div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Email adres:</div>
     <div class="col-9">
       <a href="javascript: void(0);" (click)="mail()">{{
-        (user | async).email
+        user.email
       }}</a>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <div class="col-3 font-weight-bold">Telefoonnummer:</div>
     <div class="col-9">
       <a href="javascript: void(0);" (click)="call()">{{
-        (bedrijf | async).phonenumber
+        bedrijf.phonenumber
       }}</a>
     </div>
   </div>
@@ -28,22 +28,22 @@
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Website:</div>
     <div class="col-9">
-      <a [href]="(bedrijf | async).website" target="_blank">{{
-        (bedrijf | async).website
+      <a [href]="bedrijf.website" target="_blank">{{
+        bedrijf.website
       }}</a>
     </div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">
-      Over {{ (bedrijf | async).companyname }}:
+      Over {{ bedrijf.companyname }}:
     </div>
-    <div class="col-9">{{ (bedrijf | async).biography }}</div>
+    <div class="col-9">{{ bedrijf.biography }}</div>
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">
       Locaties:
     </div>
-    <div class="col-auto card" *ngFor="let loc of (bedrijf | async).locations">
+    <div class="col-auto card" *ngFor="let loc of bedrijf.locations">
       <div class="row">
         <div class="col-12 mb-1">{{ loc.adress }}</div>
         <div class="col-12">{{ loc.township }}</div>
@@ -54,7 +54,7 @@
     <div class="col-3 font-weight-bold">
       Opdrachten:
     </div>
-    <div class="col-4 card" *ngFor="let ass of (bedrijf | async).assignments">
+    <div class="col-4 card" *ngFor="let ass of bedrijf.assignments">
       <div class="row">
         <div class="col-12 mb-1">{{ ass.naam }}</div>
         <div class="col-12">{{ ass.omschrijving }}</div>
@@ -65,7 +65,7 @@
         <div class="col-3 font-weight-bold">
           Reviews:
         </div>
-        <div class="col-4 card" *ngFor="let review of (reviews | async)">
+        <div class="col-4 card" *ngFor="let review of reviews">
           <div class="row">
             <div class="col-12 mb-1">{{ review.reviewText }}</div>
             <div class="col-12 mb-1 text-right">{{ review.user.username }}</div>
