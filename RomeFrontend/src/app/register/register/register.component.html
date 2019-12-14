@@ -33,17 +33,17 @@
           </label>
         </div>
         <div class="form-group">
-          <input _ngcontent-c0="" [(ngModel)]="model.username" class="form-control form-control-lg"
+          <input _ngcontent-c0="" [(ngModel)]="model.username" class="form-control"
             placeholder="Gebruikersnaam" type="text" name="username" id="username" required />
           <div *ngIf="wroungUser" class="invalid-feedback d-block">Deze gebruikersnaam is al bezet, kies een andere!
           </div>
         </div>
         <div class="form-group">
-          <input _ngcontent-c0="" [(ngModel)]="model.email" class="form-control form-control-lg" placeholder="Email"
+          <input _ngcontent-c0="" [(ngModel)]="model.email" class="form-control" placeholder="Email"
             type="email" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
         </div>
         <div class="form-group">
-          <input class="form-control form-control-lg" [(ngModel)]="model.password" placeholder="Wachtwoord" required
+          <input class="form-control" [(ngModel)]="model.password" placeholder="Wachtwoord" required
             minlength="6" type="password" name="password" id="password" required />
         </div>
         <div class="form-group">
