@@ -16,8 +16,11 @@
         </a>
         </div>
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
+            
+
             <form #addTaskForm="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
-            <!--    <p>{{ assignmentModel | json }}</p>-->
+            
+                <!--    <p>{{ assignmentModel | json }}</p>-->
                 <p class="h4 mb-4">Taak wijzigen!</p>
                 <div class="form-group">
                     <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.naam" name="naam" [value]="assignment?.naam"/>
