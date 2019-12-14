@@ -1,9 +1,14 @@
 <div class="container mt-5">
     <h2>Takenlijst</h2>
+    <div class="row mx-auto">
+            <input id="str" [(ngModel)]="str" class="form-control w-25 m-1" placeholder="Zoek op taak" />
+            <button (click)="filterAssignments()" class="btn btn-info m-1">Filter</button>
+      
+          </div>
     <br>
     <a routerLink="/bedrijf/takenlijst/taakToevoegen"><button class="btn btn-info pull-right mb-4">Voeg een nieuwe taak
             toe</button></a>
-    <div class="list-group" *ngFor="let assigment of (assigments)">
+    <div class="list-group" *ngFor="let assigment of assigments | companyAssignmentFilter:assignment">
         <a class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/takenlijst/taakWijzigen/'+(assigment.assignmentID)]">{{assigment.naam}}
             <a [routerLink]="['/bedrijf/takenlijst/taakVerwijderen/'+(assigment.assignmentID)]"><button class="btn btn-info pull-right mb-4 float-right">Verwijder</button></a>
