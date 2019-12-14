@@ -35,6 +35,13 @@ import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/use
 import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
 import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details/user-admin-details.component';
 
+
+
+import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter.pipe';
+import { StudentAssignmentFilterPipe } from './student/available-tasks/student-assignment-filter.pipe';
+import { CompanyAssignmentFilterPipe } from './company/list-tasks/company-assignment-filter.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +69,10 @@ import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details
     InfoBedrijfComponent,
     UserDetailsBedrijfComponent,
     UserAdminReviewComponent,
-    UserAdminDetailsComponent
+    UserAdminDetailsComponent,
+    AssignmentFilterPipe,
+    StudentAssignmentFilterPipe,
+    CompanyAssignmentFilterPipe
   ],
   imports: [
     BrowserModule,

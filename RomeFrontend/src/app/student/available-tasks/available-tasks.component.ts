@@ -14,7 +14,7 @@ export class AvailableTasksComponent implements OnInit {
   //allAssignements: Observable<Assignment[]>;
 
   allAssignements: Assignment[];
-  welkeOpdrachten:string='alle';
+  welkeOpdrachten: string = 'alle';
   constructor(
     private router: Router,
     private assignmentService: AssignmentService
@@ -43,38 +43,46 @@ export class AvailableTasksComponent implements OnInit {
   }
 
   details(assignmentId: number) {
-    
 
-    this.router.navigate(["student/detailsTaak/"+assignmentId]);
+
+    this.router.navigate(["student/detailsTaak/" + assignmentId]);
   }
   signup(assignmentId: number) {
     this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
+    window.location.reload();
   }
 
-  delete(assignmentId: number) {}
+  delete(assignmentId: number) { }
 
-  allTasks(){
-    this.welkeOpdrachten='alle'
+  allTasks() {
+    this.welkeOpdrachten = 'alle'
     this.assignmentService.getAssignments().subscribe(r => {
       this.setAssignments(r, this.assignmentService);
     });
 
   }
-  pendingTasks(){
-    
-    this.welkeOpdrachten='pending';
-    this.assignmentService.getPendingAssignments().subscribe(r=>{
+  pendingTasks() {
+
+    this.welkeOpdrachten = 'pending';
+    this.assignmentService.getPendingAssignments().subscribe(r => {
       this.setAssignments(r, this.assignmentService);
     })
 
   }
-  acceptedTasks(){
-    this.welkeOpdrachten='accepted';
-    this.assignmentService.getAcceptedAssignments().subscribe(r=>{
+  acceptedTasks() {
+    this.welkeOpdrachten = 'accepted';
+    this.assignmentService.getAcceptedAssignments().subscribe(r => {
       this.setAssignments(r, this.assignmentService);
     })
 
   }
 
-  ngOnInit() {}
+  str: string;
+  assignment: any;
+
+  filterUsers() { 
+    this.assignment = this.str;
+  }
+
+  ngOnInit() { }
 }

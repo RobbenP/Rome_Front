@@ -27,6 +27,9 @@ export class ReviewService {
       review
     );
   }
+  deleteReview(reviewID: number){
+    return this.http.delete("https://localhost:5001/api/Reviews/" + reviewID);
+  }
   getReviewsFromUser(userid: number): Observable<Review[]> {
     return this.http.get<Review[]>(
       "https://localhost:5001/api/Reviews/from/" + userid

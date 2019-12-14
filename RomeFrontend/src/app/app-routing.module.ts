@@ -157,7 +157,7 @@ const routes: Routes = [
   },
   {
     path: "admin/userDetails/:id",
-    component: UserAdminDetailsComponent,
+    component: AccountSettingsComponent,
     canActivate: [FinishRegisterGuardService]
   }
 ];
