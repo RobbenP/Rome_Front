@@ -141,6 +141,11 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService]
   },
   {
+    path: "bedrijf/studentDetail/:id/:assignmentID",
+    component: UserDetailsBedrijfComponent,
+    canActivate: [FinishRegisterGuardService]
+  },
+  {
     path: "bedrijf/studentDetail/:id",
     component: UserDetailsBedrijfComponent,
     canActivate: [FinishRegisterGuardService]

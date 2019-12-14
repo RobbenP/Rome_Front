@@ -103,7 +103,7 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   }  
   Aanvaarden(assignmentID: number, userID: number){
     this.assignService.updateBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
-
+    window.location.reload();
   }
   Weigeren(assignmentID: number, userID: number){
     this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();

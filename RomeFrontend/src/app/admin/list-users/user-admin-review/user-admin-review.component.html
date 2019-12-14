@@ -13,12 +13,9 @@
                         <div *ngIf="user.userID == from.userRecieverID && assignment.assignmentID == from.assignmentID" class="card-body">
                           <p>Deze review gaat over  {{user.username}} en gaat over {{assignment.naam}}</p> 
                           <button [routerLink]="['/review/' + assignment.assignmentID + '/' + user.userID + '/' + from.reviewID]" class="btn btn-primary">Aanpassen</button>  
+                          <button (click)="deleteReview(from.reviewID)" class="btn btn-danger">Verwijderen</button>
                         </div>
-                 <!--      goReview() {
-                            this.router.navigateByUrl(
-                              "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
-                            );
-                          }--> 
+                 
                     </div>
                 </div>
     
@@ -40,6 +37,7 @@
                         <div *ngIf="user.userID == from.userPlacerID && assignment.assignmentID == from.assignmentID" class="card-body">
                           <p>Deze review is geschreven door {{user.username}} met betrekking tot de opdracht {{assignment.naam}} </p> 
                           <button [routerLink]="['/review/' + assignment.assignmentID + '/' + user.userID + '/' + from.reviewID]" class="btn btn-primary">Aanpassen</button>  
+                          <button (click)="deleteReview(from.reviewID)" class="btn btn-danger">Verwijderen</button>
                         </div>
                     </div>
                 </div>

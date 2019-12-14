@@ -55,5 +55,8 @@ private routeSub: Subscription;
     
    
   }
- 
+  deleteReview(reviewID:number){
+    this.reviewService.deleteReview(reviewID).subscribe();
+    window.location.reload();
+  }
 }
