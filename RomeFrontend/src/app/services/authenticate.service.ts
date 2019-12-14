@@ -6,7 +6,7 @@ import { Userlogin } from '../models/userlogin.model';
 import { Role } from '../models/role.model';
 import { Company } from '../models/company.model';
 import { Student } from '../models/student.model';
-import { Location} from '../models/location.model';
+import { Locaties} from '../models/location.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -52,8 +52,8 @@ export class AuthenticateService {
   addCompany(company:Company){
     return this._httpClient.post<Company>("https://localhost:5001/api/Companies", company);
   }
-  addLocation(location:Location){
-    return this._httpClient.post<Location>("https://localhost:5001/api/Locations", location);
+  addLocation(location:Locaties){
+    return this._httpClient.post<Locaties>("https://localhost:5001/api/Locations", location);
   }
   addStudent(student:Student){
     return this._httpClient.post<Student>("https://localhost:5001/api/Students", student);
