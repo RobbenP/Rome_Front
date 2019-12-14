@@ -24,14 +24,9 @@ export class EditTasksComponent implements OnInit {
   assignmentTag: Assignmenttag;
   tagID: number;
   keuzeTagID: number;
-<<<<<<< HEAD
-  assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
-  users: User[];
-=======
 assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   users : User[];
   acceptedUsers: User[];
->>>>>>> f16814ff20340c11577182f13632bb809642d399
   private routeSub: Subscription;
   AssignmentID = 0;
 
