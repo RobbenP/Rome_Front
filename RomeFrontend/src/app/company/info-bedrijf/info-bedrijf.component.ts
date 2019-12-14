@@ -5,7 +5,6 @@ import { Company } from "src/app/models/company.model";
 import { Observable } from "rxjs";
 import { UserService } from "src/app/services/user.service";
 import { User } from "src/app/models/user.model";
-import { Locaties } from "src/app/models/location.model";
 import { ReviewService } from "src/app/services/review.service";
 import { Review } from "src/app/models/review.model";
 

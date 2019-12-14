@@ -49,7 +49,6 @@ export class AvailableTasksComponent implements OnInit {
   }
   signup(assignmentId: number) {
     this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
-    window.location.reload();
   }
 
   delete(assignmentId: number) { }
@@ -80,7 +79,7 @@ export class AvailableTasksComponent implements OnInit {
   str: string;
   assignment: any;
 
-  filterUsers() { 
+  filterAssignments() { 
     this.assignment = this.str;
   }
 
