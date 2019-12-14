@@ -43,22 +43,41 @@ export class AccountSettingsComponent implements OnInit {
 
   onSubmit() {
  
-    this.submitted = true;
+   
     if (this.password == this.currentpassword){
       if((this.newpassword != "") && (this.newpassword == this.confirmpassword)){
         this.userModel.password = this.newpassword;
+        this.onSubmitDeRest();
+      }else if(this.newpassword == "" || this.confirmpassword =="")
+      {
+        new alert ("Zorg dat beide passwoorden zijn ingevuld en hetzelfde zijn")
       }
+      
+      else if(this.newpassword != this.confirmpassword){
+        new alert("Zorg dat beide passwoorden hetzelfde zijn");
+      }
+    
     }
-    console.log(this.userModel)
+    else if(this.currentpassword == "" && this.newpassword == "" && this.confirmpassword =="")
+    {
+        this.onSubmitDeRest();
+    }
+    else if(this.password != this.currentpassword) {
+      new alert("vul het juiste passwoord in");
+    }
+    
+  }
+  onSubmitDeRest()
+  {
+   
     this._userService.updateUser(this.userModel).subscribe( result => {
       this._companyService.updateCompany(this.companyModel).subscribe( result => {
         this.router.navigate(['/bedrijf'])
       })
     });    
 
-    console.log("confirmpassword")
+ 
   }
-
   getInfo (){
     this._userService.getUser(this.userID).subscribe
       (data => {

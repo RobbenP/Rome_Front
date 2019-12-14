@@ -31,12 +31,12 @@ export class UserAdminDetailsComponent implements OnInit {
 
   ngOnInit() {
    this.route.params.subscribe(params => {
-
+    
       this.userID = params['id']});
    this.userService.getUser(this.userID).subscribe(
      result => {
         this.userModel = result;
-
+        this.password = this.userModel.password;
         if(this.userModel.studentID != null)
         {
           this.userService.getStudent(this.userModel.studentID).subscribe(
@@ -62,12 +62,33 @@ export class UserAdminDetailsComponent implements OnInit {
    )
   }
   onSubmit(){
+    
     if (this.password == this.currentpassword){
       if((this.newpassword != "") && (this.newpassword == this.confirmpassword)){
         this.userModel.password = this.newpassword;
+        this.onSubmitDeRest();
+      }else if(this.newpassword == "" || this.confirmpassword =="")
+      {
+        new alert ("Zorg dat beide passwoorden zijn ingevuld en hetzelfde zijn")
       }
+      
+      else if(this.newpassword != this.confirmpassword){
+        new alert("Zorg dat beide passwoorden hetzelfde zijn");
+      }
+    
+    }
+    else if(this.currentpassword == "" && this.newpassword == "" && this.confirmpassword =="")
+    {
+        this.onSubmitDeRest();
+    }
+    else if(this.password != this.currentpassword) {
+      new alert("vul het juiste passwoord in");
     }
 
+
+      
+  }
+  onSubmitDeRest(){
     this.userService.updateUser(this.userModel).subscribe( result => {
       if(this.userModel.studentID != null)
       {
@@ -86,6 +107,6 @@ export class UserAdminDetailsComponent implements OnInit {
         })
       }
       
-    });  
+    });
   }
 }

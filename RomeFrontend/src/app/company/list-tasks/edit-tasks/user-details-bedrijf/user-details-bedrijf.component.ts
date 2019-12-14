@@ -58,7 +58,7 @@ export class UserDetailsBedrijfComponent implements OnInit {
   }
   goReview() {
     this.router.navigateByUrl(
-      "/reviewStudent/"  + this.assignmentID + "/" + this.userModel.userID + "/" + localStorage.getItem("userID")
+      "/review/"  + this.assignmentID + "/" + this.userModel.userID + "/" + localStorage.getItem("userID")
     );
   }
   
