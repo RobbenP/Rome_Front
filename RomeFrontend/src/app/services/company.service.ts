@@ -17,6 +17,9 @@ export class CompanyService {
   getCompany(id: number): Observable<Company> {
     return this.http.get<Company>("https://localhost:5001/api/Companies/" + id);
   }
+  async getCompanyAsync(id:number):Promise<Company>{
+    return await this.http.get<Company>("https://localhost:5001/api/Companies/" + id).toPromise();
+  }
   updateCompany(company: Company) {
     return this.http.put(
       "https://localhost:5001/api/Companies/" +
