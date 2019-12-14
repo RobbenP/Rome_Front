@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model'
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-list-users',
@@ -18,6 +18,8 @@ export class ListUsersComponent implements OnInit {
     this.getUsers();
   }
 
+  filterargs = {title: 'Admin'};
+
   getUsers(){
     this._userService.getUsers().subscribe(
       result => {
@@ -32,4 +34,6 @@ export class ListUsersComponent implements OnInit {
       this.router.navigate(['/admin'])
     });
   }
+
+  
 }
