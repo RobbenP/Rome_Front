@@ -5,10 +5,16 @@
             <a class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
         </a>
+
             <button class="btn btn-success btn-block" (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
             <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
        </div>
-       
+       <div class="container mt-5" *ngFor="let us of acceptedUsers">
+            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4>
+            <a class="list-group-item list-group-item-action m-1"
+            [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
+        </a>
+        </div>
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
             <form #addTaskForm="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
             <!--    <p>{{ assignmentModel | json }}</p>-->

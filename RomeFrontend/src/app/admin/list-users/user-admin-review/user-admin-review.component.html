@@ -36,11 +36,12 @@
                    
                 </p>
                 <div *ngFor="let user of users">
-                    
-                        <div *ngIf="user.userID == from.userPlacerID " class="card-body">
-                          <p>Deze review is geschreven door {{user.username}} </p> 
+                    <div *ngFor="let assignment of assignments">
+                        <div *ngIf="user.userID == from.userPlacerID && assignment.assignmentID == from.assignmentID" class="card-body">
+                          <p>Deze review is geschreven door {{user.username}} met betrekking tot de opdracht {{assignment.naam}} </p> 
+                          <button [routerLink]="['/review/' + assignment.assignmentID + '/' + user.userID + '/' + from.reviewID]" class="btn btn-primary">Aanpassen</button>  
                         </div>
-                    
+                    </div>
                 </div>
     
             </div>

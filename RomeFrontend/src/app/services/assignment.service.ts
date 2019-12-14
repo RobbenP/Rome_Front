@@ -83,7 +83,9 @@ export class AssignmentService {
   getPendingAssignmentsBedrijfGebruikers(assignmentID: number):Observable<User[]>{
     return this.http.get<User[]>("https://localhost:5001/api/UserAssignments/pendingBedrijfGebruikers/" +assignmentID)
   }
-
+  getAcceptedAssignmentsBedrijfGebruikers(assignmentID: number):Observable<User[]>{
+    return this.http.get<User[]>("https://localhost:5001/api/UserAssignments/acceptedBedrijfGebruikers/" +assignmentID)
+  }
   updateBedrijfAcceptedUserAssignment(assignmentID: number, userID: number)
   {
     return this.http.put("https://localhost:5001/api/UserAssignments/Bedrijf/Acceptatie/" + assignmentID  +"/" + userID, userID);

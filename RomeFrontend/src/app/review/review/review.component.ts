@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 import { UserService } from "src/app/services/user.service";
 import { Review } from "src/app/models/review.model";
 import { ReviewService } from 'src/app/services/review.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: "app-review",
   templateUrl: "./review.component.html",
@@ -28,7 +28,8 @@ export class ReviewComponent implements OnInit {
     private route: ActivatedRoute,
     private assignService: AssignmentService,
     private userService: UserService,
-    private reviewService:ReviewService
+    private reviewService:ReviewService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -47,13 +48,9 @@ export class ReviewComponent implements OnInit {
         }
       })
 
-      this.route.params.subscribe(params => {
-        this.myUserID = params["studentId"];
-        this.iAmStudent = true;
-        
-      }
+     
       
-      )
+      
     }else 
     {
       this.myUserID = +localStorage.getItem("userID");
@@ -110,10 +107,9 @@ export class ReviewComponent implements OnInit {
     }else
     {
       this.reviewService.addReview(review).subscribe(
-        r=>{this.router.navigateByUrl("/");
-        }
+       
       );
-      
+      this.location.back();
     }
     
   }

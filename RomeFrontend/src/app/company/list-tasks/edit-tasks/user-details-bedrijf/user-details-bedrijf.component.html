@@ -13,15 +13,17 @@
             <div  >{{studentModel.experience}}</div>
       </div>
     </div>
-    <div class="row mb-5">
+     <div class="row mb-5">
         <div class="col-3 font-weight-bold">Reviews:</div>
        
-        <div class="card col-7 font-weight-medium" *ngFor="let review of reviewsStudent">
-            <div>{{review.reviewText}}</div>
+       <div class="col-7 font-weight-medium" >
+            <div class="card " *ngFor="let review of reviewsStudent">{{review.reviewText}}</div>
         </div>
     </div>
+   
     <div class="row mb-5">
-        <button [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]" class="btn btn-outline-info pull-right">Teruggaan</button>
+        <button (click)="goReview()" class="btn btn-primary">Review schrijven</button>  
+        <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
        
         
     </div>

@@ -24,8 +24,14 @@ export class EditTasksComponent implements OnInit {
   assignmentTag: Assignmenttag;
   tagID: number;
   keuzeTagID: number;
+<<<<<<< HEAD
   assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   users: User[];
+=======
+assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
+  users : User[];
+  acceptedUsers: User[];
+>>>>>>> f16814ff20340c11577182f13632bb809642d399
   private routeSub: Subscription;
   AssignmentID = 0;
 
@@ -64,11 +70,18 @@ export class EditTasksComponent implements OnInit {
   }
 
   getAssignment() {
-    this.assignService.getAssignement(this.AssignmentID).subscribe(data => {
-      this.assignmentModel = data;
-      this.assignService
-        .getPendingAssignmentsBedrijfGebruikers(
-          this.assignmentModel.assignmentID
+    this.assignService.getAssignement(this.AssignmentID).subscribe
+      (data => {
+        this.assignmentModel = data;
+        this.assignService.getPendingAssignmentsBedrijfGebruikers(this.assignmentModel.assignmentID).subscribe(
+         result =>{
+          this.users = result;
+          this.assignService.getAcceptedAssignmentsBedrijfGebruikers(this.assignmentModel.assignmentID).subscribe(
+            r => {
+              this.acceptedUsers = r;
+            }
+          )
+         } 
         )
         .subscribe(result => {
           this.users = result;
@@ -96,6 +109,16 @@ export class EditTasksComponent implements OnInit {
       this.keuzeTags = result;
     });
   }
+<<<<<<< HEAD
+=======
+  Weigeren(assignmentID: number, userID: number){
+    this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
+    window.location.reload();
+  }
+
+};
+
+>>>>>>> f16814ff20340c11577182f13632bb809642d399
 
   Aanvaarden(assignmentID: number, userID: number) {
     this.assignService
