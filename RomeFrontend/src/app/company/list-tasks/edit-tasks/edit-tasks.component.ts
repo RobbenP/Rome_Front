@@ -74,6 +74,17 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
         )
       });
   }
+
+  verwijderTag(tag: Tag){
+
+    console.log(this.AssignmentID)
+    console.log(tag.tagID)
+    this.assignmentTagSevice.deleteAssignmentTag(this.AssignmentID, tag.tagID).subscribe(
+      r=>{window.location.reload();
+      });
+    
+  }
+
   kiesTag() {
     console.log(this.keuzeTagID);
     console.log(this.AssignmentID);
