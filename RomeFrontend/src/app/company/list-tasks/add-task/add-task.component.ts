@@ -4,6 +4,7 @@ import { AssignmentService } from '../../../services/assignment.service';
 import {Router} from "@angular/router";
 import { Tag } from 'src/app/models/tag.model';
 import { Observable } from 'rxjs';
+import { of} from 'rxjs';
 import { Assignmenttag } from 'src/app/models/assignmenttag.model';
 import { Location } from '@angular/common';
 
@@ -16,11 +17,12 @@ export class AddTaskComponent implements OnInit {
   assignment : Assignment[];
   submitted : boolean = false;
   assignmentModel : Assignment = new Assignment(0,"","","",0,true, parseInt(localStorage.getItem("companyID")))
-  
+ 
   constructor(private _assignmentService: AssignmentService, private router: Router, private location: Location) { }
 
   ngOnInit() {
- 
+    
+    
   }
  
  

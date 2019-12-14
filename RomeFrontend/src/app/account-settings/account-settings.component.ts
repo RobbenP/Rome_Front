@@ -23,6 +23,7 @@ export class AccountSettingsComponent implements OnInit {
  studentModel: Student;
  companyModel: Company;
   locations: Locaties[]
+  
  password = "";
  currentpassword = "";
  newpassword = "";
