@@ -34,6 +34,7 @@ export class TaskDetailsComponent implements OnInit {
   ) {
     //[assign, approvedAmount, company, tags, ua]
     this.assignment = this.route.snapshot.data["data"][0];
+    this.assignmentId=this.assignment.assignmentID;
     this.approvedUserAmount = this.route.snapshot.data["data"][1];
     this.company = this.route.snapshot.data["data"][2];
     this.tags = this.route.snapshot.data["data"][3];
