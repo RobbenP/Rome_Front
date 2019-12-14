@@ -9,7 +9,7 @@
                     {{user.email}}
                 </p>
                 <p class="card-text">
-                    <button (onClick)="delete(user.userID)" class="btn btn-danger">
+                    <button (click)="delete(user.userID)" class="btn btn-danger">
                         Verwijder gebruiker
                     </button>
                     <button [routerLink]="['/admin/reviewsGebruiker/'+(user.userID)]" class="btn btn-primary">Reviews</button>
