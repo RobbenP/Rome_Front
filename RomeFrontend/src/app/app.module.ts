@@ -26,9 +26,14 @@ import { ListTasksAdminComponent } from "./admin/list-tasks-admin/list-tasks-adm
 import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-admin/detail-task-admin.component";
 import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
+import { RemoveTaskComponent } from './company/list-tasks/remove-task/remove-task.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
 import { FilterPipe } from './admin/list-users/filter.pipe';
 
+import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
+import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
+import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details/user-admin-details.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,13 @@ import { FilterPipe } from './admin/list-users/filter.pipe';
     ListTasksAdminComponent,
     DetailTaskAdminComponent,
     InfoBedrijfComponent,
-    FilterPipe
+    FilterPipe,
+    RemoveTaskComponent,
+    AccountSettingsComponent,
+    InfoBedrijfComponent,
+    UserDetailsBedrijfComponent,
+    UserAdminReviewComponent,
+    UserAdminDetailsComponent
   ],
   imports: [
     BrowserModule,

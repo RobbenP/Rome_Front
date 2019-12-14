@@ -1,0 +1,51 @@
+<div class="container h-100 mt-5">  
+    <h3 >Geschreven reviews</h3>
+    <div class="row mb-5">
+    <div *ngFor="let from of (reviewFromModel)" >
+        <div class="card col-auto " style="width: 18rem;">
+            <div class="card-body row mb-5" >
+                <p class="card-text">
+                    {{from.reviewText}}
+                   
+                </p>
+                <div *ngFor="let user of users">
+                    <div *ngFor="let assignment of assignments">
+                        <div *ngIf="user.userID == from.userRecieverID && assignment.assignmentID == from.assignmentID" class="card-body">
+                          <p>Deze review gaat over  {{user.username}} en gaat over {{assignment.naam}}</p> 
+                          <button [routerLink]="['/review/' + assignment.assignmentID + '/' + user.userID + '/' + from.reviewID]" class="btn btn-primary">Aanpassen</button>  
+                        </div>
+                 <!--      goReview() {
+                            this.router.navigateByUrl(
+                              "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
+                            );
+                          }--> 
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+    <h3 >Reviews over deze user</h3>
+    <div class="row mb-5">
+    <div *ngFor="let from of (reviewAboutModel)" >
+        <div class="card col-auto " style="width: 18rem;">
+            <div class="card-body row mb-5" >
+                <p class="card-text">
+                    {{from.reviewText}}
+                   
+                </p>
+                <div *ngFor="let user of users">
+                    <div *ngFor="let assignment of assignments">
+                        <div *ngIf="user.userID == from.userPlacerID && assignment.assignmentID == from.assignmentID" class="card-body">
+                          <p>Deze review is geschreven door {{user.username}} met betrekking tot de opdracht {{assignment.naam}} </p> 
+                          <button [routerLink]="['/review/' + assignment.assignmentID + '/' + user.userID + '/' + from.reviewID]" class="btn btn-primary">Aanpassen</button>  
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+</div>

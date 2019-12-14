@@ -23,9 +23,17 @@ export class UserAssignmentService {
     );
   }
 
+  async getUserAssignementByAssignmentofLoggedInUserAsync(
+    assingmentID: number
+  ): Promise<UserAssignments> {
+    return this.http.get<UserAssignments>(
+      "https://localhost:5001/api/UserAssignments/assignment/" + assingmentID
+    ).toPromise();
+  }
+
   updateUserAssignment(uassignment: UserAssignments) {
     console.log("kom ik hier?");
-    
+
     return this.http.put(
       "https://localhost:5001/api/UserAssignments/" +
         uassignment.userAssignmentID.toString(),

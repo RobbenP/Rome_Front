@@ -30,8 +30,9 @@ export class ListUsersComponent implements OnInit {
   }
 
   delete(userid: number){
-    this._userService.deleteUser(userid);
-    this.getUsers();
+    this._userService.deleteUser(userid).subscribe( result => {
+      this.router.navigate(['/admin'])
+    });
   }
 
   

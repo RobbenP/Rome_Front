@@ -1,0 +1,31 @@
+<div class="container h-100 mt-5">
+    
+    <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Naam maker:</div>
+       
+        <div class=" card col-7 font-weight-medium">
+            <div >{{studentModel.nickname}}</div>
+      </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Ervaring</div>
+        <div class="card col-7 font-weight-medium">
+            <div  >{{studentModel.experience}}</div>
+      </div>
+    </div>
+     <div class="row mb-5">
+        <div class="col-3 font-weight-bold">Reviews:</div>
+       
+       <div class="col-7 font-weight-medium" >
+            <div class="card " *ngFor="let review of reviewsStudent">{{review.reviewText}}</div>
+        </div>
+    </div>
+   
+    <div class="row mb-5">
+        <button (click)="goReview()" class="btn btn-primary">Review schrijven</button>  
+        <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
+       
+        
+    </div>
+    
+</div>

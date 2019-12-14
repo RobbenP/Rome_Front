@@ -1,19 +1,19 @@
-<div class="container">
-    <div class="row container-fluid h-100 mt-5">
-        <div *ngFor="let user of users | filter:filterargs" class="row m-1">
-            <div class="card col-auto " style="width: 18rem;">
-                <div class="card-body">
-                    <p class="card-text">
-                        {{user.username}}
-                    </p>
-                    <p class="card-text">
-                        {{user.email}}
-                    </p>
-                    <p class="card-text">
-                        <button (onClick)="delete(user.userID)" class="btn btn-danger">
-                            Verwijder gebruiker
-                        </button>
-                </div>
+<div class="row container-fluid h-100 mt-5">
+    <div *ngFor="let user of users | filter:filterargs" class="row m-1">
+        <div class="card col-auto " style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">
+                    {{user.username}}
+                </p>
+                <p class="card-text">
+                    {{user.email}}
+                </p>
+                <p class="card-text">
+                    <button (click)="delete(user.userID)" class="btn btn-danger">
+                        Verwijder gebruiker
+                    </button>
+                    <button [routerLink]="['/admin/reviewsGebruiker/'+(user.userID)]" class="btn btn-primary">Reviews</button>
+                    <button [routerLink]="['/admin/userDetails/'+(user.userID)]" class="btn btn-info">Gegevens aanpassens</button>
             </div>
         </div>
     </div>

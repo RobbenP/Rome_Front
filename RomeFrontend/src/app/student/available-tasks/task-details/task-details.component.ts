@@ -28,52 +28,73 @@ export class TaskDetailsComponent implements OnInit {
   accepted: boolean = false;
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private assignService: AssignmentService,
-    private companyService: CompanyService,
-    private uaService: UserAssignmentService
+    private uaService: UserAssignmentService,
+    private route: ActivatedRoute
   ) {
-    this.route.queryParams.subscribe(p => {
-      this.assignmentId = p["assignmentId"];
-      //console.log(p["assignmentId"]);
+    //[assign, approvedAmount, company, tags, ua]
+    this.assignment = this.route.snapshot.data["data"][0];
+    this.approvedUserAmount = this.route.snapshot.data["data"][1];
+    this.company = this.route.snapshot.data["data"][2];
+    this.tags = this.route.snapshot.data["data"][3];
+    this.userAssignment = this.route.snapshot.data["data"][4];
+    this.accepted = this.userAssignment.status;
+    this.percentage = this.userAssignment.progress;
+    console.log(this.userAssignment);
+    
+    this.canSignup  = this.approvedUserAmount <= this.assignment.quantityUsers
 
-      assignService.getAssignement(this.assignmentId).subscribe(r => {
-        this.assignment = r;
-        console.log(r);
-
-        companyService.getCompany(this.assignment.companyID).subscribe(r => {
-          this.company = r;
-          console.log(r);
-        });
-      });
-
-      assignService
-        .hasUserAcceptedAssignment(this.assignmentId)
-        .subscribe(r => {
-          if (r) {
-            uaService
-              .getUserAssignementByAssignmentofLoggedInUser(this.assignmentId)
-              .subscribe(r => {
-                this.userAssignment = r;
-                this.accepted = r.status;
-                this.percentage = r.progress;
-              });
-          }
-        });
-
-      assignService.getApprovedUsersAmount(this.assignmentId).subscribe(r => {
-        this.approvedUserAmount = r;
-        var inverse: number = 1 - r / this.assignment.quantityUsers;
-        this.hue = inverse * 120;
-        if (inverse === 1) this.canSignup = false;
-        //console.log(r);
-      });
-      assignService.getTags(this.assignmentId).subscribe(r => {
-        this.tags = r;
-        //console.log(r);
-      });
-    });
+    this.hue =
+      (1 - this.approvedUserAmount / this.assignment.quantityUsers) * 120;
   }
+  // constructor(
+  //   private router: Router,
+  //   private route: ActivatedRoute,
+  //   private assignService: AssignmentService,
+  //   private companyService: CompanyService,
+  //   private uaService: UserAssignmentService
+  // ) {
+  //   this.route.queryParams.subscribe(p => {
+  //     this.assignmentId = p["assignmentId"];
+  //     //console.log(p["assignmentId"]);
+
+  //     assignService.getAssignement(this.assignmentId).subscribe(r => {
+  //       this.assignment = r;
+  //       console.log(r);
+
+  //       companyService.getCompany(this.assignment.companyID).subscribe(r => {
+  //         this.company = r;
+  //         console.log(r);
+  //       });
+  //     });
+
+  //     assignService
+  //       .hasUserAcceptedAssignment(this.assignmentId)
+  //       .subscribe(r => {
+  //         if (r) {
+  //           uaService
+  //             .getUserAssignementByAssignmentofLoggedInUser(this.assignmentId)
+  //             .subscribe(r => {
+  //               this.userAssignment = r;
+  //               this.accepted = r.status;
+  //               this.percentage = r.progress;
+  //             });
+  //         }
+  //       });
+
+  //     assignService.getApprovedUsersAmount(this.assignmentId).subscribe(r => {
+  //       this.approvedUserAmount = r;
+  //       var inverse: number = 1 - r / this.assignment.quantityUsers;
+  //       this.hue = inverse * 120;
+  //       if (inverse === 1) this.canSignup = false;
+  //       //console.log(r);
+  //     });
+  //     assignService.getTags(this.assignmentId).subscribe(r => {
+  //       this.tags = r;
+  //       //console.log(r);
+  //     });
+  //   });
+  // }
   getHue() {
     console.log("getHue wordt opgeroepen");
     console.log(this.hue);
@@ -97,6 +118,7 @@ export class TaskDetailsComponent implements OnInit {
       "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
     );
   }
+
   public static hslToHex(h, s, l) {
     h /= 360;
     s /= 100;
