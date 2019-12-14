@@ -47,7 +47,7 @@ export class UserService {
   }
   deleteUser(id: number): Observable<User[]> {
     return this.http.delete<User[]>(
-      "https://localhost:5001/api/Users" + id
+      "https://localhost:5001/api/Users/" + id
     );
   }
   updateUser(user: User) {
