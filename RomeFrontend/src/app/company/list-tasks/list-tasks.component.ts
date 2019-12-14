@@ -13,17 +13,23 @@ import { Location } from '@angular/common';
 })
 export class ListTasksComponent implements OnInit {
 
-  assigments:Assignment[];
-  pendingAssignments:User[];
+  assigments: Assignment[];
+  pendingAssignments: User[];
   userAssignments: UserAssignments[];
-  constructor(private _assignmentService:AssignmentService,private router: Router, private location: Location) {
-  
-   
-   }
+  constructor(private _assignmentService: AssignmentService, private router: Router, private location: Location) {
+
+  }
+
+  str: string;
+  assignment: any;
+
+  filterAssignments() {
+    this.assignment = this.str;
+  }
 
   ngOnInit() {
     this.getAssignments();
-  
+
     this._assignmentService.getPendingAssignmentsBedrijf().subscribe(
       result => {
         this.userAssignments = result;
@@ -32,11 +38,11 @@ export class ListTasksComponent implements OnInit {
     )
   }
 
-  getAssignments(){
+  getAssignments() {
     this._assignmentService.getAssignmentsByCompanyID(parseInt(localStorage.getItem("companyID"))).subscribe(
       result => {
-      this.assigments=result
-      console.log(this.assigments);
+        this.assigments = result
+        console.log(this.assigments);
       }
     );
   }

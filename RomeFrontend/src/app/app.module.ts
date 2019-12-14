@@ -38,6 +38,8 @@ import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details
 
 
 import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter.pipe';
+import { StudentAssignmentFilterPipe } from './student/available-tasks/student-assignment-filter.pipe';
+import { CompanyAssignmentFilterPipe } from './company/list-tasks/company-assignment-filter.pipe';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter
     UserDetailsBedrijfComponent,
     UserAdminReviewComponent,
     UserAdminDetailsComponent,
-    AssignmentFilterPipe
+    AssignmentFilterPipe,
+    StudentAssignmentFilterPipe,
+    CompanyAssignmentFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@
             <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
        </div>
        <div class="container mt-5" *ngFor="let us of acceptedUsers">
-            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4>
+            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4> 
             <a class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
         </a>
@@ -41,7 +41,7 @@
             
             <p>Tags!</p>
             <ul *ngFor="let tag of tags">
-                    <li class="list-group-item list-group-item-action">{{tag.text}}</li>
+                    <li class="list-group-item list-group-item-action">{{tag.text}}<input class="btn btn-info pull-right mb-4 float-right" type="button" value="Verwijder" (click)="verwijderTag(tag)"/></li>
                 </ul>
                 
             <p>Voeg een tag toe:</p> 
