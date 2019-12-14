@@ -32,7 +32,8 @@ import { RemoveTaskComponent } from "./company/list-tasks/remove-task/remove-tas
 import { InfoBedrijfComponent } from "./company/info-bedrijf/info-bedrijf.component";
 import { UserDetailsBedrijfComponent } from "./company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component";
 import { FinishRegisterGuardService } from "./services/finish-register-guard.service";
-import { InfoBedrijfResolverService } from "./resolvers/info-bedrijf-resolver.service";
+import { DetailTaskResolverService } from './resolvers/detail-task-resolver.service';
+import { InfoBedrijfResolverService } from './resolvers/info-bedrijf-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -77,8 +78,9 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService]
   },
   {
-    path: "student/detailsTaak",
+    path: "student/detailsTaak/:id",
     component: TaskDetailsComponent,
+    resolve: { data: DetailTaskResolverService },
     canActivate: [FinishRegisterGuardService]
   },
   {

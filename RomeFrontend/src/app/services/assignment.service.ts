@@ -34,16 +34,31 @@ export class AssignmentService {
       "https://localhost:5001/api/Assignments/" + assignId
     );
   }
+  async getAssignementAsync(assignId: number): Promise<Assignment> {
+    return this.http.get<Assignment>(
+      "https://localhost:5001/api/Assignments/" + assignId
+    ).toPromise();
+  }
 
   getApprovedUsersAmount(assignId: number): Observable<number> {
     return this.http.get<number>(
       "https://localhost:5001/api/Assignments/makersAmount/" + assignId
     );
   }
+  async getApprovedUsersAmountAsync(assignId: number): Promise<number> {
+    return this.http.get<number>(
+      "https://localhost:5001/api/Assignments/makersAmount/" + assignId
+    ).toPromise();
+  }
   getTags(assignId: number): Observable<Tag[]> {
     return this.http.get<Tag[]>(
       "https://localhost:5001/api/Assignments/tags/" + assignId
     );
+  }
+  async getTagsAsync(assignId: number): Promise<Tag[]> {
+    return this.http.get<Tag[]>(
+      "https://localhost:5001/api/Assignments/tags/" + assignId
+    ).toPromise();
   }
   getAllTags(): Observable<Tag[]> {
     return this.http.get<Tag[]>("https://localhost:5001/api/Tags");
@@ -75,6 +90,9 @@ export class AssignmentService {
   }
   hasUserAcceptedAssignment(assignId:number):Observable<boolean>{
     return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);
+  }
+  async hasUserAcceptedAssignmentAsync(assignId:number):Promise<boolean>{
+    return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId).toPromise();
   }
 
   getPendingAssignments():Observable<Assignment[]>{
