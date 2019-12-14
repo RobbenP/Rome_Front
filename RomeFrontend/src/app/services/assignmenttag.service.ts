@@ -18,4 +18,9 @@ export class AssignmenttagService {
   addAssignementTag(assignmenttag: Assignmenttag) {
     return this.http.post("https://localhost:5001/api/AssignmentTags", assignmenttag);
   }
+
+  deleteAssignmentTag(tagid: number, assignid: number): Observable<Assignment[]> {
+    return this.http.delete<Assignment[]>("https://localhost:5001/api/AssignmentTags/" + tagid + "/" + assignid);
+  }
+
 }

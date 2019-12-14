@@ -7,7 +7,10 @@ import { Company } from "src/app/models/company.model";
 import { UserService } from "src/app/services/user.service";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { Student } from '../models/student.model';
 
+import {Locaties} from '../models/location.model';
+import { AuthenticateService } from '../services/authenticate.service';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
@@ -15,35 +18,67 @@ import { User } from 'src/app/models/user.model';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  userModel : User;
-  companyModel: Company;
-  submitted: boolean = false;
-  userID = parseInt(localStorage.getItem("userID"));
-  password = "";
-  currentpassword = "";
-  newpassword = "";
-  confirmpassword = "";
-
-  checkID = 2;
-  check = false;
+  userID: number;
+ userModel: User;
+ studentModel: Student;
+ companyModel: Company;
+  locations: Locaties[]
+  
+ password = "";
+ currentpassword = "";
+ newpassword = "";
+ confirmpassword = "";
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private _userService: UserService,
-    private _companyService: CompanyService
+    private userService: UserService,
+    private companyService: CompanyService
   ) { }
 
   ngOnInit() {
-    this.getInfo();
-    if (this.checkID != parseInt(localStorage.getItem("roleID"))){
-      this.check = true;
-    }
-  }
 
-  onSubmit() {
- 
-   
+    if(+localStorage.getItem("roleID") == 1)
+    {
+      this.route.params.subscribe(params => {
+    
+        this.userID = params['id']});
+    }else {
+      this.userID = +localStorage.getItem("userID");
+    }
+
+  
+   this.userService.getUser(this.userID).subscribe(
+     result => {
+        this.userModel = result;
+        this.password = this.userModel.password;
+        if(this.userModel.studentID != null)
+        {
+          this.userService.getStudent(this.userModel.studentID).subscribe(
+            result =>{
+              this.studentModel = result;
+            }
+          )
+        }else if(this.userModel.companyID != null)
+        {
+          this.userService.getBedrijf(this.userModel.companyID).subscribe(
+            result => {
+              this.companyModel = result;
+              this.companyService.getLocationsForCompany(this.companyModel.companyID).subscribe(
+                result => {
+                  this.locations = result;
+               //   this.locations = result;
+                }
+              )
+            }
+          )
+        }
+
+     }
+   )
+  }
+  onSubmit(){
+    
     if (this.password == this.currentpassword){
       if((this.newpassword != "") && (this.newpassword == this.confirmpassword)){
         this.userModel.password = this.newpassword;
@@ -65,28 +100,40 @@ export class AccountSettingsComponent implements OnInit {
     else if(this.password != this.currentpassword) {
       new alert("vul het juiste passwoord in");
     }
-    
-  }
-  onSubmitDeRest()
-  {
-   
-    this._userService.updateUser(this.userModel).subscribe( result => {
-      this._companyService.updateCompany(this.companyModel).subscribe( result => {
-        this.router.navigate(['/bedrijf'])
-      })
-    });    
 
- 
+
+      
   }
-  getInfo (){
-    this._userService.getUser(this.userID).subscribe
-      (data => {
-        this.userModel = data;
-        this.password = data.password
-        this._companyService.getCompany(data.companyID).subscribe
-          (dataCompany => {
-            this.companyModel = dataCompany;
-          });
-      });
+  onSubmitDeRest(){
+    this.userService.updateUser(this.userModel).subscribe( result => {
+      if(this.userModel.studentID != null)
+      {
+        
+        this.userService.updateStudent(this.studentModel).subscribe(
+          result => {
+            if(+localStorage.getItem("roleID") == 1){
+              this.router.navigate(['/admin/gebruikersLijst']);
+            }else 
+            {
+              this.router.navigate(['']);
+            }
+          }
+        )
+      }else if(this.userModel.companyID != null)
+      {
+        
+        this.companyService.updateCompany(this.companyModel).subscribe( result => {
+          this.companyService.updateLocations(this.companyModel.companyID, this.locations).subscribe();
+          if(+localStorage.getItem("roleID") == 1){
+            this.router.navigate(['/admin/gebruikersLijst']);
+          }else 
+          {
+            this.router.navigate(['']);
+          }
+   
+        })
+      }
+      
+    });
   }
 }

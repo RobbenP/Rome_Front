@@ -34,7 +34,13 @@ import { FilterPipe } from './admin/list-users/filter.pipe';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
 import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details/user-admin-details.component';
+
+
+
 import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter.pipe';
+import { StudentAssignmentFilterPipe } from './student/available-tasks/student-assignment-filter.pipe';
+import { CompanyAssignmentFilterPipe } from './company/list-tasks/company-assignment-filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +70,9 @@ import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter
     UserDetailsBedrijfComponent,
     UserAdminReviewComponent,
     UserAdminDetailsComponent,
-    AssignmentFilterPipe
+    AssignmentFilterPipe,
+    StudentAssignmentFilterPipe,
+    CompanyAssignmentFilterPipe
   ],
   imports: [
     BrowserModule,

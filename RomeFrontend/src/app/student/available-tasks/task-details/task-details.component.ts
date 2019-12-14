@@ -116,7 +116,7 @@ export class TaskDetailsComponent implements OnInit {
   }
   goReview() {
     this.router.navigateByUrl(
-      "/review/" + this.assignmentId + "/" + localStorage.getItem("userID")
+      "/review/" + this.assignment.assignmentID + "/" + localStorage.getItem("userID")
     );
   }
 

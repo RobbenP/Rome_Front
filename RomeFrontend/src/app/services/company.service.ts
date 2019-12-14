@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Company } from "../models/company.model";
 import { Location } from '@angular/common';
+import { Locaties } from '../models/location.model';
 
 @Injectable({
   providedIn: "root"
@@ -27,13 +28,13 @@ export class CompanyService {
       company
     );
   }
-  getLocationsForCompany(companyID: number): Observable<Location[]>{
-    return this.http.get<Location[]>(
+  getLocationsForCompany(companyID: number): Observable<Locaties[]>{
+    return this.http.get<Locaties[]>(
       "https://localhost:5001/api/locations/Bedrijf/" +
       companyID
     );
   }
-  updateLocations(companyID: number, locations: Location[]) {
+  updateLocations(companyID: number, locations: Locaties[]) {
     return this.http.put(
       "https://localhost:5001/api/Locations/updateLocations/" + companyID, locations
     );

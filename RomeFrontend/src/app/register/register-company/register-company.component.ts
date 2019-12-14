@@ -3,7 +3,7 @@ import { Company } from "src/app/models/company.model";
 import { AuthenticateService } from "src/app/services/authenticate.service";
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
-import { Location } from "src/app/models/location.model";
+import { Locaties } from "src/app/models/location.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class RegisterCompanyComponent implements OnInit {
   model: Company = new Company(0, "", "", "", "");
-  locatie: Location = new Location(0, "", "", 0);
+  locatie: Locaties = new Locaties(0, "", "", 0);
   user: User;
   user2: User;
 
