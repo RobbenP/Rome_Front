@@ -41,12 +41,12 @@ gebruiker ;
     
     if(this.model.roleID == 2)
     {
-      localStorage.setItem("unfinishedRegister","student");
+      localStorage.setItem("unfinishedRegister","bedrijf");
       this.router.navigate(['registreer/bedrijf']);
     }
     if(this.model.roleID == 3)
     {
-      localStorage.setItem("unfinishedRegister","bedrijf");
+      localStorage.setItem("unfinishedRegister","student");
       this.router.navigate(['registreer/student']);
     }
   }
