@@ -7,6 +7,7 @@
     <div class="row container-fluid h-100 mt-5">
 
         <div *ngFor="let user of users | filter:username" class="row m-1">
+            <div *ngIf="user.userID != 1" class="row m-1">
             <div class="card col-auto " style="width: 18rem;">
                 <div class="card-body">
                     <p class="card-text">
@@ -25,6 +26,7 @@
                             aanpassens</button>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

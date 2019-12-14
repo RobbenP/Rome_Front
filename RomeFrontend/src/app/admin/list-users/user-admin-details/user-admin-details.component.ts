@@ -5,7 +5,8 @@ import { CompanyService } from 'src/app/services/company.service';
 import { User } from 'src/app/models/user.model';
 import { Student } from 'src/app/models/student.model';
 import { Company } from 'src/app/models/company.model';
-import { Location } from '@angular/common';
+
+import { Locaties } from 'src/app/models/location.model';
 
 @Component({
   selector: 'app-user-admin-details',
@@ -17,7 +18,7 @@ export class UserAdminDetailsComponent implements OnInit {
  userModel: User;
  studentModel: Student;
  companyModel: Company;
- locations: Location[];
+ locations: Locaties[];
  password = "";
  currentpassword = "";
  newpassword = "";

@@ -1,4 +1,4 @@
-export class Location {
+export class Locaties {
   constructor(
     public locationID: number,
     public adress: string,

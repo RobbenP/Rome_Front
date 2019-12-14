@@ -4,6 +4,7 @@ import { Assignment } from '../../models/assignment.model'
 import { Router } from "@angular/router";
 import { User } from 'src/app/models/user.model';
 import { UserAssignments } from 'src/app/models/user-assignments.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-tasks',
@@ -15,8 +16,7 @@ export class ListTasksComponent implements OnInit {
   assigments: Assignment[];
   pendingAssignments: User[];
   userAssignments: UserAssignments[];
-  constructor(private _assignmentService: AssignmentService, private router: Router) {
-
+  constructor(private _assignmentService: AssignmentService, private router: Router, private location: Location) {
 
   }
 
@@ -46,5 +46,7 @@ export class ListTasksComponent implements OnInit {
       }
     );
   }
-
+  back(){
+    this.location.back();
+  }
 }
