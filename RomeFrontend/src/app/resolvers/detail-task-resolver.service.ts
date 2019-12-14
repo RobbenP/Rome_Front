@@ -12,7 +12,7 @@ import { AssignmentService } from "../services/assignment.service";
 import { UserAssignmentService } from "../services/user-assignment.service";
 import { CompanyService } from "../services/company.service";
 
-@Injectable({
+@Injectable({ 
   providedIn: "root"
 })
 export class DetailTaskResolverService

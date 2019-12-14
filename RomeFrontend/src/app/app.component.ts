@@ -40,7 +40,9 @@ export class AppComponent {
       }
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.loading=false;
+  }
 
   logout() {
     this.authenticateService.logout();
