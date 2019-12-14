@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import {
   Resolve,
-  ActivatedRouteSnapshot,
+  ActivatedRouteSnapshot, 
   RouterStateSnapshot
 } from "@angular/router";
 import { User } from "../models/user.model";

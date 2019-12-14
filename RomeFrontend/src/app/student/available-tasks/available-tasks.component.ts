@@ -43,13 +43,9 @@ export class AvailableTasksComponent implements OnInit {
   }
 
   details(assignmentId: number) {
-    let navExtras: NavigationExtras = {
-      queryParams: {
-        assignmentId: assignmentId
-      }
-    };
+    
 
-    this.router.navigate(["student/detailsTaak"], navExtras);
+    this.router.navigate(["student/detailsTaak/"+assignmentId]);
   }
   signup(assignmentId: number) {
     this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
