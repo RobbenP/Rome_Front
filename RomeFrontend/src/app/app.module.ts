@@ -27,6 +27,9 @@ import { DetailTaskAdminComponent } from "./admin/list-tasks-admin/detail-task-a
 import { SecurityInterceptor } from "./services/security.interceptor";
 import { ReviewModule } from "./review/review.module";
 import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.component';
+import { FilterPipe } from './admin/list-users/filter.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,8 @@ import { InfoBedrijfComponent } from './company/info-bedrijf/info-bedrijf.compon
     EditTasksComponent,
     ListTasksAdminComponent,
     DetailTaskAdminComponent,
-    InfoBedrijfComponent
+    InfoBedrijfComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
