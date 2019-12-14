@@ -7,11 +7,11 @@ import { User } from '../../models/user.model';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(users: User[], filter: User): any {
+  transform(users: User[], filter: any): any {
     if (!users || !filter){
       return users;
     }
-    return users.filter(user => user.username.indexOf(filter.username) !== -1);
+    return users.filter(user => user.username.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
   }
 
 }
