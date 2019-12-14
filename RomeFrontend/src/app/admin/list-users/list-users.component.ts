@@ -11,15 +11,18 @@ import { User } from 'src/app/models/user.model';
 export class ListUsersComponent implements OnInit {
 
   constructor(private _userService:UserService,private router: Router) { }
-
+  str: string;
   users:User[];
+  username: any;
 
   ngOnInit() {
     this.getUsers();
   }
 
-  filterargs = {title: 'Admin'};
-
+  filterUsers() { 
+    this.username = this.str;
+  }
+  
   getUsers(){
     this._userService.getUsers().subscribe(
       result => {
