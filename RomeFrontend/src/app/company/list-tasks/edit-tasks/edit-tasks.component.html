@@ -3,58 +3,69 @@
         <div class="container mt-5" *ngFor="let user of users">
             <h4>Gebruikers die zich aangemeld hebben voor de opdracht</h4>
             <a class="list-group-item list-group-item-action m-1"
-            [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
-        </a>
+                [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
+            </a>
 
-            <button class="btn btn-success btn-block" (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
-            <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
-       </div>
-       <div class="container mt-5" *ngFor="let us of acceptedUsers">
-            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4> 
+            <button class="btn btn-success btn-block"
+                (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
+            <button class="btn btn-danger btn-block"
+                (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
+        </div>
+        <div class="container mt-5" *ngFor="let us of acceptedUsers">
+            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4>
             <a class="list-group-item list-group-item-action m-1"
-            [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
-        </a>
+                [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}}
+                -- info
+            </a>
         </div>
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
-            
+
 
             <form #addTaskForm="ngForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
-            
+
                 <!--    <p>{{ assignmentModel | json }}</p>-->
                 <p class="h4 mb-4">Taak wijzigen!</p>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.naam" name="naam" [value]="assignment?.naam"/>
+                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.naam"
+                        name="naam" [value]="assignment?.naam" />
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.omschrijving" name="beschrijving" [value]="assignment?.omschrijving"/>
+                    <input class="form-control form-control-lg" type="text" required
+                        [(ngModel)]="assignmentModel.omschrijving" name="beschrijving"
+                        [value]="assignment?.omschrijving" />
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" required [(ngModel)]="assignmentModel.locatie" name="locatie" [value]="assignment?.locatie" />
+                    <input class="form-control form-control-lg" type="text" required
+                        [(ngModel)]="assignmentModel.locatie" name="locatie" [value]="assignment?.locatie" />
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="number" required [(ngModel)]="assignmentModel.quantityUsers" name="aantalmakers" min="1" [value]="assignment?.quantityUsers"/>
+                    <input class="form-control form-control-lg" type="number" required
+                        [(ngModel)]="assignmentModel.quantityUsers" name="aantalmakers" min="1"
+                        [value]="assignment?.quantityUsers" />
                 </div>
                 <div class="form-group">
-                <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="submitted"> Wijzig</button>
+                    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="submitted"> Wijzig</button>
                 </div>
             </form>
-            
+
             <p>Tags!</p>
             <ul *ngFor="let tag of tags">
-                    <li class="list-group-item list-group-item-action">{{tag.text}}<input class="btn btn-info pull-right mb-4 float-right" type="button" value="Verwijder" (click)="verwijderTag(tag)"/></li>
-                </ul>
-                
-            <p>Voeg een tag toe:</p> 
+                <li class="list-group-item list-group-item-action">{{tag.text}}<input
+                        class="btn btn-info pull-right mb-4 float-right" type="button" value="Verwijder"
+                        (click)="verwijderTag(tag)" /></li>
+            </ul>
+
+            <p>Voeg een tag toe:</p>
             <!--  <select (change)="kiesSpeellijst($event.target.toString())"> -->
-                 
-    
-                    <select  name="tag" [(ngModel)]="keuzeTagID"  >
-                      <option *ngFor="let t of keuzeTags" name="t.tagID" [ngValue]="t.tagID" >{{t.text}}</option>
-                    </select>
-                
-            
-            <input class="float-right" type="button" value="Voeg toe" (click)="kiesTag()"/>
+
+
+            <select name="tag" [(ngModel)]="keuzeTagID">
+                <option *ngFor="let t of keuzeTags" name="t.tagID" [ngValue]="t.tagID">{{t.text}}</option>
+            </select>
+
+
+            <input class="float-right" type="button" value="Voeg toe" (click)="kiesTag()" />
         </div>
     </div>
-   
-    
+    <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
+</div>

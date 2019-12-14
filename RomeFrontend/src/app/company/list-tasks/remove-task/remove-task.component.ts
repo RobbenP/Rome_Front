@@ -7,6 +7,7 @@ import { Company } from "src/app/models/company.model";
 import { Tag } from "src/app/models/tag.model";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-remove-task',
@@ -20,7 +21,7 @@ AssignmentID = 0
 assignmentModel : Assignment;
 submitted: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private _assignService: AssignmentService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private _assignService: AssignmentService, private location: Location) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
@@ -47,6 +48,10 @@ submitted: boolean = false;
       (data => {
         this.assignmentModel = data;
       });
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

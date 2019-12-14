@@ -11,5 +11,6 @@ export class DetailTaskComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

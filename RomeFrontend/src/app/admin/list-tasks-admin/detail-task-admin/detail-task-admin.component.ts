@@ -5,6 +5,7 @@ import { Tag } from 'src/app/models/tag.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AssignmentService } from 'src/app/services/assignment.service';
 import { CompanyService } from 'src/app/services/company.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail-task-admin',
@@ -22,7 +23,8 @@ export class DetailTaskAdminComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private assignService: AssignmentService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private location: Location
   ) { 
     this.route.queryParams.subscribe(param => {
       this.assignmentId = param["assignmentId"];
@@ -58,6 +60,10 @@ export class DetailTaskAdminComponent implements OnInit {
     console.log(this.tags);
     this.assignService.updateTags(this.assignmentId, this.tags).subscribe();
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 
   ngOnInit() {

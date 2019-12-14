@@ -10,6 +10,8 @@ import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Assignmenttag } from 'src/app/models/assignmenttag.model';
 import { AssignmenttagService } from 'src/app/services/assignmenttag.service'
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-edit-tasks',
   templateUrl: './edit-tasks.component.html',
@@ -36,7 +38,8 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
     private assignService: AssignmentService,
     private companyService: CompanyService,
     private tagService: TagService,
-    private assignmentTagSevice: AssignmenttagService
+    private assignmentTagSevice: AssignmenttagService,
+    private location: Location
   ) { }
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
@@ -119,6 +122,10 @@ assignmenttag1: Assignmenttag = new Assignmenttag(0, 0, 0);
   Weigeren(assignmentID: number, userID: number){
     this.assignService.deleteBedrijfAcceptedUserAssignment(assignmentID, userID).subscribe();
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 
 };

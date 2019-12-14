@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AssignmentService } from 'src/app/services/assignment.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { Assignment } from 'src/app/models/assignment.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-tasks-admin',
@@ -10,7 +11,7 @@ import { Assignment } from 'src/app/models/assignment.model';
 })
 export class ListTasksAdminComponent implements OnInit {
 
-  constructor(private _assignmentService:AssignmentService,private router: Router) { }
+  constructor(private _assignmentService:AssignmentService,private router: Router, private location: Location) { }
 
   str: string;
   assignment: any;
@@ -45,6 +46,10 @@ export class ListTasksAdminComponent implements OnInit {
     console.log(assignmentid);
     this._assignmentService.deleteAssignment(assignmentid);
    // this.getAssignments();
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

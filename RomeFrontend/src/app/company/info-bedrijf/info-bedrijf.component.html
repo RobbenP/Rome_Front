@@ -62,14 +62,15 @@
     </div>
   </div>
   <div class="row mb-5">
-        <div class="col-3 font-weight-bold">
-          Reviews:
-        </div>
-        <div class="col-4 card" *ngFor="let review of reviews">
-          <div class="row">
-            <div class="col-12 mb-1">{{ review.reviewText }}</div>
-            <div class="col-12 mb-1 text-right">{{ review.user.username }}</div>
-          </div>
-        </div>
+    <div class="col-3 font-weight-bold">
+      Reviews:
+    </div>
+    <div class="col-4 card" *ngFor="let review of reviews">
+      <div class="row">
+        <div class="col-12 mb-1">{{ review.reviewText }}</div>
+        <div class="col-12 mb-1 text-right">{{ review.user.username }}</div>
       </div>
+    </div>
+  </div>
+  <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
 </div>

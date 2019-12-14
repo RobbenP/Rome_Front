@@ -5,12 +5,8 @@
   </div>
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Aantal geregistreerde studenten:</div>
-    <div
-      class="col-3 card"
-      [style.background-color]="getHue()"
-      style="color: aliceblue;
-    font-size: 2em;"
-    >
+    <div class="col-3 card" [style.background-color]="getHue()" style="color: aliceblue;
+    font-size: 2em;">
       {{ approvedUserAmount }}/{{ assignment.quantityUsers }}
     </div>
   </div>
@@ -33,20 +29,14 @@
   <div class="row mb-5">
     <div class="col-3 font-weight-bold">Bedrijf:</div>
     <div class="col-3">
-      <a  routerLink="/infoBedrijf/{{company.companyID}}"> {{ company.companyname }} </a>
+      <a routerLink="/infoBedrijf/{{company.companyID}}"> {{ company.companyname }} </a>
     </div>
   </div>
   <div class="row  mb-5" *ngIf="accepted">
     <div class="col-3 font-weight-bold">Jouw vooruitgang</div>
     <div class="col-5">
-      <input
-        type="number"
-        name="vooruitgang"
-        min="0"
-        max="100"
-        [(ngModel)]="percentage"
-        [style.background-color]="getHueWithValue(percentage * 1.2)"
-      />
+      <input type="number" name="vooruitgang" min="0" max="100" [(ngModel)]="percentage"
+        [style.background-color]="getHueWithValue(percentage * 1.2)" />
       Al {{ percentage }}% voltooid
     </div>
     <div class="col-3">
@@ -58,16 +48,12 @@
   <div class="row mb-5">
     <div class="col-5">
       <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
-      <ng-template #elseBlock
-        ><button (click)="signup()" class="btn btn-primary">
+      <ng-template #elseBlock><button (click)="signup()" class="btn btn-primary">
           Meld aan voor opdracht
-        </button></ng-template
-      >
-      <ng-template #thenBlock
-        ><button disabled class="btn btn-danger">
+        </button></ng-template>
+      <ng-template #thenBlock><button disabled class="btn btn-danger">
           Aanmelden niet meer mogelijk
-        </button></ng-template
-      >
+        </button></ng-template>
     </div>
     <div class="col-5" *ngIf="accepted">
       <button class="btn btn-primary" (click)="goReview()">
@@ -76,4 +62,5 @@
     </div>
   </div>
   <hr />
+  <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
 </div>
