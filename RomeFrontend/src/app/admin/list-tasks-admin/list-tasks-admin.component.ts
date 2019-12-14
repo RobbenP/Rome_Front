@@ -12,10 +12,16 @@ export class ListTasksAdminComponent implements OnInit {
 
   constructor(private _assignmentService:AssignmentService,private router: Router) { }
 
+  str: string;
+  assignment: any;
   assigments:Assignment[];
 
   ngOnInit() {
     this.getAssignments();
+  }
+
+  filterAssignments() { 
+    this.assignment = this.str;
   }
 
   getAssignments(){

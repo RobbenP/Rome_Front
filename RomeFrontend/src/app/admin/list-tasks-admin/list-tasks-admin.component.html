@@ -1,7 +1,12 @@
 <div class="container mt-5">
     <h2>Takenlijst</h2>
+    <div class="row mt-5">
+            <input id="str" [(ngModel)]="str" class="form-control w-25 m-1" placeholder="Zoek op taak" />
+            <button (click)="filterAssignments()" class="btn btn-info m-1">Filter</button>
+    
+        </div>
     <div class="row container-fluid h-100 mt-5">
-        <div *ngFor="let assigment of (assigments)" class="row m-1">
+        <div *ngFor="let assigment of assigments  | assignmentFilter:assignment" class="row m-1">
             <div class="card col-auto " style="width: 18rem;">
                 <div class="card-body">
                     <p class="card-text opdrachtNaam">

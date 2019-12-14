@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
     if (!users || !filter){
       return users;
     }
-    return users.filter(user => user.username.indexOf(filter) !== -1);
+    return users.filter(user => user.username.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
   }
 
 }
