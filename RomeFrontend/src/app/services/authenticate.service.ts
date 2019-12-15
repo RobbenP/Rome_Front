@@ -27,7 +27,7 @@ export class AuthenticateService {
     this.roleID.next(Number(roleId));
    }
  async authenticate(userlogin: Userlogin): Promise<User> {
-   
+
     const result = await this._httpClient.post<User>("https://localhost:5001/api/User/authenticate", userlogin).toPromise();
     this.isLoggedin.next(result.token ? true : false);
     localStorage.setItem("token", result.token);

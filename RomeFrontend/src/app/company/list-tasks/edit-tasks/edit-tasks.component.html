@@ -2,7 +2,6 @@
     <div class="row justify-content-center align-items-center h-100">
         
         <div class="container mt-5" *ngFor="let user of users">
-<<<<<<< HEAD
             <h4 *ngIf="users != null">Gebruikers die zich aangemeld hebben voor de opdracht</h4>
             <a  class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
@@ -17,24 +16,6 @@
             <a *ngFor="let us of acceptedUsers" class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
         </a>
-=======
-            <h4>Gebruikers die zich aangemeld hebben voor de opdracht</h4>
-            <a class="list-group-item list-group-item-action m-1"
-                [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
-            </a>
-
-            <button class="btn btn-success btn-block"
-                (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
-            <button class="btn btn-danger btn-block"
-                (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
-        </div>
-        <div class="container mt-5" *ngFor="let us of acceptedUsers">
-            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4>
-            <a class="list-group-item list-group-item-action m-1"
-                [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}}
-                -- info
-            </a>
->>>>>>> 6381e880da69b812fc90e9bf521284ec629ae093
         </div>
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
 
@@ -68,19 +49,12 @@
 
             <p>Tags!</p>
             <ul *ngFor="let tag of tags">
-<<<<<<< HEAD
-                    <li class="list-group-item list-group-item-action">{{tag.text}}</li>
-                </ul>
-                
-            <p>Voeg een tag toe:</p> 
-=======
                 <li class="list-group-item list-group-item-action">{{tag.text}}<input
                         class="btn btn-info pull-right mb-4 float-right" type="button" value="Verwijder"
                         (click)="verwijderTag(tag)" /></li>
             </ul>
 
             <p>Voeg een tag toe:</p>
->>>>>>> 6381e880da69b812fc90e9bf521284ec629ae093
             <!--  <select (change)="kiesSpeellijst($event.target.toString())"> -->
 
 
