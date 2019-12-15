@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-5">
-        <input id="str" [(ngModel)]="str" class="form-control w-25 m-1" placeholder="Zoek op gebruikersnaam" />
+        <input id="str" [(ngModel)]="str" class="form-control w-50 m-1" placeholder="Zoek op gebruikersnaam" />
         <button (click)="filterUsers()" class="btn btn-info m-1">Filter</button>
 
     </div>
@@ -29,4 +29,5 @@
         </div>
         </div>
     </div>
+    <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
 </div>

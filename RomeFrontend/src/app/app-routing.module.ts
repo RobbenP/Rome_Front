@@ -32,8 +32,13 @@ import { RemoveTaskComponent } from "./company/list-tasks/remove-task/remove-tas
 import { InfoBedrijfComponent } from "./company/info-bedrijf/info-bedrijf.component";
 import { UserDetailsBedrijfComponent } from "./company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component";
 import { FinishRegisterGuardService } from "./services/finish-register-guard.service";
-import { DetailTaskResolverService } from './resolvers/detail-task-resolver.service';
-import { InfoBedrijfResolverService } from './resolvers/info-bedrijf-resolver.service';
+import { DetailTaskResolverService } from "./resolvers/detail-task-resolver.service";
+import { InfoBedrijfResolverService } from "./resolvers/info-bedrijf-resolver.service";
+import { StudentGuardService } from "./services/student-guard.service";
+import { AdminGuardService } from "./services/admin-guard.service";
+import { CompanyGuardService } from './services/company-guard.service';
+import { LoggedInGuardService } from './services/logged-in-guard.service';
+import { TasksResolverService } from './resolvers/tasks-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -50,115 +55,116 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
     path: "admin/gebruikersLijst",
     component: ListUsersComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
     path: "admin/takenLijst",
     component: ListTasksAdminComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
     path: "admin/takenlijst/detailtaak",
     component: DetailTaskAdminComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
     path: "student",
     component: StudentComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
     path: "student/takenlijst",
     component: AvailableTasksComponent,
-    canActivate: [FinishRegisterGuardService]
+    resolve: { tasks: TasksResolverService },
+    canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
     path: "student/detailsTaak/:id",
     component: TaskDetailsComponent,
     resolve: { data: DetailTaskResolverService },
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
     path: "bedrijf",
     component: CompanyComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/takenlijst",
     component: ListTasksComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/takenlijst/taakToevoegen",
     component: AddTaskComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/takenlijst/taakVerwijderen/:id",
     component: RemoveTaskComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/takenlijst/taakWijzigen/:id",
     component: EditTasksComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/takenlijst/detailtaak/:id",
     component: DetailTaskComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "review/:assignId/:studentId",
     component: ReviewComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, LoggedInGuardService]
   },
   {
     path: "review/:assignId/:studentId/:reviewId",
     component: ReviewComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, LoggedInGuardService]
   },
 
   {
     path: "bedrijf/accountSettings",
     component: AccountSettingsComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "student/accountSettings",
     component: AccountSettingsComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
     path: "infoBedrijf/:id",
     component: InfoBedrijfComponent,
     resolve: { data: InfoBedrijfResolverService },
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, LoggedInGuardService]
   },
   {
     path: "bedrijf/studentDetail/:id/:assignmentID",
     component: UserDetailsBedrijfComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "bedrijf/studentDetail/:id",
     component: UserDetailsBedrijfComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
     path: "admin/reviewsGebruiker/:id",
     component: UserAdminReviewComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
     path: "admin/userDetails/:id",
     component: AccountSettingsComponent,
-    canActivate: [FinishRegisterGuardService]
+    canActivate: [FinishRegisterGuardService, LoggedInGuardService]
   }
 ];
 

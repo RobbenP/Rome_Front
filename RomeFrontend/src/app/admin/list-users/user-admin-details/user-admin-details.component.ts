@@ -5,6 +5,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { User } from 'src/app/models/user.model';
 import { Student } from 'src/app/models/student.model';
 import { Company } from 'src/app/models/company.model';
+import { Location } from '@angular/common';
 
 import { Locaties } from 'src/app/models/location.model';
 
@@ -27,7 +28,8 @@ export class UserAdminDetailsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -109,5 +111,9 @@ export class UserAdminDetailsComponent implements OnInit {
       }
       
     });
+  }
+
+  back(){
+    this.location.back();
   }
 }

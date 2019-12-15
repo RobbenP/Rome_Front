@@ -1,88 +1,54 @@
-<div class="container-fluid h-100 mt-5">
-  <div class="row justify-content-center align-items-center h-100">
-    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
-      <h2 class="mt-2">Registreer</h2>
+<div class="sidenav">
+  <div class="login-main-text">
+    <h2>Welkom</h2>
+    <p>
+      Registreer je hier als student voor opdrachten te vinden waarmee je meer ervaring kan opdoen. Alles wat je in
+      opdracht van een bedrijf
+      tot een goed einde brengt komt goed op je cv te staan.
+    </p>
+    <p>
+      Registreer je hier als bedrijf als je een opdracht hebt die niet dringend is of zou kunnen uitgevoerd worden door
+      iemand extern. Laat
+      ze door een student maken en wie weet krijg je een mooie oplossing.
+    </p>
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+    <div class="register-form">
+      <h2>Registreer</h2>
       <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-        <!--    <div class="form-check" *ngFor="let rol of roles">
-                    <input type="radio" name="radiogroup" class="form-check-input" id="rol.roleID" value="rol.roleID"
-                    (change)="onSelectionChange(rol)"
-                    />
-                    <label class="form-check-label" for="rol.type">
-                            {{rol.type}}
-                        </label>
-                </div>-->
-        <div class="form-check pb-1">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="userType"
-            id="student"
-            value="3"
-            checked
-            [(ngModel)]="model.roleID"
-          />
+        <div class="form-group ml-3">
+          <input class="form-check-input" type="radio" name="userType" id="student" value="3" checked
+            [(ngModel)]="model.roleID" />
           <label class="form-check-label" for="student">
             Student
           </label>
         </div>
-        <div class="form-check pb-2">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="userType"
-            id="company"
-            value="2"
-            [(ngModel)]="model.roleID"
-          />
+        <div class="form-group ml-3">
+          <input class="form-check-input" type="radio" name="userType" id="company" value="2"
+            [(ngModel)]="model.roleID" />
           <label class="form-check-label" for="company">
             Bedrijf
           </label>
         </div>
         <div class="form-group">
-          <input
-            _ngcontent-c0=""
-            [(ngModel)]="model.username"
-            class="form-control form-control-lg"
-            placeholder="Gebruikersnaam"
-            type="text"
-            name="username"
-            id="username"
-            required
-          />
-          <div *ngIf="wroungUser" class="invalid-feedback d-block">Deze gebruikersnaam is al bezet, kies een andere!</div>
+          <input _ngcontent-c0="" [(ngModel)]="model.username" class="form-control"
+            placeholder="Gebruikersnaam" type="text" name="username" id="username" required />
+          <div *ngIf="wroungUser" class="invalid-feedback d-block">Deze gebruikersnaam is al bezet, kies een andere!
+          </div>
         </div>
         <div class="form-group">
-          <input
-            _ngcontent-c0=""
-            [(ngModel)]="model.email"
-            class="form-control form-control-lg"
-            placeholder="Email"
-            type="email"
-            name="email"
-            id="email"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          />
+          <input _ngcontent-c0="" [(ngModel)]="model.email" class="form-control" placeholder="Email"
+            type="email" name="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
         </div>
         <div class="form-group">
-          <input
-            class="form-control form-control-lg"
-            [(ngModel)]="model.password"
-            placeholder="Wachtwoord"
-            required
-            minlength="6"
-            type="password"
-            name="password"
-            id="password"
-            required
-          />
+          <input class="form-control" [(ngModel)]="model.password" placeholder="Wachtwoord" required
+            minlength="6" type="password" name="password" id="password" required />
         </div>
         <div class="form-group">
-          <button
-            class="btn btn-info btn-lg btn-block"
-            type="submit"
-            [disabled]="!registerForm.form.valid || submitted || model.roleID==''"
-          >
+          <button class="btn btn-black mr-2" type="submit"
+            [disabled]="!registerForm.form.valid || submitted || model.roleID==''">
             Registreer
           </button>
         </div>

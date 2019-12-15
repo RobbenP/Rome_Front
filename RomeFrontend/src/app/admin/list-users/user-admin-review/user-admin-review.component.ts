@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Assignment } from 'src/app/models/assignment.model';
 import { AssignmentService } from 'src/app/services/assignment.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-admin-review',
@@ -25,7 +26,8 @@ private routeSub: Subscription;
     private route: ActivatedRoute, 
     private reviewService: ReviewService,
     private userService: UserService,
-    private assignmentService: AssignmentService) { }
+    private assignmentService: AssignmentService,
+    private location: Location) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
@@ -58,5 +60,9 @@ private routeSub: Subscription;
   deleteReview(reviewID:number){
     this.reviewService.deleteReview(reviewID).subscribe();
     window.location.reload();
+  }
+
+  back(){
+    this.location.back();
   }
 }

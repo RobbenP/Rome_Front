@@ -19,6 +19,11 @@ export class AssignmentService {
       "https://localhost:5001/api/Assignments"
     );
   }
+  async getAssignmentsAsync(): Promise<Assignment[]> {
+    return this.http.get<Assignment[]>(
+      "https://localhost:5001/api/Assignments"
+    ).toPromise();
+  }
   updateAssignment(assignment: Assignment) {
     return this.http.put(
       "https://localhost:5001/api/Assignments/" +
@@ -126,7 +131,6 @@ export class AssignmentService {
   }
 
   addAssignmentTag(assignmentag: Assignmenttag){
-    console.log(assignmentag);
     return this.http.post<Assignmenttag>("https://localhost:5001/api/AssignmentTags", assignmentag);
   }
 }

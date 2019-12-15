@@ -5,9 +5,9 @@ import { Company } from "src/app/models/company.model";
 import { Observable } from "rxjs";
 import { UserService } from "src/app/services/user.service";
 import { User } from "src/app/models/user.model";
-import { Locaties } from "src/app/models/location.model";
 import { ReviewService } from "src/app/services/review.service";
 import { Review } from "src/app/models/review.model";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-info-bedrijf",
@@ -24,7 +24,8 @@ export class InfoBedrijfComponent implements OnInit {
     private route: ActivatedRoute,
     private companyService: CompanyService,
     private userService: UserService,
-    private reviewService: ReviewService
+    private reviewService: ReviewService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -48,20 +49,7 @@ export class InfoBedrijfComponent implements OnInit {
     cal.click();
   }
 
-  // mail() {
-  //   let mail = document.createElement("a");
-  //   this.user.subscribe(r => {
-  //     mail.href = "mailto:" + r.email;
-  //     mail.click();
-  //     console.log(mail.href);
-  //   });
-  // }
-
-  // call() {
-  //   let cal = document.createElement("a");
-  //   this.bedrijf.subscribe(r => {
-  //     cal.href = "tel:" + r.phoneNumber;
-  //     cal.click();
-  //   });
-  // }
+  back(){
+    this.location.back();
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-users',
@@ -10,7 +11,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor(private _userService:UserService,private router: Router) { }
+  constructor(private _userService:UserService,private router: Router, private location: Location) { }
   str: string;
   users:User[];
   username: any;
@@ -38,5 +39,8 @@ export class ListUsersComponent implements OnInit {
     });
   }
 
+  back(){
+    this.location.back();
+  }
   
 }
