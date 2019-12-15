@@ -40,6 +40,7 @@ import { CompanyGuardService } from './services/company-guard.service';
 import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { TasksResolverService } from './resolvers/tasks-resolver.service';
 import { AllUsersResolverService } from './resolvers/all-users-resolver.service';
+import { AllTasksResolverService } from './resolvers/all-tasks-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -67,6 +68,7 @@ const routes: Routes = [
   {
     path: "admin/takenLijst",
     component: ListTasksAdminComponent,
+    resolve: { tasks: AllTasksResolverService },
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {

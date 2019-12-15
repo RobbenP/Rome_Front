@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentService } from 'src/app/services/assignment.service';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { Assignment } from 'src/app/models/assignment.model';
 import { Location } from '@angular/common';
 
@@ -11,14 +11,14 @@ import { Location } from '@angular/common';
 })
 export class ListTasksAdminComponent implements OnInit {
 
-  constructor(private _assignmentService:AssignmentService,private router: Router, private location: Location) { }
+  constructor(private _assignmentService:AssignmentService,private router: Router, private location: Location, private route:ActivatedRoute) { }
 
   str: string;
   assignment: any;
   assigments:Assignment[];
 
   ngOnInit() {
-    this.getAssignments();
+    this.assigments=this.route.snapshot.data["tasks"];
   }
 
   filterAssignments() { 
