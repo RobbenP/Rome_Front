@@ -57,6 +57,8 @@ export class AccountSettingsComponent implements OnInit {
           this.userService.getStudent(this.userModel.studentID).subscribe(
             result =>{
               this.studentModel = result;
+              this.studentModel.birthDay = new Date(this.studentModel.birthDay);
+              console.log(this.studentModel.birthDay)
             }
           )
         }else if(this.userModel.companyID != null)
