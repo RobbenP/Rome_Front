@@ -62,7 +62,8 @@ export class DetailTaskAdminComponent implements OnInit {
     this.assignService.updateAssignment(this.assignment).subscribe();
     console.log(this.tags);
     this.assignService.updateTags(this.assignmentId, this.tags).subscribe();
-    window.location.reload();
+    //window.location.reload();
+    this.router.navigate(["admin/takenLijst"]);
   }
 
   back() {

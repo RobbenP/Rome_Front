@@ -84,13 +84,13 @@ export class EditTasksComponent implements OnInit {
   verwijderTag(tag: Tag) {
     console.log(this.AssignmentID);
     console.log(tag.tagID);
-    console.log('test');
-    
+    console.log("test");
+
     this.assignmentTagSevice
       .deleteAssignmentTag(tag.tagID, this.AssignmentID)
       .subscribe(r => {
         console.log("in subscribe");
-        
+
         this.getTags();
       });
   }
@@ -111,10 +111,10 @@ export class EditTasksComponent implements OnInit {
       this.tags = result;
       this.assignService.getAllTags().subscribe(result => {
         this.keuzeTags = result;
-        this.tags.forEach(function (tag){
+        this.tags.forEach(function(tag) {
           result.forEach((keuzeTag, index) => {
-            if (tag.text.toLowerCase() == keuzeTag.text.toLowerCase()){
-              result.splice(index,1);
+            if (tag.text.toLowerCase() == keuzeTag.text.toLowerCase()) {
+              result.splice(index, 1);
             }
           });
         });
@@ -133,7 +133,7 @@ export class EditTasksComponent implements OnInit {
     this.assignService
       .deleteBedrijfAcceptedUserAssignment(assignmentID, userID)
       .subscribe();
-      this.getAssignment();
+    this.getAssignment();
   }
 
   back() {
