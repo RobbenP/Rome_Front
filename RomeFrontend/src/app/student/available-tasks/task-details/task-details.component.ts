@@ -9,6 +9,7 @@ import { Review } from "src/app/models/review.model";
 import { UserAssignments } from "src/app/models/user-assignments.model";
 import { UserAssignmentService } from "src/app/services/user-assignment.service";
 import { Observable } from "rxjs";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-task-details",
@@ -30,7 +31,8 @@ export class TaskDetailsComponent implements OnInit {
     private router: Router,
     private assignService: AssignmentService,
     private uaService: UserAssignmentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    private location: Location
   ) {
     //[assign, approvedAmount, company, tags, ua]
     console.log(this.route.snapshot.data["data"]);
@@ -159,6 +161,10 @@ console.log(this.canSignup);
       return hex.length === 1 ? "0" + hex : hex;
     };
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+  }
+
+  back(){
+    this.location.back();
   }
 
   ngOnInit() {}
