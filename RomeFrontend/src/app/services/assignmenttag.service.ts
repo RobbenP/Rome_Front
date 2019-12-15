@@ -20,6 +20,10 @@ export class AssignmenttagService {
   }
 
   deleteAssignmentTag(tagid: number, assignid: number): Observable<Assignment[]> {
+    console.log("in service");
+    console.log(tagid,assignid);
+    
+    
     return this.http.delete<Assignment[]>("https://localhost:5001/api/AssignmentTags/" + tagid + "/" + assignid);
   }
 

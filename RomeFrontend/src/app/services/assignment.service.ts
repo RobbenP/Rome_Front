@@ -131,7 +131,6 @@ export class AssignmentService {
   }
 
   addAssignmentTag(assignmentag: Assignmenttag){
-    console.log(assignmentag);
     return this.http.post<Assignmenttag>("https://localhost:5001/api/AssignmentTags", assignmentag);
   }
 }
