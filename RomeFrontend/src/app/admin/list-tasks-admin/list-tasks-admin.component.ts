@@ -36,12 +36,12 @@ export class ListTasksAdminComponent implements OnInit {
   details(assignmentId: number, companyID: number) {
    
 
-    this.router.navigate(["admin/takenlijst/detailtaak/"+ assignmentId + "/" + 1]);
+    this.router.navigate(["admin/takenlijst/detailtaak/"+ assignmentId + "/" + companyID]);
   }
   delete(assignmentid: number){
     console.log(assignmentid);
     this._assignmentService.deleteAssignment(assignmentid).subscribe( result => {
-      this.router.navigate(['/admin'])
+      window.location.reload();
     });
    // this.getAssignments();
   }
