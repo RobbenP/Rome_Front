@@ -87,7 +87,7 @@ export class EditTasksComponent implements OnInit {
     console.log('test');
     
     this.assignmentTagSevice
-      .deleteAssignmentTag(this.AssignmentID, tag.tagID)
+      .deleteAssignmentTag(tag.tagID, this.AssignmentID)
       .subscribe(r => {
         console.log("in subscribe");
         
@@ -109,9 +109,18 @@ export class EditTasksComponent implements OnInit {
   getTags() {
     this.assignService.getTags(this.AssignmentID).subscribe(result => {
       this.tags = result;
-    });
-    this.assignService.getAllTags().subscribe(result => {
-      this.keuzeTags = result;
+      this.assignService.getAllTags().subscribe(result => {
+        this.keuzeTags = result;
+        this.tags.forEach(function (tag){
+          result.forEach((keuzeTag, index) => {
+            if (tag.text.toLowerCase() == keuzeTag.text.toLowerCase()){
+              console.log("AAYAYAYAYAAYYAAYAYYAYAYAYYAYAY")
+              result.splice(index,1);
+            }
+          });
+        });
+        this.keuzeTags = result;
+      });
     });
   }
   Aanvaarden(assignmentID: number, userID: number) {
