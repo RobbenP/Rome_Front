@@ -39,6 +39,7 @@ import { AdminGuardService } from "./services/admin-guard.service";
 import { CompanyGuardService } from './services/company-guard.service';
 import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { TasksResolverService } from './resolvers/tasks-resolver.service';
+import { AllUsersResolverService } from './resolvers/all-users-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -60,6 +61,7 @@ const routes: Routes = [
   {
     path: "admin/gebruikersLijst",
     component: ListUsersComponent,
+    resolve: { users: AllUsersResolverService },
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {

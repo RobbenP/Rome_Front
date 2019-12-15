@@ -19,7 +19,7 @@ import { DateBefore } from './date-before';
 export class RegisterStudentComponent implements OnInit {
   datum = new Date();
   model: Student = new Student(0, "", "", this.datum, "", "", "", "");
-  user: User;
+  user: User; 
   constructor(
     private _authenticateService: AuthenticateService,
     private router: Router,

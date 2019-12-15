@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { Location } from '@angular/common';
 
@@ -11,13 +11,14 @@ import { Location } from '@angular/common';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor(private _userService:UserService,private router: Router, private location: Location) { }
+  constructor(private route:ActivatedRoute,private _userService:UserService,private router: Router, private location: Location) { }
   str: string;
   users:User[];
   username: any;
 
   ngOnInit() {
-    this.getUsers();
+    //this.getUsers();
+    this.users = this.route.snapshot.data["users"];
   }
 
   filterUsers() { 
@@ -38,7 +39,7 @@ export class ListUsersComponent implements OnInit {
       window.location.reload();
     });
   }
-
+ 
   back(){
     this.location.back();
   }
