@@ -10,9 +10,9 @@
             toe</button></a>
     <div class="list-group" *ngFor="let assigment of assigments | companyAssignmentFilter:assignment">
         <a class="list-group-item list-group-item-action m-1"
-            [routerLink]="['/bedrijf/takenlijst/taakWijzigen/'+(assigment.assignmentID)]">{{assigment.naam}}
+            [routerLink]="['/bedrijf/takenlijst/taakWijzigen/'+(assigment.assignmentID)]">{{assigment.naam}} </a>
             <a [routerLink]="['/bedrijf/takenlijst/taakVerwijderen/'+(assigment.assignmentID)]"><button class="btn btn-info pull-right mb-4 float-right">Verwijder</button></a>
-        </a>
+       
         <div *ngIf="pendingAssignments">
 
         </div>

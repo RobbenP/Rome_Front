@@ -32,13 +32,20 @@
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.website" name="website" [value]="companyModel?.website"/>
                     </div>
+                    
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.biography" name="biography" [value]="companyModel?.biography"/>
                     </div>
+                   
                     <div class="form-group" *ngFor="let location of locations; let i = index;">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="location.adress" name="location_{{i}}" [value]="location.adress"/>
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="location.township" name="locationtownShip_{{i}}" [value]="location.townShip"/>
                     </div>
+                    <div class="form-group" >
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip"/>
+                    </div>
+                   
                 </div>
                 <div *ngIf="userModel.studentID != null">
                     <p class="h4 mb-4">Student gegevens</p>

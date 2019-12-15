@@ -22,8 +22,8 @@ export class AccountSettingsComponent implements OnInit {
  userModel: User;
  studentModel: Student;
  companyModel: Company;
-  locations: Locaties[]
-  
+  locations: Locaties[];
+  locatie =   new Locaties(0,"","",0);
  password = "";
  currentpassword = "";
  newpassword = "";
@@ -33,7 +33,8 @@ export class AccountSettingsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private authenticateService: AuthenticateService
   ) { }
 
   ngOnInit() {
@@ -66,9 +67,11 @@ export class AccountSettingsComponent implements OnInit {
           this.userService.getBedrijf(this.userModel.companyID).subscribe(
             result => {
               this.companyModel = result;
+              this.locatie.companyID = result.companyID;
               this.companyService.getLocationsForCompany(this.companyModel.companyID).subscribe(
                 result => {
                   this.locations = result;
+                  
                //   this.locations = result;
                 }
               )
@@ -125,7 +128,11 @@ export class AccountSettingsComponent implements OnInit {
       {
         
         this.companyService.updateCompany(this.companyModel).subscribe( result => {
-          this.companyService.updateLocations(this.companyModel.companyID, this.locations).subscribe();
+          this.companyService.updateLocations(this.companyModel.companyID, this.locations).subscribe(
+            result => {
+              this.authenticateService.addLocation(this.locatie).subscribe();
+            }
+          );
           if(+localStorage.getItem("roleID") == 1){
             this.router.navigate(['/admin/gebruikersLijst']);
           }else 

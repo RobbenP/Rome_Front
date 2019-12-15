@@ -39,4 +39,5 @@ export class CompanyService {
       "https://localhost:5001/api/Locations/updateLocations/" + companyID, locations
     );
   }
+  
 }

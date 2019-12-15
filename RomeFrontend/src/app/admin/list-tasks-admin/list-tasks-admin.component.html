@@ -10,7 +10,7 @@
             <div class="card col-auto " style="width: 18rem;">
                 <div class="card-body">
                     <p class="card-text opdrachtNaam">
-                        <a (click)="details(assigment.assignmentID)">{{assigment.naam}} </a>
+                        <button class="btn btn-info m-1" (click)="details(assigment.assignmentID)">{{assigment.naam}} </button>
                     </p>
                     <p class="card-text">
                         <button (click)="delete(assigment.assignmentID)" class="btn btn-danger">
