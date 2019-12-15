@@ -33,15 +33,15 @@ export class ListTasksAdminComponent implements OnInit {
       }
     );
   }
-  details(assignmentId: number, companyID: number) {
+  details(assignmentId: number) {
    
 
-    this.router.navigate(["admin/takenlijst/detailtaak/"+ assignmentId + "/" + companyID]);
+    this.router.navigate(["admin/takenlijst/detailtaak/"+assignmentId]);
   }
   delete(assignmentid: number){
     console.log(assignmentid);
     this._assignmentService.deleteAssignment(assignmentid).subscribe( result => {
-      window.location.reload();
+      this.router.navigate(['/admin'])
     });
    // this.getAssignments();
   }

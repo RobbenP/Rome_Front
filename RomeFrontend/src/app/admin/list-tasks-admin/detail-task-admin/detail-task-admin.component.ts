@@ -31,7 +31,6 @@ export class DetailTaskAdminComponent implements OnInit {
     this.approvedUserAmount = route.snapshot.data["task"][1];
     this.tags = route.snapshot.data["task"][2];
     this.allTags = route.snapshot.data["task"][3];
-    this.company = route.snapshot.data["task"][4];
     // this.route.queryParams.subscribe(param => {
     //   this.assignmentId = param["assignmentId"];
 
@@ -69,5 +68,5 @@ export class DetailTaskAdminComponent implements OnInit {
     this.location.back();
   }
 
-  ngOnInit() {}
+  ngOnInit() { console.log(this.assignment)}
 }

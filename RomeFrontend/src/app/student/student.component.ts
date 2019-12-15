@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+ userID : number;
   constructor(private router: Router) { 
    
   }
 
   ngOnInit() {
-   
+   this.userID = +localStorage.getItem("userID");
   }
 
   takenlijst(){

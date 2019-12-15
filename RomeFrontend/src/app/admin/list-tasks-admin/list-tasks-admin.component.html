@@ -10,10 +10,10 @@
             <div class="card col-auto " style="width: 18rem;">
                 <div class="card-body">
                     <p class="card-text opdrachtNaam">
-                        <button class="btn btn-info m-1" [routerLink]="['/admin/takenlijst/detailtaak/'+(assigment.assignmentID) + '/' + (assigment.companyID)]">{{assigment.naam}} </button>
+                        <button class="btn btn-info m-1" (click)="details(assigment.assignmentID)">{{assigment.naam}} </button>
                     </p>
                     <p class="card-text">
-                        <button  (click)="delete(assigment.assignmentID, assigment.companyID)" class="btn btn-danger">
+                        <button (click)="delete(assigment.assignmentID, assignment.companyID)" class="btn btn-danger">
                             Verwijder taak
                         </button>
                     </p>

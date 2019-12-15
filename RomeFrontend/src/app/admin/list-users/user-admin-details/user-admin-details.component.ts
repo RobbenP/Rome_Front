@@ -5,7 +5,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { User } from 'src/app/models/user.model';
 import { Student } from 'src/app/models/student.model';
 import { Company } from 'src/app/models/company.model';
-import { Location } from '@angular/common';
+import { Location, DatePipe } from '@angular/common';
 
 import { Locaties } from 'src/app/models/location.model';
 
@@ -20,6 +20,7 @@ export class UserAdminDetailsComponent implements OnInit {
  studentModel: Student;
  companyModel: Company;
  locations: Locaties[];
+ datum: string;
  password = "";
  currentpassword = "";
  newpassword = "";
@@ -29,11 +30,16 @@ export class UserAdminDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private companyService: CompanyService,
-    private location: Location
-  ) { }
+    private location: Location,
+    private datepipe: DatePipe
+  ) {}
 
-  ngOnInit() {
-   this.route.params.subscribe(params => {
+  ngOnInit() { 
+    console.log(this.userModel);
+    this.userModel = this.route.snapshot.data["gebruikers"][0]; 
+    
+  
+  /* this.route.params.subscribe(params => {
     
       this.userID = params['id']});
    this.userService.getUser(this.userID).subscribe(
@@ -62,7 +68,7 @@ export class UserAdminDetailsComponent implements OnInit {
         }
 
      }
-   )
+   )*/
   }
   onSubmit(){
     

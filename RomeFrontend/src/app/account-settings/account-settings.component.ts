@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
-import { Assignment } from "src/app/models/assignment.model";
-import { AssignmentService } from "src/app/services/assignment.service";
-import { CompanyService } from "src/app/services/company.service";
-import { Company } from "src/app/models/company.model";
-import { UserService } from "src/app/services/user.service";
-import { Observable, Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { CompanyService } from 'src/app/services/company.service';
 import { User } from 'src/app/models/user.model';
-import { Student } from '../models/student.model';
-import { DatePipe} from '@angular/common';
-import {Locaties} from '../models/location.model';
+import { Student } from 'src/app/models/student.model';
+import { Company } from 'src/app/models/company.model';
+import { Location, DatePipe } from '@angular/common';
+
+import { Locaties } from 'src/app/models/location.model';
 import { AuthenticateService } from '../services/authenticate.service';
-import { Location} from '@angular/common';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
@@ -20,13 +17,13 @@ import { Location} from '@angular/common';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  userID: number;
+
  userModel: User;
- studentModel: Student;
- companyModel: Company;
+
+;
   locations: Locaties[];
   locatie =   new Locaties(0,"","",0);
-  test: string;
+ 
  password = "";
  currentpassword = "";
  newpassword = "";
@@ -43,58 +40,23 @@ export class AccountSettingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    if(+localStorage.getItem("roleID") == 1)
+    this.userModel = this.route.snapshot.data["gebruikers"][0]; 
+    console.log(this.userModel);
+    console.log(this.locations);
+    if(this.userModel.companyID != null)
     {
-      this.route.params.subscribe(params => {
-    
-        this.userID = params['id']});
-    }else {
-      this.userID = +localStorage.getItem("userID");
+      this.companyService.getLocationsForCompany(this.userModel.companyID).subscribe(
+        result =>
+        {
+          this.locations = result;
+        }
+      )
     }
 
-  
-   this.userService.getUser(this.userID).subscribe(
-     result => {
-        this.userModel = result;
-        this.password = this.userModel.password;
-        if(this.userModel.studentID != null)
-        {
-          this.userService.getStudent(this.userModel.studentID).subscribe(
-            result =>{
-              this.studentModel = result;
-        this.studentModel.birthday = new Date(this.studentModel.birthday);
-           
-                this.test= this.datepipe.transform(this.studentModel.birthday, 'yyyy-MM-dd');
-                
-              
-               
-           
-            }
-          )
-        }else if(this.userModel.companyID != null)
-        {
-          this.userService.getBedrijf(this.userModel.companyID).subscribe(
-            result => {
-              this.companyModel = result;
-              this.locatie.companyID = result.companyID;
-              this.companyService.getLocationsForCompany(this.companyModel.companyID).subscribe(
-                result => {
-                  this.locations = result;
-                  
-               //   this.locations = result;
-                }
-              )
-            }
-          )
-        }
-
-     }
-   )
   }
   onSubmit(){
     
-    if (this.password == this.currentpassword){
+    if (this.userModel.password == this.currentpassword){
       if((this.newpassword != "") && (this.newpassword == this.confirmpassword)){
         this.userModel.password = this.newpassword;
         this.onSubmitDeRest();
@@ -119,44 +81,35 @@ export class AccountSettingsComponent implements OnInit {
 
       
   }
+  savedate(test:any){
+    console.log(test);
+    //this.userModel.student.birthday = new Date()
+  }
   onSubmitDeRest(){
-    this.userService.updateUser(this.userModel).subscribe( result => {
-      if(this.userModel.studentID != null)
-      {
-        this.studentModel.birthday = new Date(this.test);
-        this.userService.updateStudent(this.studentModel).subscribe(
-          result => {
-            if(+localStorage.getItem("roleID") == 1){
-              this.router.navigate(['/admin/gebruikersLijst']);
-            }else 
-            {
-              this.router.navigate(['']);
-            }
-          }
-        )
-      }else if(this.userModel.companyID != null)
-      {
-        
-        this.companyService.updateCompany(this.companyModel).subscribe( result => {
-          this.companyService.updateLocations(this.companyModel.companyID, this.locations).subscribe(
-            result => {
-              if(this.locatie.townShip != "" || this.locatie.townShip != ""){
-                this.authenticateService.addLocation(this.locatie).subscribe();
-              }
-           
-            }
-          );
-          if(+localStorage.getItem("roleID") == 1){
-            this.router.navigate(['/admin/gebruikersLijst']);
-          }else 
-          {
-            this.router.navigate(['']);
-          }
-   
-        })
-      }
-      
+    console.log(this.userModel);
+    this.userService.updateUser(this.userModel).subscribe(result => {
+  
+    
     });
+    if(+localStorage.getItem("roleID") ==1 )
+    {
+       this.router.navigate(['/admin/gebruikersLijst']);
+    }else 
+    {
+       this.router.navigate(['']);
+    }
+    if(this.locations != null)
+    {
+      this.companyService.updateLocations(this.userModel.companyID, this.locations).subscribe(
+        result => {
+          if(this.locatie.townShip != "" || this.locatie.townShip != ""){
+            this.authenticateService.addLocation(this.locatie).subscribe();
+          }
+       
+        }
+      );
+    }
+    
   }
   back(){
     this.location.back();

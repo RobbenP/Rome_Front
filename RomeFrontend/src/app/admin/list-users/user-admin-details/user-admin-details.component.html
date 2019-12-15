@@ -32,22 +32,22 @@
                 <div *ngIf="userModel.companyID != null">
                     <p class="h4 mb-4">Company gegevens!</p>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.companyname"
-                            name="companyname" [value]="companyModel?.companyname" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.company.companyname"
+                            name="companyname" [value]="userModel?.company.companyname" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.phonenumber"
-                            name="phonenumber" [value]="companyModel?.phonenumber" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.company.phonenumber"
+                            name="phonenumber" [value]="userModel?.company.phonenumber" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.website"
-                            name="website" [value]="companyModel?.website" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.company.website"
+                            name="website" [value]="userModel?.company.website" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="companyModel.biography"
-                            name="biography" [value]="companyModel?.biography" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.company.biography"
+                            name="biography" [value]="userModel?.company.biography" />
                     </div>
-                    <div class="form-group" *ngFor="let location of locations; let i = index;">
+                    <div class="form-group" *ngFor="let location of userModel.company.locations; let i = index;">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="location.adress"
                             name="location_{{i}}" [value]="location.adress" />
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="location.township"
@@ -57,32 +57,33 @@
                 <div *ngIf="userModel.studentID != null">
                     <p class="h4 mb-4">Student gegevens</p>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.nickname"
-                            name="nickname" [value]="studentModel?.nickname" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.nickname"
+                            name="nickname" [value]="userModel?.student.nickname" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.name"
-                            name="name" [value]="studentModel?.name" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.name"
+                            name="name" [value]="userModel?.student.name" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="date" [(ngModel)]="studentModel.birthDay"
-                            name="birthDay" [value]="studentModel?.birthDay" />
+                       <!-- <input class="form-control form-control-lg" type="date" [(ngModel)]="userModel.student.birthday"
+                            name="birthDay" [value]="userModel?.student.birthday" />-->
+                            <p></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.biography"
-                            name="biography" [value]="studentModel?.biography" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.biography"
+                            name="biography" [value]="userModel?.student.biography" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.linkedin"
-                            name="linkedin" [value]="studentModel?.linkedin" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.linkedin"
+                            name="linkedin" [value]="userModel?.student.linkedin" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.experience"
-                            name="experience" [value]="studentModel?.experience" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.experience"
+                            name="experience" [value]="userModel?.student.experience" />
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.phonenumber"
-                            name="phonenumber" [value]="studentModel?.phonenumber" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.phonenumber"
+                            name="phonenumber" [value]="userModel?.student.phonenumber" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -91,5 +92,5 @@
             </form>
         </div>
     </div>
-    <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
+   <!-- <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>-->
 </div>

@@ -43,6 +43,8 @@ import { AllUsersResolverService } from './resolvers/all-users-resolver.service'
 import { AllTasksResolverService } from './resolvers/all-tasks-resolver.service';
 import { OneTaskResolverService } from './resolvers/one-task-resolver.service';
 import { StudentReviewsComponent } from './student/student-reviews/student-reviews.component';
+
+import { OneUserResolverService } from './resolvers/one-user-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -74,7 +76,7 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
-    path: "admin/takenlijst/detailtaak/:id/:companyId",
+    path: "admin/takenlijst/detailtaak/:id",
     component: DetailTaskAdminComponent,
     resolve: { task: OneTaskResolverService },
     canActivate: [FinishRegisterGuardService, AdminGuardService]
@@ -138,13 +140,15 @@ const routes: Routes = [
   },
 
   {
-    path: "bedrijf/accountSettings",
+    path: "bedrijf/accountSettings/:id",
     component: AccountSettingsComponent,
+    resolve: {gebruikers: OneUserResolverService},
     canActivate: [FinishRegisterGuardService, CompanyGuardService]
   },
   {
-    path: "student/accountSettings",
+    path: "student/accountSettings/:id",
     component: AccountSettingsComponent,
+    resolve: {gebruikers: OneUserResolverService},
     canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
@@ -176,6 +180,7 @@ const routes: Routes = [
   {
     path: "admin/userDetails/:id",
     component: AccountSettingsComponent,
+    resolve: {gebruikers: OneUserResolverService},
     canActivate: [FinishRegisterGuardService, LoggedInGuardService]
   }
 ];

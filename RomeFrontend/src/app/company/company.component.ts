@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit {
-
+  userID: number;
   constructor(private router: Router) {
     if(localStorage.getItem("refreshed") == "0")
     {
@@ -18,7 +18,7 @@ export class CompanyComponent implements OnInit {
    }
 
   ngOnInit() {
-   
+   this.userID = +localStorage.getItem("userID");
   }
 
   lijstTaken(){

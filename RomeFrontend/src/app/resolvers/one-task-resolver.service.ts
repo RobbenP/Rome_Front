@@ -4,29 +4,23 @@ import { Observable, forkJoin } from "rxjs";
 import { Assignment } from "../models/assignment.model";
 import { Tag } from "../models/tag.model";
 import { AssignmentService } from "../services/assignment.service";
-import { Company } from '../models/company.model';
-import { CompanyService } from '../services/company.service';
 
 @Injectable({
   providedIn: "root"
 })
 export class OneTaskResolverService
-  implements Resolve<Observable<[Assignment, number, Tag[], Tag[], Company]>> {
-
-    assignment: Assignment;
-  constructor(private assService: AssignmentService, private companyService: CompanyService) {}
+  implements Resolve<Observable<[Assignment, number, Tag[], Tag[]]>> {
+  constructor(private assService: AssignmentService) {}
 
   resolve(
     route: ActivatedRouteSnapshot
-  ): Observable<[Assignment, number, Tag[], Tag[], Company]> {
+  ): Observable<[Assignment, number, Tag[], Tag[]]> {
     const assignId = route.params["id"];
-    const companyId = route.params["companyId"];
     return forkJoin([
       this.assService.getAssignement(assignId),
       this.assService.getApprovedUsersAmount(assignId),
       this.assService.getTags(assignId),
-      this.assService.getAllTags(),
-      this.companyService.getCompany(companyId)
+      this.assService.getAllTags()
     ]);
   }
 }
