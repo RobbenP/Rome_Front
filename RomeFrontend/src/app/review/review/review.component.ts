@@ -88,16 +88,16 @@ export class ReviewComponent implements OnInit {
     );
 
     if (this.reviewId != 0) {
-      console.log(review);
+ 
       
-      // this.reviewService.updateReview(review).subscribe(r => {
-      //   this.router.navigateByUrl("admin/reviewsGebruiker/" + this.myUserID);
-      // });
+       this.reviewService.updateReview(review).subscribe(r => {
+         this.router.navigateByUrl("admin/reviewsGebruiker/" + this.myUserID);
+       });
     } else {
-      console.log(review);
+
       
-      // this.reviewService.addReview(review).subscribe();
-      // this.location.back();
+       this.reviewService.addReview(review).subscribe();
+       this.location.back();
     }
   }
 }
