@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-
+  
   constructor(private route:ActivatedRoute,private _userService:UserService,private router: Router, private location: Location) { }
   str: string;
   users:User[];

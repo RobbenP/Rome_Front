@@ -74,7 +74,7 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
-    path: "admin/takenlijst/detailtaak/:id",
+    path: "admin/takenlijst/detailtaak/:id/:companyId",
     component: DetailTaskAdminComponent,
     resolve: { task: OneTaskResolverService },
     canActivate: [FinishRegisterGuardService, AdminGuardService]
@@ -148,7 +148,7 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
-    path: "student/reviews",
+    path: "student/reviews/:userID",
     component: StudentReviewsComponent,
     canActivate: [FinishRegisterGuardService, StudentGuardService]
   },

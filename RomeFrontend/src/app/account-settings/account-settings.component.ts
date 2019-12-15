@@ -140,7 +140,10 @@ export class AccountSettingsComponent implements OnInit {
         this.companyService.updateCompany(this.companyModel).subscribe( result => {
           this.companyService.updateLocations(this.companyModel.companyID, this.locations).subscribe(
             result => {
-              this.authenticateService.addLocation(this.locatie).subscribe();
+              if(this.locatie.townShip != "" || this.locatie.townShip != ""){
+                this.authenticateService.addLocation(this.locatie).subscribe();
+              }
+           
             }
           );
           if(+localStorage.getItem("roleID") == 1){

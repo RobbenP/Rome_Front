@@ -127,6 +127,7 @@ export class EditTasksComponent implements OnInit {
       .updateBedrijfAcceptedUserAssignment(assignmentID, userID)
       .subscribe();
     this.getAssignment();
+    window.location.reload();
   }
   Weigeren(assignmentID: number, userID: number) {
     this.assignService
