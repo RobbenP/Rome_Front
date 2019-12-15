@@ -44,7 +44,9 @@ export class ListTasksAdminComponent implements OnInit {
   }
   delete(assignmentid: number){
     console.log(assignmentid);
-    this._assignmentService.deleteAssignment(assignmentid);
+    this._assignmentService.deleteAssignment(assignmentid).subscribe( result => {
+      this.router.navigate(['/admin'])
+    });
    // this.getAssignments();
   }
 
