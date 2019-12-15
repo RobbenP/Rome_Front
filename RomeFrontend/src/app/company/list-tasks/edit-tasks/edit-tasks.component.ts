@@ -114,7 +114,6 @@ export class EditTasksComponent implements OnInit {
         this.tags.forEach(function (tag){
           result.forEach((keuzeTag, index) => {
             if (tag.text.toLowerCase() == keuzeTag.text.toLowerCase()){
-              console.log("AAYAYAYAYAAYYAAYAYYAYAYAYYAYAY")
               result.splice(index,1);
             }
           });
