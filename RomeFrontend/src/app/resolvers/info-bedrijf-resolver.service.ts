@@ -48,15 +48,15 @@ export class InfoBedrijfResolverService
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<[User, Company, Review[]]> {
-    const userId = route.params["id"];
+    const companyId = route.params["id"];
 
-    console.log("User id =", userId);
+    console.log("User id =", companyId);
 
-    let user: User = await this.userService.getCompanyAsync(userId);
+    let user: User = await this.userService.getCompanyAsync(companyId);
     console.log(user);
     
     let company: Company= await this.companyService.getCompanyAsync(user.companyID);
-    let reviews: Review[] = await this.reviewService.getReviewsAboutUserAsync(userId);
+    let reviews: Review[] = await this.reviewService.getReviewsAboutUserAsync(user.userID);
     
     console.log([user, company, reviews]);
     
