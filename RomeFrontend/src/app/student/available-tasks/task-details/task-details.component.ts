@@ -20,7 +20,7 @@ export class TaskDetailsComponent implements OnInit {
   assignmentId: number;
   assignment: Assignment;
   approvedUserAmount: number;
-  canSignup: boolean = true;
+  canSignup: boolean;
   company: Company;
   tags: Tag[];
   hue: number;
@@ -33,7 +33,7 @@ export class TaskDetailsComponent implements OnInit {
     private uaService: UserAssignmentService,
     private route: ActivatedRoute, 
     private location: Location
-  ) {
+  ) { 
     //[assign, approvedAmount, company, tags, ua]
     console.log(this.route.snapshot.data["data"]);
 
@@ -43,16 +43,18 @@ export class TaskDetailsComponent implements OnInit {
     this.company = this.route.snapshot.data["data"][2];
     this.tags = this.route.snapshot.data["data"][3];
     this.userAssignment = this.route.snapshot.data["data"][4];
+
+    this.canSignup = this.approvedUserAmount < this.assignment.quantityUsers;
+    
+
     console.log(this.userAssignment);
     if (this.userAssignment != undefined) {
       this.accepted = this.userAssignment.status;
       this.percentage = this.userAssignment.progress;
+      this.canSignup=false;
     }
 
-    this.canSignup = this.approvedUserAmount < this.assignment.quantityUsers;
-console.log(this.approvedUserAmount);
-console.log(this.assignment.quantityUsers);
-console.log(this.canSignup);
+  
 
 
 

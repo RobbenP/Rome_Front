@@ -89,9 +89,7 @@ export class AssignmentService {
     
     return this.http.get(
       "https://localhost:5001/api/Assignments/studentAccepts/" + assignId
-    ).subscribe(r=>{
-      console.log("Als ik hier niets extra doe, doet hij geen request");
-    });
+    );
   }
   hasUserAcceptedAssignment(assignId:number):Observable<boolean>{
     return this.http.get<boolean>("https://localhost:5001/api/UserAssignments/hasUserAccepted/"+assignId);

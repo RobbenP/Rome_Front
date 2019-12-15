@@ -44,7 +44,7 @@ export class AvailableTasksComponent implements OnInit {
         .subscribe(r => {
           assign["used"] = r;
           assign["color"] = TaskDetailsComponent.hslToHex(
-            (1 - r * assign.quantityUsers) * 120,
+            (1 - r / assign.quantityUsers) * 120,
             100,
             50
           );
@@ -62,7 +62,24 @@ export class AvailableTasksComponent implements OnInit {
     this.router.navigate(["student/detailsTaak/" + assignmentId]);
   }
   signup(assignmentId: number) {
-    this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
+    this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId).subscribe(
+      r=>{
+        switch(this.welkeOpdrachten){
+          case "pending":{
+            this.pendingTasks();
+            break;
+          }
+          case "alle":{
+            this.allTasks();
+            break;
+          }
+          case "accepted":{
+            this.acceptedTasks();
+            break;
+          }
+        }
+      }
+    );
   }
 
   delete(assignmentId: number) {}
