@@ -48,10 +48,10 @@
   <div class="row mb-5">
     <div class="col-5">
       <div *ngIf="canSignup; then thenBlock; else elseBlock"></div>
-      <ng-template #elseBlock><button (click)="signup()" class="btn btn-primary">
+      <ng-template #thenBlock><button (click)="signup()" class="btn btn-primary">
           Meld aan voor opdracht
         </button></ng-template>
-      <ng-template #thenBlock><button disabled class="btn btn-danger">
+      <ng-template #elseBlock><button disabled class="btn btn-danger">
           Aanmelden niet meer mogelijk
         </button></ng-template>
     </div>

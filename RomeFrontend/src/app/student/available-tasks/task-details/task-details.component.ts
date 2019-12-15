@@ -33,17 +33,26 @@ export class TaskDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     //[assign, approvedAmount, company, tags, ua]
+    console.log(this.route.snapshot.data["data"]);
+
     this.assignment = this.route.snapshot.data["data"][0];
-    this.assignmentId=this.assignment.assignmentID;
+    this.assignmentId = this.assignment.assignmentID;
     this.approvedUserAmount = this.route.snapshot.data["data"][1];
     this.company = this.route.snapshot.data["data"][2];
     this.tags = this.route.snapshot.data["data"][3];
     this.userAssignment = this.route.snapshot.data["data"][4];
-    this.accepted = this.userAssignment.status;
-    this.percentage = this.userAssignment.progress;
     console.log(this.userAssignment);
-    
-    this.canSignup  = this.approvedUserAmount <= this.assignment.quantityUsers
+    if (this.userAssignment != undefined) {
+      this.accepted = this.userAssignment.status;
+      this.percentage = this.userAssignment.progress;
+    }
+
+    this.canSignup = this.approvedUserAmount < this.assignment.quantityUsers;
+console.log(this.approvedUserAmount);
+console.log(this.assignment.quantityUsers);
+console.log(this.canSignup);
+
+
 
     this.hue =
       (1 - this.approvedUserAmount / this.assignment.quantityUsers) * 120;
@@ -116,7 +125,10 @@ export class TaskDetailsComponent implements OnInit {
   }
   goReview() {
     this.router.navigateByUrl(
-      "/review/" + this.assignment.assignmentID + "/" + localStorage.getItem("userID")
+      "/review/" +
+        this.assignment.assignmentID +
+        "/" +
+        localStorage.getItem("userID")
     );
   }
 

@@ -38,6 +38,7 @@ import { StudentGuardService } from "./services/student-guard.service";
 import { AdminGuardService } from "./services/admin-guard.service";
 import { CompanyGuardService } from './services/company-guard.service';
 import { LoggedInGuardService } from './services/logged-in-guard.service';
+import { TasksResolverService } from './resolvers/tasks-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -79,6 +80,7 @@ const routes: Routes = [
   {
     path: "student/takenlijst",
     component: AvailableTasksComponent,
+    resolve: { tasks: TasksResolverService },
     canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {
