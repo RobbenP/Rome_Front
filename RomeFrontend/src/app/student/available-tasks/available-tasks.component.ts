@@ -4,6 +4,7 @@ import { AssignmentService } from "src/app/services/assignment.service";
 import { Observable } from "rxjs";
 import { Assignment } from "src/app/models/assignment.model";
 import { TaskDetailsComponent } from "./task-details/task-details.component";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-available-tasks",
@@ -18,7 +19,8 @@ export class AvailableTasksComponent implements OnInit {
   constructor(
     private router: Router,
     private assignmentService: AssignmentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    private location: Location
   ) {
     //this.allAssignements = assignmentService.getAssignments();
 
@@ -89,6 +91,10 @@ export class AvailableTasksComponent implements OnInit {
 
   filterAssignments() {
     this.assignment = this.str;
+  }
+
+  back(){
+    this.location.back();
   }
 
   ngOnInit() {}
