@@ -10,7 +10,7 @@ Ja kan ook je accountgegevens wijzigen en de status van je inschrijving zien.
 
 BEDRIJF
 
-Nu heb je je aangemeld als bedrijf. Je hebt de mogelijkheid om opdrachten toe te voegen die voor jullie als bedrijf niet dringend zijn maar zeker het onderzoeken waard. Studenten krijgen deze opdrachten te zien en kunnen zich aanmelden om deze te maken. Als bedrijf kan je dan kiezen aan welke student(en) je de opdracht toewijst. Je krijgt de nodige info ook te zien van alle studenten die zich hebben aangemeld voor de opdracht. Op basis hiervan kan je de beste student naar jou mening kiezen. Hierbij staan ook de nodige contactgegevens zodat alle details kunnen worden besproken.
+Nu heb je je aangemeld als bedrijf. Je hebt de mogelijkheid om opdrachten toe te voegen die voor jullie als bedrijf niet dringend zijn maar zeker het onderzoeken waard. Studenten krijgen deze opdrachten te zien en kunnen zich aanmelden om deze te maken. Als bedrijf kan je dan kiezen aan welke student(en) je de opdracht toewijst. Je krijgt de nodige info ook te zien van alle studenten die zich hebben aangemeld voor de opdracht. Op basis hiervan kan je de beste student naar jou mening kiezen. Hierbij staan ook de nodige contactgegevens zodat alle details kunnen worden besproken. Je kan ook reviews geven aan studenten.
 
 Je kan als bedrijf een overzicht zien van de aangemaakte opdrachten en de opdracht en de tags achteraf nog altijd wijzigen. Je hebt ook de mogelijkheid om accountgegevens en bedrijfsgegevens aan te passen
 
