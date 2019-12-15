@@ -44,7 +44,7 @@ export class AvailableTasksComponent implements OnInit {
         .subscribe(r => {
           assign["used"] = r;
           assign["color"] = TaskDetailsComponent.hslToHex(
-            (1 - r * assign.quantityUsers) * 120,
+            (1 - r / assign.quantityUsers) * 120,
             100,
             50
           );
