@@ -8,14 +8,15 @@ import { UserService } from "src/app/services/user.service";
 import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { Student } from '../models/student.model';
-
+import { DatePipe} from '@angular/common';
 import {Locaties} from '../models/location.model';
 import { AuthenticateService } from '../services/authenticate.service';
 import { Location} from '@angular/common';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
-  styleUrls: ['./account-settings.component.css']
+  styleUrls: ['./account-settings.component.css'],
+  providers: [DatePipe]
 })
 export class AccountSettingsComponent implements OnInit {
 
@@ -25,6 +26,7 @@ export class AccountSettingsComponent implements OnInit {
  companyModel: Company;
   locations: Locaties[];
   locatie =   new Locaties(0,"","",0);
+  test: string;
  password = "";
  currentpassword = "";
  newpassword = "";
@@ -36,7 +38,8 @@ export class AccountSettingsComponent implements OnInit {
     private userService: UserService,
     private companyService: CompanyService,
     private authenticateService: AuthenticateService,
-    private location: Location
+    private location: Location,
+    public datepipe: DatePipe
   ) { }
 
   ngOnInit() {
@@ -60,8 +63,13 @@ export class AccountSettingsComponent implements OnInit {
           this.userService.getStudent(this.userModel.studentID).subscribe(
             result =>{
               this.studentModel = result;
-              this.studentModel.birthDay = new Date(this.studentModel.birthDay);
-              console.log(this.studentModel.birthDay)
+        this.studentModel.birthday = new Date(this.studentModel.birthday);
+           
+                this.test= this.datepipe.transform(this.studentModel.birthday, 'yyyy-MM-dd');
+                
+              
+               
+           
             }
           )
         }else if(this.userModel.companyID != null)
@@ -115,7 +123,7 @@ export class AccountSettingsComponent implements OnInit {
     this.userService.updateUser(this.userModel).subscribe( result => {
       if(this.userModel.studentID != null)
       {
-        
+        this.studentModel.birthday = new Date(this.test);
         this.userService.updateStudent(this.studentModel).subscribe(
           result => {
             if(+localStorage.getItem("roleID") == 1){

@@ -44,7 +44,7 @@
                     <div class="form-group" >
                         <p>Locatie toevoegen</p>
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" placeholder="Straat + huisnummer" />
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip" placeholder="Postcode + gemeente"/>
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip" placeholder="Postcode + gemeente" />
                     </div>
                    
                 </div>
@@ -57,10 +57,10 @@
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.name" name="name" [value]="studentModel?.name"/>
                     </div> 
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="date" [(ngModel)]="studentModel.birthDay" name="birthDay" [value]="studentModel?.birthDay | date: 'yyyy-MM-dd'"/>
+                        <input class="form-control form-control-lg" type="date" [(ngModel)]="test" name="birthDay"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.biography" name="biography" [value]="studentModel?.biography"/>
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.biography" name="biography" [value]="studentModel?.biography "/>
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.linkedin" name="linkedin" [value]="studentModel?.linkedin"/>

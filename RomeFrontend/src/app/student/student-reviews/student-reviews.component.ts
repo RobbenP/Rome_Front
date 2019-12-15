@@ -31,6 +31,7 @@ export class StudentReviewsComponent implements OnInit {
    this.reviewService.getReviewsAboutUser(this.userID).subscribe(
      result => {
        this.reviewAboutModel = result;
+       
        this.userService.getUsers().subscribe(
         result => {
           this.users = result;
