@@ -1,0 +1,28 @@
+<div class="container h-100 mt-5">
+  
+    <h3>Reviews over deze user</h3>
+    <div class="row mb-5">
+        <div *ngFor="let from of (reviewAboutModel)">
+            <div class="card col-auto " style="width: 18rem;">
+                <div class="card-body row mb-5">
+                    <p class="card-text">
+                        {{from.reviewText}}
+
+                    </p>
+                    <div *ngFor="let user of users">
+                        <div *ngFor="let assignment of assignments">
+                            <div *ngIf="user.userID == from.userPlacerID && assignment.assignmentID == from.assignmentID"
+                                class="card-body">
+                                <p>Deze review is geschreven door {{user.username}} met betrekking tot de opdracht
+                                    {{assignment.naam}} </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
+</div>
