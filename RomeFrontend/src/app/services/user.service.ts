@@ -51,11 +51,14 @@ export class UserService {
     );
   }
   updateUser(user: User) {
-    return this.http.put(
+    return this.http.put<User>(
       "https://localhost:5001/api/Users/" +
         user.userID.toString(),
       user
     );
+  }
+  updateUserGegevens(user: User){
+    return this.http.put("https://localhost:5001/api/Users/Gegevens/" + user.userID, user);
   }
   updateStudent(student: Student) {
     return this.http.put(

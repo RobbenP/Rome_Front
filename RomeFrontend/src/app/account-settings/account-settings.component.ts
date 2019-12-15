@@ -84,7 +84,7 @@ export class AccountSettingsComponent implements OnInit {
 
   onSubmitDeRest(){
     
-    this.userService.updateUser(this.userModel).subscribe(result => {
+    this.userService.updateUserGegevens(this.userModel).subscribe(result => {
   
     
     });
