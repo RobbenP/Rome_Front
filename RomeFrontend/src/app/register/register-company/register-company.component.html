@@ -1,54 +1,78 @@
 <div class="container-fluid h-100 mt-5">
-    <div class="row justify-content-center align-items-center h-100">
-        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
-            <h2 class="mt-2">Registreer je als bedrijf</h2>
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                
-                
-                <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Bedrijfsnaam" type="text"
-                        name="companyName" [(ngModel)]="model.companyName" formControlName="companyname">
-                        <div *ngIf="f.companyname.errors" class="invalid-feedback d-block">
-                            Geef een bedrijfsnaam in
-                           </div>
-                    </div>
-                
-                <div class="form-group">
-                    <input 
-                    formControlName="biography"
-                    class="form-control form-control-lg" placeholder="Biografie" type="text" name="biography" [(ngModel)]="model.biography">
-                </div>
-                
-                <div class="form-group">
-                    <input 
-                    class="form-control form-control-lg" 
-                    placeholder="Postcode + gemeente" 
-                    type="text" 
-                    name="township" 
-                    formControlName="township"
-                    [(ngModel)]="locatie.townShip" 
-                     pattern="^\d{4}\s?[aA-zZ]*$" >
-                     <div *ngIf="f.township.errors" class="invalid-feedback d-block">
-                        Geef een postcode en gemeente in
-                       </div>
-                </div>
-               
-                <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="sraat en huisnummer" type="text" name="adress" [(ngModel)]="locatie.adress" formControlName="adress" >
-                    <div *ngIf="f.adress.errors" class="invalid-feedback d-block">
-                        Geef een straat en huisnummer in in
-                       </div>
-                </div>
-                
-               
-                <div class="form-group">
-                        <input class="form-control form-control-lg" placeholder="Website" type="text" name="website" [(ngModel)]="model.website" formControlName="website">
-                    </div>
-                    
-                <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block" [disabled]="!registerForm.form.valid">Registreer</button>
-                </div>
-            </form>
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
+      <h2 class="mt-2">Registreer je als bedrijf</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            _ngcontent-c0=""
+            class="form-control form-control-lg"
+            placeholder="Bedrijfsnaam"
+            type="text"
+            name="companyName" 
+            formControlName="companyname"
+            pattern="^\d{4}\s?[aA-zZ]*$"
+          />
+          <div *ngIf="f.companyname.errors" class="invalid-feedback d-block">
+            Geef een bedrijfsnaam in
+          </div>
         </div>
+
+        <div class="form-group">
+          <input
+            formControlName="biography"
+            class="form-control form-control-lg"
+            placeholder="Biografie"
+            type="text"
+            name="biography"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-control form-control-lg"
+            placeholder="Postcode + gemeente"
+            type="text"
+            name="township"
+            formControlName="township"
+          />
+          <div *ngIf="f.township.errors" class="invalid-feedback d-block">
+            Geef een postcode en gemeente in
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-control form-control-lg"
+            placeholder="sraat en huisnummer"
+            type="text"
+            name="adress" 
+            formControlName="adress"
+          />
+          <div *ngIf="f.adress.errors" class="invalid-feedback d-block">
+            Geef een straat en huisnummer in in
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            class="form-control form-control-lg"
+            placeholder="Website"
+            type="text"
+            name="website" 
+            formControlName="website"
+          />
+        </div>
+
+        <div class="form-group">
+          <button
+            class="btn btn-info btn-lg btn-block"
+            [disabled]="!registerForm.valid"
+          >
+            Registreer
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
