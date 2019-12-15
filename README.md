@@ -5,7 +5,7 @@ Een applicatie waar bedrijven opdrachten kunnen plaatsen waarvoor je je als gebr
 GEBRUIKER
 
 Je bent aangemeld als gebruiker. Je hebt dan de mogelijkheid om een lijst te bekijken van alle taken die zijn toegevoegd door bedrijven. Je kan van elke taak de details gaan bekijken zodat je weet of dit iets voor jou is of niet. Is de taak iets voor jou dan kan je je hiervoor aanmelden. Je kan tegelijkertijd voor meerdere taken aangemeld zijn. Het is niet omdat je aangemeld bent dat de taak voor jou is. Het bedrijf kan je info bekijken en nagaan of je geschikt bent voor de taak. Vinden ze je geschikt dan zullen ze contact opnemen met jou.
-Ja kan ook je accountgegevens wijzigen en de statuss van zijn inschrijving zien.
+Ja kan ook je accountgegevens wijzigen en de statuss van je inschrijving zien.
 
 
 BEDRIJF
