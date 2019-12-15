@@ -34,7 +34,7 @@ import { FilterPipe } from './admin/list-users/filter.pipe';
 import { UserDetailsBedrijfComponent } from './company/list-tasks/edit-tasks/user-details-bedrijf/user-details-bedrijf.component';
 import { UserAdminReviewComponent } from './admin/list-users/user-admin-review/user-admin-review.component';
 import { UserAdminDetailsComponent } from './admin/list-users/user-admin-details/user-admin-details.component';
-
+import { DatePipe} from '@angular/common';
 
 
 import { AssignmentFilterPipe } from './admin/list-tasks-admin/assignment-filter.pipe';
