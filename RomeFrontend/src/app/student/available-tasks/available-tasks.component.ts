@@ -62,7 +62,24 @@ export class AvailableTasksComponent implements OnInit {
     this.router.navigate(["student/detailsTaak/" + assignmentId]);
   }
   signup(assignmentId: number) {
-    this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId);
+    this.assignmentService.userAcceptAssignmentByAssignmentID(assignmentId).subscribe(
+      r=>{
+        switch(this.welkeOpdrachten){
+          case "pending":{
+            this.pendingTasks();
+            break;
+          }
+          case "alle":{
+            this.allTasks();
+            break;
+          }
+          case "accepted":{
+            this.acceptedTasks();
+            break;
+          }
+        }
+      }
+    );
   }
 
   delete(assignmentId: number) {}
