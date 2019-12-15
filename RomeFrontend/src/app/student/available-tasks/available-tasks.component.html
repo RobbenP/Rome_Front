@@ -51,6 +51,14 @@
       <div class=" card col-auto" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{ assignment.naam }}</h5>
+          <div class="card-text">
+            Tags
+            <div class="row">
+              <div class="col-auto" *ngFor="let tag of assignment['tags']">
+                  {{tag.text}}
+              </div>
+            </div>
+          </div>
           <p class="card-text">
             <button (click)="details(assignment.assignmentID)" class="btn btn-info">
               Details opdracht

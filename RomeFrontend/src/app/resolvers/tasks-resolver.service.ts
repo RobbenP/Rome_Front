@@ -22,7 +22,7 @@ export class TasksResolverService implements Resolve<Assignment[]> {
     state: RouterStateSnapshot
   ): Promise<Assignment[]> {
     let assignments: Assignment[] = await this.assService.getAssignmentsAsync();
-
+    
     assignments.forEach(
       async function(assign) {
         assign["used"] = await this.assService.getApprovedUsersAmountAsync(
@@ -38,6 +38,7 @@ export class TasksResolverService implements Resolve<Assignment[]> {
         ] = await this.assService.hasUserAcceptedAssignmentAsync(
           assign.assignmentID
         );
+        assign["tags"] = await this.assService.getTagsAsync(assign.assignmentID);
       }.bind(this)
     );
     console.log("Einde resolver");
