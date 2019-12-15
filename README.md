@@ -24,4 +24,4 @@ Je kan als bedrijf een overzicht zien van de aangemaakte opdrachten en de opdrac
 
 ###Administrator
 
-Je bent aangemeld als administrator. Je hebt de optie om alle gebruikers, bedrijven of studenten te bekijken. Hier kan je accounts van bekijken, verwijderen, aanmaken en updaten. Je kan ook alle opdrachten bekijken. Deze kan je ook aanpassen en verwijderen als je deze ongepast vindt, hetzelfde geldt voor reviews. Zelf opdrachten aanmaken of updaten is niet mogelijk aangezien dit de taak is van bedrijven. Wel kan je via de contactinfo van een bedrijf laten weten dat er iets moet veranderen in de opdracht.
+Je bent aangemeld als administrator. Je hebt de optie om alle gebruikers, bedrijven of studenten te bekijken. Hier kan je accounts van bekijken, verwijderen, aanmaken en updaten. Je kan ook alle opdrachten bekijken. Deze kan je ook aanpassen en verwijderen als je deze ongepast vindt, hetzelfde geldt voor reviews. Zelf opdrachten aanmaken  is niet mogelijk aangezien dit de taak is van bedrijven.
