@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Assignment } from 'src/app/models/assignment.model';
-import { Company } from 'src/app/models/company.model';
-import { Tag } from 'src/app/models/tag.model';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AssignmentService } from 'src/app/services/assignment.service';
-import { CompanyService } from 'src/app/services/company.service';
-import { Location } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { Assignment } from "src/app/models/assignment.model";
+import { Company } from "src/app/models/company.model";
+import { Tag } from "src/app/models/tag.model";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AssignmentService } from "src/app/services/assignment.service";
+import { CompanyService } from "src/app/services/company.service";
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-detail-task-admin',
-  templateUrl: './detail-task-admin.component.html',
-  styleUrls: ['./detail-task-admin.component.css']
+  selector: "app-detail-task-admin",
+  templateUrl: "./detail-task-admin.component.html",
+  styleUrls: ["./detail-task-admin.component.css"]
 })
 export class DetailTaskAdminComponent implements OnInit {
   assignmentId: number;
@@ -25,48 +25,48 @@ export class DetailTaskAdminComponent implements OnInit {
     private assignService: AssignmentService,
     private companyService: CompanyService,
     private location: Location
-  ) { 
-    this.route.queryParams.subscribe(param => {
-      this.assignmentId = param["assignmentId"];
-   
+  ) {
+    this.assignment = route.snapshot.data["task"][0];
+    this.assignmentId = this.assignment.assignmentID;
+    this.approvedUserAmount = route.snapshot.data["task"][1];
+    this.tags = route.snapshot.data["task"][2];
+    this.allTags = route.snapshot.data["task"][3];
+    // this.route.queryParams.subscribe(param => {
+    //   this.assignmentId = param["assignmentId"];
 
-      assignService.getAssignement(this.assignmentId).subscribe(result => {
-        this.assignment = result;
-        
+    //   assignService.getAssignement(this.assignmentId).subscribe(result => {
+    //     this.assignment = result;
 
-        companyService.getCompany(this.assignment.companyID).subscribe(result => {
-          this.company = result;
-          console.log(this.company.companyname);
-        });
-      });
+    //     companyService.getCompany(this.assignment.companyID).subscribe(result => {
+    //       this.company = result;
+    //       console.log(this.company.companyname);
+    //     });
+    //   });
 
-      assignService.getApprovedUsersAmount(this.assignmentId).subscribe(result => {
-        this.approvedUserAmount = result;
-     
-      });
-      assignService.getTags(this.assignmentId).subscribe(result => {
-        this.tags = result;
-       console.log(this.tags);
-      });
-     assignService.getAllTags().subscribe(result => {
-       this.allTags = result;
-       console.log(this.allTags);
-     })
-    });
+    //   assignService.getApprovedUsersAmount(this.assignmentId).subscribe(result => {
+    //     this.approvedUserAmount = result;
+
+    //   });
+    //   assignService.getTags(this.assignmentId).subscribe(result => {
+    //     this.tags = result;
+    //    console.log(this.tags);
+    //   });
+    //  assignService.getAllTags().subscribe(result => {
+    //    this.allTags = result;
+    //    console.log(this.allTags);
+    //  })
+    // });
   }
-  onSubmit(){
-    
+  onSubmit() {
     this.assignService.updateAssignment(this.assignment).subscribe();
     console.log(this.tags);
     this.assignService.updateTags(this.assignmentId, this.tags).subscribe();
     window.location.reload();
   }
 
-  back(){
+  back() {
     this.location.back();
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

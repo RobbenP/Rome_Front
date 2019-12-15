@@ -41,6 +41,7 @@ import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { TasksResolverService } from './resolvers/tasks-resolver.service';
 import { AllUsersResolverService } from './resolvers/all-users-resolver.service';
 import { AllTasksResolverService } from './resolvers/all-tasks-resolver.service';
+import { OneTaskResolverService } from './resolvers/one-task-resolver.service';
 const routes: Routes = [
   {
     path: "",
@@ -72,8 +73,9 @@ const routes: Routes = [
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {
-    path: "admin/takenlijst/detailtaak",
+    path: "admin/takenlijst/detailtaak/:id",
     component: DetailTaskAdminComponent,
+    resolve: { task: OneTaskResolverService },
     canActivate: [FinishRegisterGuardService, AdminGuardService]
   },
   {

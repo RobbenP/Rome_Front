@@ -34,13 +34,9 @@ export class ListTasksAdminComponent implements OnInit {
     );
   }
   details(assignmentId: number) {
-    let navExtras: NavigationExtras = {
-      queryParams: {
-        assignmentId: assignmentId
-      }
-    };
+   
 
-    this.router.navigate(["admin/takenlijst/detailtaak"], navExtras);
+    this.router.navigate(["admin/takenlijst/detailtaak/"+assignmentId]);
   }
   delete(assignmentid: number){
     console.log(assignmentid);
