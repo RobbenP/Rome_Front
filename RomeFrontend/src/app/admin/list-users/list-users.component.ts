@@ -36,7 +36,8 @@ export class ListUsersComponent implements OnInit {
 
   delete(userid: number){
     this._userService.deleteUser(userid).subscribe( result => {
-      window.location.reload();
+      //window.location.reload();
+      this.getUsers();
     });
   }
  

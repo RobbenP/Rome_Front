@@ -16,7 +16,7 @@ import { Location } from '@angular/common';
 export class AddTaskComponent implements OnInit {
   assignment : Assignment[];
   submitted : boolean = false;
-  assignmentModel : Assignment = new Assignment(0,"","","",0,true, parseInt(localStorage.getItem("companyID")))
+  assignmentModel : Assignment = new Assignment(0,"","","",1,true, parseInt(localStorage.getItem("companyID")))
  
   constructor(private _assignmentService: AssignmentService, private router: Router, private location: Location) { }
 
