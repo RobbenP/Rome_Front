@@ -20,9 +20,20 @@ export class RegisterCompanyComponent implements OnInit {
   constructor(
     private _authenticateService: AuthenticateService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private fb: FormBuilder
   ) {}
+  registerForm = this.fb.group({
+    companyname: ["", Validators.required],
+    adress: ["", Validators.required],
+    township: ["", Validators.required],
+    biography: [""],
+    website: [""],
+    phonenumber: [""]
+  });
 
+  get f() {
+    return this.registerForm.controls;
+  }
   onSubmit() {
     this._authenticateService.addCompany(this.model).subscribe(result => {
       this.model = result;

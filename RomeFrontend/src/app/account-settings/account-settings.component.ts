@@ -11,6 +11,7 @@ import { Student } from '../models/student.model';
 
 import {Locaties} from '../models/location.model';
 import { AuthenticateService } from '../services/authenticate.service';
+import { Location} from '@angular/common';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
@@ -34,7 +35,8 @@ export class AccountSettingsComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private companyService: CompanyService,
-    private authenticateService: AuthenticateService
+    private authenticateService: AuthenticateService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -144,5 +146,8 @@ export class AccountSettingsComponent implements OnInit {
       }
       
     });
+  }
+  back(){
+    this.location.back();
   }
 }
