@@ -54,7 +54,18 @@ export class RegisterStudentComponent implements OnInit {
             this.user.studentID = this.model.studentID;
             this._authenticateService.updateUser(this.user).subscribe();
             localStorage.removeItem("unfinishedRegister");
+            if(+localStorage.getItem("roleID2") == 1)
+          {
+            localStorage.setItem("roleID", "1");
+            localStorage.setItem("userID", localStorage.getItem("userID2"));
+            localStorage.removeItem("userID2");
+            localStorage.removeItem("roleID2");
+            this.router.navigate(["admin/gebruikersLijst"]);
+          }else 
+          {
             this.router.navigate([""]);
+          }
+           
           });
       });
   }

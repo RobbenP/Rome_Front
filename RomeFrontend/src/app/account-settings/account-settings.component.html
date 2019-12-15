@@ -49,7 +49,7 @@
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.name" name="name" [value]="studentModel?.name"/>
                     </div> 
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="date" [(ngModel)]="studentModel.birthDay" name="birthDay" [value]="studentModel?.birthDay"/>
+                        <input class="form-control form-control-lg" type="date" [(ngModel)]="studentModel.birthDay" name="birthDay" [value]="studentModel?.birthDay | date: 'yyyy-MM-dd'"/>
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="studentModel.biography" name="biography" [value]="studentModel?.biography"/>

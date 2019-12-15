@@ -2,7 +2,7 @@
     <div class="row mt-5">
         <input id="str" [(ngModel)]="str" class="form-control w-50 m-1" placeholder="Zoek op gebruikersnaam" />
         <button (click)="filterUsers()" class="btn btn-info m-1">Filter</button>
-
+        <button [routerLink]="['/registreer']" routerLinkActive="router-link-active"  class="btn btn-info m-1">Gebruiker toevoegen</button>
     </div>
     <div class="row container-fluid h-100 mt-5">
 

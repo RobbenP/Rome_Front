@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   model: User = new User(0, "", "", "", 0, "", null, null);
   gebruiker;
   wroungUser: boolean = false;
+  adminRole:string;
   constructor(
     private _authenticateService: AuthenticateService,
     private router: Router
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
     this.selecteerdeRol = rol;
   }
   onSubmit() {
+    
     this._authenticateService.addUser(this.model).subscribe(
       result => {
         this.gebruiker = result;
@@ -40,6 +42,9 @@ export class RegisterComponent implements OnInit {
         if (this.model.roleID == 3) {
           localStorage.setItem("unfinishedRegister", "student");
           this.router.navigate(["registreer/student"]);
+        }
+        if(this.model.roleID == 1){
+          this.router.navigate([""]);
         }
 
         localStorage.setItem("userID", this.model.userID.toString());
@@ -55,5 +60,14 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-  ngOnInit() {}
+  ngOnInit(
+    
+  ) {
+    if(+localStorage.getItem("roleID") == 1)
+    {
+      localStorage.setItem("roleID2", "1");
+      localStorage.setItem("userID2", localStorage.getItem("userID"));
+      this.adminRole = "1";
+    } 
+    }
 }
