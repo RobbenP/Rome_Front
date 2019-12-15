@@ -33,8 +33,8 @@
           </a>
         </p>
         <p class="card-text">
-          <a routerLink="/student/reviews">
-            <button class="btn btn-outline-info pull-right">
+          <a >
+            <button [routerLink]="['/student/reviews/'+(userID)]"  class="btn btn-outline-info pull-right">
               Reviews over deze maker
             </button>
           </a>
