@@ -81,16 +81,10 @@ export class AccountSettingsComponent implements OnInit {
 
       
   }
-  savedate(test:any){
-    console.log(test);
-    //this.userModel.student.birthday = new Date()
-  }
+
   onSubmitDeRest(){
-    console.log(this.userModel);
-    this.userService.updateUser(this.userModel).subscribe(result => {
-  
     
-    });
+    this.userService.updateUser(this.userModel).subscribe();
     if(+localStorage.getItem("roleID") ==1 )
     {
        this.router.navigate(['/admin/gebruikersLijst']);

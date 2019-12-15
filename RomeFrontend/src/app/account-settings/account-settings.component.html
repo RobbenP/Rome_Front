@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="date" 
-                            name="birthDay" (change)="saveChanges" [value]="(userModel?.student.birthday | date:'yyyy-MM-dd')" />
+                            name="birthDay"  [value]="(userModel?.student.birthday | date:'yyyy-MM-dd')" disabled />
                     </div>
                     <div class="form-group">
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="userModel.student.biography"
@@ -91,5 +91,5 @@
             </form>
         </div>
     </div>
-   <!-- <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>-->
+    <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>
 </div>
