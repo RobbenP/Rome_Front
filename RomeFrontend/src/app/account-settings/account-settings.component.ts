@@ -84,7 +84,10 @@ export class AccountSettingsComponent implements OnInit {
 
   onSubmitDeRest(){
     
-    this.userService.updateUser(this.userModel).subscribe();
+    this.userService.updateUser(this.userModel).subscribe(result => {
+  
+    
+    });
     if(+localStorage.getItem("roleID") ==1 )
     {
        this.router.navigate(['/admin/gebruikersLijst']);
@@ -94,9 +97,11 @@ export class AccountSettingsComponent implements OnInit {
     }
     if(this.locations != null)
     {
+
       this.companyService.updateLocations(this.userModel.companyID, this.locations).subscribe(
         result => {
-          if(this.locatie.townShip != "" || this.locatie.townShip != ""){
+          if(this.locatie.townShip != "" || this.locatie.adress != ""){
+            this.locatie.companyID = this.userModel.companyID;
             this.authenticateService.addLocation(this.locatie).subscribe();
           }
        
