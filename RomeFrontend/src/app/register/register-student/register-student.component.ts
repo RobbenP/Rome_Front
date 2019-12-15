@@ -9,6 +9,7 @@ import {
   FormGroup,
   FormControl
 } from "@angular/forms";
+import { DateBefore } from './date-before';
 
 @Component({
   selector: "app-register-student",
@@ -33,6 +34,8 @@ export class RegisterStudentComponent implements OnInit {
     linkedIn: [""],
     experience: [""],
     phonenumber: [""]
+  },{
+    validator: DateBefore("birthDay")
   });
 
   get f() {
