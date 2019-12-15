@@ -42,6 +42,7 @@ import { TasksResolverService } from './resolvers/tasks-resolver.service';
 import { AllUsersResolverService } from './resolvers/all-users-resolver.service';
 import { AllTasksResolverService } from './resolvers/all-tasks-resolver.service';
 import { OneTaskResolverService } from './resolvers/one-task-resolver.service';
+import { StudentReviewsComponent } from './student/student-reviews/student-reviews.component';
 const routes: Routes = [
   {
     path: "",
@@ -144,6 +145,11 @@ const routes: Routes = [
   {
     path: "student/accountSettings",
     component: AccountSettingsComponent,
+    canActivate: [FinishRegisterGuardService, StudentGuardService]
+  },
+  {
+    path: "student/reviews",
+    component: StudentReviewsComponent,
     canActivate: [FinishRegisterGuardService, StudentGuardService]
   },
   {

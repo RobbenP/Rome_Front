@@ -42,8 +42,9 @@
                         <input class="form-control form-control-lg" type="text" [(ngModel)]="location.township" name="locationtownShip_{{i}}" [value]="location.townShip"/>
                     </div>
                     <div class="form-group" >
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" />
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip"/>
+                        <p>Locatie toevoegen</p>
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" placeholder="Straat + huisnummer" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip" placeholder="Postcode + gemeente"/>
                     </div>
                    
                 </div>
