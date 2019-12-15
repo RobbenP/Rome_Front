@@ -12,7 +12,7 @@ Deze applicatie bestaat uit 2 delen:
 ###Student
 
 Je bent aangemeld als student. Je hebt dan de mogelijkheid om een lijst te bekijken van alle taken die zijn toegevoegd door bedrijven. Je kan van elke taak de details bekijken zodat je weet of dit iets voor jou is of niet. Is de taak iets voor jou dan kan je je hiervoor aanmelden. Je kan voor meerdere taken tegelijkertijd aangemeld zijn. Het is niet omdat je aangemeld bent dat de taak voor jou is. Het bedrijf kan je info bekijken en nagaan of je geschikt bent voor de taak. Vinden ze je geschikt dan zullen ze contact opnemen met jou.
-Je kan ook je voorruitgang in procenten opslaan zodat het bedrijf kan zien hoever je al staat.
+Je kan ook je voorruitgang in procenten opslaan zodat het bedrijf kan zien hoever je al staat, als je bezig bent met een opdracht kan je ook een review schrijven over het bedrijf wiens opdracht je moet maken of hebt gemaakt.
 Ja kan ook je accountgegevens wijzigen en de status van je inschrijving zien.
 
 
