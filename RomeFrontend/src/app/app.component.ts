@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectorRef } from "@angular/core";
 import { AuthenticateService } from "./services/authenticate.service";
 import {
   Router,
@@ -15,12 +15,14 @@ import {
 })
 export class AppComponent {
   title = "Binary Beasts";
-  loading: boolean = false;
+  loading: boolean;
 
   constructor(
     private router: Router,
-    public authenticateService: AuthenticateService
+    public authenticateService: AuthenticateService,
+    private ref: ChangeDetectorRef
   ) {
+    this.loading = false;
     router.events.subscribe(event => {
       switch (true) {
         case event instanceof NavigationStart: {
@@ -40,8 +42,9 @@ export class AppComponent {
       }
     });
   }
-  ngOnInit() {
-    this.loading=false;
+  ngOnInit() {}
+  ngAfterContentChecked() {
+    this.ref.detectChanges();
   }
 
   logout() {
