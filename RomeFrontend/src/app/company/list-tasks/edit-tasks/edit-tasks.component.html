@@ -1,17 +1,19 @@
 <div class="container-fluid h-100 mt-5">
     <div class="row justify-content-center align-items-center h-100">
+        
         <div class="container mt-5" *ngFor="let user of users">
-            <h4>Gebruikers die zich aangemeld hebben voor de opdracht</h4>
-            <a class="list-group-item list-group-item-action m-1"
+            <h4 *ngIf="users != null">Gebruikers die zich aangemeld hebben voor de opdracht</h4>
+            <a  class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
         </a>
 
             <button class="btn btn-success btn-block" (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
             <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
        </div>
-       <div class="container mt-5" *ngFor="let us of acceptedUsers">
-            <h4>Gebruikers die zijn aanvaard vor deze opdracht</h4> 
-            <a class="list-group-item list-group-item-action m-1"
+
+       <div class="container mt-5" >
+            <h4 *ngIf="acceptedUsers !=null">Gebruikers die zijn aanvaard voor deze opdracht</h4>
+            <a *ngFor="let us of acceptedUsers" class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
         </a>
         </div>
@@ -41,7 +43,7 @@
             
             <p>Tags!</p>
             <ul *ngFor="let tag of tags">
-                    <li class="list-group-item list-group-item-action">{{tag.text}}<input class="btn btn-info pull-right mb-4 float-right" type="button" value="Verwijder" (click)="verwijderTag(tag)"/></li>
+                    <li class="list-group-item list-group-item-action">{{tag.text}}</li>
                 </ul>
                 
             <p>Voeg een tag toe:</p> 
