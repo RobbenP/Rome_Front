@@ -1,27 +1,22 @@
 <div class="container-fluid h-100 mt-5">
     <div class="row justify-content-center align-items-center h-100">
-
+        
         <div class="container mt-5" *ngFor="let user of users">
-            <h4 *ngIf="users != null">Gebruikers die zich aangemeld hebben voor de opdracht</h4>
-            <a class="list-group-item list-group-item-action m-1"
-                [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
-            </a>
+            <h4 *ngIf="users.length != 0">Gebruikers die zich aangemeld hebben voor de opdracht</h4>
+            <a  class="list-group-item list-group-item-action m-1"
+            [routerLink]="['/bedrijf/studentDetail/'+(user.userID)]">{{user.username}} -- info
+        </a>
 
-            <button class="btn btn-success btn-block"
-                (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
-            <button class="btn btn-danger btn-block"
-                (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
-        </div>
+            <button class="btn btn-success btn-block" (click)="Aanvaarden(assignmentModel.assignmentID, user.userID)">Aanvaarden</button>
+            <button class="btn btn-danger btn-block" (click)="Weigeren(assignmentModel.assignmentID, user.userID)">Weigeren</button>
+       </div>
 
-        <div class="container mt-5">
-            <h4 *ngIf="acceptedUsers !=null">Gebruikers die zijn aanvaard voor deze opdracht</h4>
+       <div class="container mt-5" >
+            <h4 *ngIf="acceptedUsers.length != 0">Gebruikers die zijn aanvaard voor deze opdracht</h4>
             <a *ngFor="let us of acceptedUsers" class="list-group-item list-group-item-action m-1"
-                [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}}
-                -- info
-            </a>
+            [routerLink]="['/bedrijf/studentDetail/'+(us.userID)+'/'+(assignmentModel.assignmentID)]">{{us.username}} -- info
+        </a>
         </div>
-    </div>
-    <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3 bg-light rounded">
 
 
@@ -68,7 +63,7 @@
             </select>
 
 
-            <input class="float-right btn btn-info" type="button" value="Voeg toe" (click)="kiesTag()" />
+            <input class="float-right" type="button" value="Voeg toe" (click)="kiesTag()" />
         </div>
     </div>
     <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>

@@ -55,8 +55,8 @@
                     </div>
                     <div class="form-group" >
                         <p>Voeg een locatie toe</p>
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" />
-                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip"/>
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.adress" name="locatie" placeholder="Straat + huisnummer" />
+                        <input class="form-control form-control-lg" type="text" [(ngModel)]="locatie.township" name="locatietownShip" placeholder="Postcode + Gemeente"/>
                     </div>
                 </div>
                 <div *ngIf="userModel.studentID != null">

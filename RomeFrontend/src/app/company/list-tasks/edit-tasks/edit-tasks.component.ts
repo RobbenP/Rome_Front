@@ -134,6 +134,7 @@ export class EditTasksComponent implements OnInit {
       .deleteBedrijfAcceptedUserAssignment(assignmentID, userID)
       .subscribe();
     this.getAssignment();
+    window.location.reload();
   }
 
   back() {

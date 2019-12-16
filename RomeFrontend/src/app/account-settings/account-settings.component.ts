@@ -111,6 +111,15 @@ export class AccountSettingsComponent implements OnInit {
     
   }
   back(){
-    this.location.back();
+    if(+localStorage.getItem("roleID") == 1)
+    {
+      this.router.navigateByUrl(
+        "/"
+      );
+    }else 
+    {
+      this.location.back();
+    }
+   
   }
 }

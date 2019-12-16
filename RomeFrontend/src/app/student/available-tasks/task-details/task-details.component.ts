@@ -166,7 +166,9 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   back(){
-    this.location.back();
+    this.router.navigateByUrl(
+      "/"
+    );
   }
 
   ngOnInit() {}

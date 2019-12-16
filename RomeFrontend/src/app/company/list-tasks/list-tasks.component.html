@@ -8,14 +8,14 @@
     <br>
     <a routerLink="/bedrijf/takenlijst/taakToevoegen"><button class="btn btn-info pull-right mb-4">Voeg een nieuwe taak
             toe</button></a>
+            <p *ngIf="assigments.length != 0">Druk op een taak om deze te veranderen of om tags toe te voegen. Of om mensen te aanvaarden voor uw opdracht.</p>
+            <p *ngIf="assigments.length == 0">Momenteel hebt u nog geen taken aangemaakt.</p>
     <div class="list-group" *ngFor="let assigment of assigments | companyAssignmentFilter:assignment">
         <a class="list-group-item list-group-item-action m-1"
             [routerLink]="['/bedrijf/takenlijst/taakWijzigen/'+(assigment.assignmentID)]">{{assigment.naam}} </a>
             <a [routerLink]="['/bedrijf/takenlijst/taakVerwijderen/'+(assigment.assignmentID)]"><button class="btn btn-info pull-right mb-4 float-right">Verwijder</button></a>
        
-        <div *ngIf="pendingAssignments">
-
-        </div>
+  
 
     </div>
     <button (click)="back()" class="btn btn-outline-info pull-right">Teruggaan</button>

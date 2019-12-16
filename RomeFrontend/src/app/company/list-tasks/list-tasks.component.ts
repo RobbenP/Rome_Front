@@ -47,6 +47,8 @@ export class ListTasksComponent implements OnInit {
     );
   }
   back(){
-    this.location.back();
+    this.router.navigateByUrl(
+      "/"
+    );
   }
 }

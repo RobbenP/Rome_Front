@@ -42,7 +42,9 @@ export class ListUsersComponent implements OnInit {
   }
  
   back(){
-    this.location.back();
+    this.router.navigateByUrl(
+      "/"
+    );
   }
   
 }

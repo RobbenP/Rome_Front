@@ -31,31 +31,7 @@ export class DetailTaskAdminComponent implements OnInit {
     this.approvedUserAmount = route.snapshot.data["task"][1];
     this.tags = route.snapshot.data["task"][2];
     this.allTags = route.snapshot.data["task"][3];
-    // this.route.queryParams.subscribe(param => {
-    //   this.assignmentId = param["assignmentId"];
-
-    //   assignService.getAssignement(this.assignmentId).subscribe(result => {
-    //     this.assignment = result;
-
-    //     companyService.getCompany(this.assignment.companyID).subscribe(result => {
-    //       this.company = result;
-    //       console.log(this.company.companyname);
-    //     });
-    //   });
-
-    //   assignService.getApprovedUsersAmount(this.assignmentId).subscribe(result => {
-    //     this.approvedUserAmount = result;
-
-    //   });
-    //   assignService.getTags(this.assignmentId).subscribe(result => {
-    //     this.tags = result;
-    //    console.log(this.tags);
-    //   });
-    //  assignService.getAllTags().subscribe(result => {
-    //    this.allTags = result;
-    //    console.log(this.allTags);
-    //  })
-    // });
+    
   }
   onSubmit() {
     this.assignService.updateAssignment(this.assignment).subscribe();
@@ -66,7 +42,9 @@ export class DetailTaskAdminComponent implements OnInit {
   }
 
   back() {
-    this.location.back();
+    this.router.navigateByUrl(
+      "/"
+    );
   }
 
   ngOnInit() { console.log(this.assignment)}

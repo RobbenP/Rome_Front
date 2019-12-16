@@ -68,7 +68,7 @@
     <div class="col-4 card" *ngFor="let review of reviews">
       <div class="row">
         <div class="col-12 mb-1">{{ review.reviewText }}</div>
-        <div class="col-12 mb-1 text-right">{{ review.user.username }}</div>
+        <div class="col-12 mb-1 text-right">Geschreven door {{ review.user.username }}. Met betrekking tot opdracht {{review.assignment.naam}}</div>
       </div>
     </div>
   </div>
