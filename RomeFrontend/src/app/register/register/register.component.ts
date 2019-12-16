@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
         
         if (error.status == 403) {
           this.wroungUser = true;
-          console.log("we zette wroung op true");
+          console.log("we zetten wroung op true");
           
         }
       }
