@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
         }
 
         localStorage.setItem("userID", this.model.userID.toString());
+        localStorage.setItem("rolid", this.model.userID.toString());
       },
       error => {
         console.log("er is error");

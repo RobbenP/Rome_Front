@@ -47,6 +47,7 @@ export class AuthenticateService {
     return this._httpClient.get<Role[]>("https://localhost:5001/api/Roles");
   }
   addUser(user:User){
+    console.log(user);
     return this._httpClient.post("https://localhost:5001/api/Users", user);
   }
   addCompany(company:Company){
@@ -56,6 +57,7 @@ export class AuthenticateService {
     return this._httpClient.post<Locaties>("https://localhost:5001/api/Locations", location);
   }
   addStudent(student:Student){
+    console.log(student);
     return this._httpClient.post<Student>("https://localhost:5001/api/Students", student);
   }
   getUser(id: number):Observable<User> {
@@ -67,6 +69,7 @@ export class AuthenticateService {
   updateUser(user: User){
     return this._httpClient.put("https://localhost:5001/api/Users/" + user.userID, user);
   }
+  
   async getMe():Promise<User>{
     return this._httpClient.get<User>("https://localhost:5001/api/Users/me").toPromise();
   }

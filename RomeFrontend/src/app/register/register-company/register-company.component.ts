@@ -37,6 +37,7 @@ export class RegisterCompanyComponent implements OnInit {
   onSubmit() {
     this._authenticateService.addCompany(this.registerForm.value).subscribe(result => {
       this.model = result;
+      console.log(result);
       this.locatie.companyID = this.model.companyID;
       localStorage.setItem("test", this.locatie.adress);
       this._authenticateService.addLocation(this.locatie).subscribe();
